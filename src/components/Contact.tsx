@@ -6,12 +6,12 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className="min-h-screen w-full flex flex-col justify-center bg-[rgb(34,27,16)] text-[#C6A664] py-16">
+            className="min-h-screen w-full flex flex-col justify-center bg-[rgb(34,27,16)] text-[#C6A664]">
 
             {/* Heading */}
-            <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="text-center max-w-2xl mx-auto">
                 <h2 className="text-5xl font-semibold mb-6">Contact Me</h2>
-                <p className="text-lg text-[#f5f5f5]">Interested in commissioning a piece, collaborating, or just want to say hello? I’d love to hear from you.</p>
+                <p className="text-lg text-[#f5f5f5] mb-10">Interested in commissioning a piece, collaborating, or just want to say hello? I’d love to hear from you.</p>
             </div>
 
             {/* Contact Form and Info Grid */}
@@ -115,13 +115,6 @@ export default function Contact() {
                         </CardContent>
                     </Card>
                 </div>
-            </div>
-
-            {/* Back to Gallery  */}
-            <div className="text-left pl-102 mt-10 pb-8">
-                <a href="#hero" className="text-lg text-[#C6A664] hover:underline">
-                    ← Back to Home
-                </a>
             </div>
         </section>
     );

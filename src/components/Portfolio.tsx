@@ -1,31 +1,34 @@
 import { Card, CardContent } from "./ui/card";
-import portraitPainting from '../assets/portrait.jpg';
-import hobbitPainting from '../assets/hobbit-painting.jpg';
-import landscapePainting from '../assets/landscape-painting.jpg';
-import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "./ui/pagination";
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, PaginationEllipsis } from "./ui/pagination";
 import { Input } from "./ui/input";
-export default function Portfolio() {
-    const artworks = [
-        {
-            src: hobbitPainting,
-            title: "Hobbit Painting",
-            description: "A beautiful depiction of a hobbit.",
-            category: "Oil Painting"
-        },
-        {
-            src: portraitPainting,
-            title: "Portrait",
-            description: "A detailed portrait of a person.",
-            category: "Portrait"
-        },
-        {
-            src: landscapePainting,
-            title: "Landscape",
-            description: "A serene landscape scene.",
-            category: "Landscape"
-        },
+import Detail from "./Detail";
+import { artworks } from "@/data/artworks";
+import { useState } from "react";
 
-    ];
+export default function Portfolio() {
+    const [filter, setFilter] = useState("All");
+    const [searchTerm, setSearchTerm] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 3;
+
+    //Apply filtering + searching
+    const filteredArtworks = artworks.filter(artwork => {
+        const matchesCategory = filter === "All" || artwork.category === filter;
+        const searchedArtworks = artwork.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            artwork.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            artwork.medium.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            artwork.year.toString().includes(searchTerm);
+        return matchesCategory && searchedArtworks;
+    });
+
+    // Work out slice for pagination
+    const totalPages = Math.ceil(filteredArtworks.length / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedArtworks = filteredArtworks.slice(startIndex, endIndex);
+
+    //Selected Artwork
+    const [selectedArtworkId, setSelectedArtworkId] = useState<number | null>(null);
 
     return (
         <section
@@ -38,12 +41,12 @@ export default function Portfolio() {
                     <p className="text-lg text-[#f5f5f5]">A collection of moments, sketches, and visions from my artistic journey.</p>
                 </div>
 
-
                 {/* Filters */}
                 <div className="flex flex-wrap justify-center gap-4 mb-10 mt-10">
-                    {['All', 'Portraits', 'Oil Painting', 'Landscape', 'Anime'].map((filter) => (
+                    {['All', 'Portrait', 'Oil Painting', 'Landscape', 'Anime'].map((filter) => (
                         <span
                             key={filter}
+                            onClick={() => setFilter(filter)}
                             className="bg-[#C6A664] text-[#221B10] px-5 py-2 rounded-2xl text-center font-semibold hover:bg-[rgb(34,27,16)] border border-[#C6A664] hover:text-[#C6A664] transition-colors duration-200 cursor-pointer"
                         >
                             {filter}
@@ -51,18 +54,22 @@ export default function Portfolio() {
                     ))}
                 </div>
 
-                <div className="flex justify-end mb-10">
+                {/* Search Bar */}
+                <div className="flex justify-end mb-12">
                     <div className="w-full md:w-auto relative">
                         <Input
+                            type="text"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
                             aria-label="Search"
                             placeholder="Search..."
-                            className="w-full md:w-72 border border-[#C6A664] rounded-2xl px-4 py-2 text-[#C6A664] placeholder-[#C6A664]/70 focus-visible:ring-[#C6A664]"
+                            className="w-full md:w-65 border border-[#C6A664] rounded-2xl px-4 py-2 text-[#C6A664] placeholder-[#C6A664]/70 focus-visible:ring-[#C6A664]"
                         />
                         {/* ✕ button */}
                         <button
                             type="button"
                             onClick={() => {
-                                // clear logic
+                                setSearchTerm("");
                             }}
                             className="absolute inset-y-0 right-0 px-3 flex items-center text-[#C6A664] bg-transparent hover:text-white"
                         >
@@ -73,13 +80,16 @@ export default function Portfolio() {
 
                 {/* Portfolio Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 mt-6">
-                    {artworks.map((artwork, index) => (
+                    {paginatedArtworks.map((artwork, index) => (
                         <Card
                             key={index}
                             className="group relative overflow-hidden rounded-2xl border border-[#C6A664]/40 bg-[#1b140c] transition-transform duration-200 hover:scale-[1.01]"
                         >
                             <CardContent className="p-0">
-                                <div className="aspect-[3/4] w-full">
+                                <div
+                                    className="aspect-[3/4] w-full relative cursor-pointer"
+                                    onClick={() => setSelectedArtworkId(artwork.id)}
+                                >
                                     <img
                                         src={artwork.src}
                                         alt={artwork.title}
@@ -88,10 +98,10 @@ export default function Portfolio() {
                                     />
 
                                     {/* Overlay on hover */}
-                                    <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                    <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                                         <div className="p-4 text-white bg-black/50 rounded-lg">
                                             <h3 className="text-lg font-semibold">{artwork.title}</h3>
-                                            <p className="text-sm">{artwork.description}</p>
+                                            <p className="text-sm">{artwork.year} | {artwork.medium}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -100,42 +110,130 @@ export default function Portfolio() {
                     ))}
                 </div>
 
-                {/* Back to Home button and Pagination */}
-                <div className="flex justify-between">
-                    <div className="text-left mt-7">
-                        <a href="#hero" className="text-lg text-[#C6A664] hover:underline">
-                            ← Back to Home
-                        </a>
-                    </div>
-                    <div className="mt-5">
+                {/* Pagination */}
+                <div className="flex justify-end">
+                    <div className="mt-4">
                         <Pagination>
                             <PaginationContent>
                                 <PaginationItem>
-                                    <PaginationPrevious href="#" size="default" className="text-[#C6A664] text-lg hover:underline" />
+                                    {/* Previous Page Button */}
+                                    <PaginationPrevious
+                                        href="#"
+                                        onClick={
+                                            (e) => {
+                                                if (currentPage > 1) {
+                                                    setCurrentPage(page => page - 1)
+                                                }
+                                                e.preventDefault();
+                                            }
+                                        }
+                                        size="default"
+                                        className="text-[#C6A664] text-lg hover:underline" />
                                 </PaginationItem>
+
+                                {/* First page */}
                                 <PaginationItem>
-                                    <PaginationLink href="#" size="default" className="text-[#C6A664] text-lg hover:underline">
+                                    <PaginationLink
+                                        href="#"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            setCurrentPage(1);
+                                        }}
+                                        size="default"
+                                        className="text-[#C6A664] text-lg hover:underline">
                                         1
                                     </PaginationLink>
                                 </PaginationItem>
+
+                                {/* Ellipsis for middle pages */}
+                                {currentPage > 3 && (
+                                    <PaginationItem>
+                                        <PaginationEllipsis />
+                                    </PaginationItem>
+                                )}
+
+                                {/* Middle pages (current -1, current, current +1) */}
+                                {Array.from({ length: totalPages }, (_, i) =>
+                                    i + 1
+                                ).filter(
+                                    (page) =>
+                                        page !== 1 &&
+                                        page !== totalPages &&
+                                        Math.abs(page - currentPage) <= 1
+                                ).map((page) => (
+                                    <PaginationItem key={page}>
+                                        {/* Page Numbers */}
+                                        <PaginationLink
+                                            href="#"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                setCurrentPage(page);
+                                            }}
+                                            size="default"
+                                            className="text-[#C6A664] text-lg hover:underline">
+                                            {page}
+                                        </PaginationLink>
+                                    </PaginationItem>
+                                ))}
+
+                                {/* Ellipsis after middle pages */}
+                                {currentPage < totalPages - 1 && (
+                                    <PaginationItem>
+                                        <PaginationEllipsis />
+                                    </PaginationItem>
+                                )}
+
+                                {/* Last page */}
                                 <PaginationItem>
-                                    <PaginationLink href="#" size="default" className="text-[#C6A664] text-lg hover:underline">
-                                        2
+                                    <PaginationLink
+                                        href="#"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            setCurrentPage(totalPages);
+                                        }}
+                                        size="default"
+                                        className="text-[#C6A664] text-lg hover:underline">
+                                        {totalPages}
                                     </PaginationLink>
                                 </PaginationItem>
+
                                 <PaginationItem>
-                                    <PaginationLink href="#" size="default" className="text-[#C6A664] text-lg hover:underline">
-                                        3
-                                    </PaginationLink>
-                                </PaginationItem>
-                                <PaginationItem>
-                                    <PaginationNext href="#" size="default" className="text-[#C6A664] text-lg hover:underline" />
+                                    {/* Next Page Button */}
+                                    <PaginationNext
+                                        href="#"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            if (currentPage < totalPages) {
+                                                setCurrentPage(page => page + 1)
+                                            }
+                                        }}
+                                        size="default"
+                                        className="text-[#C6A664] text-lg hover:underline" />
                                 </PaginationItem>
                             </PaginationContent>
                         </Pagination>
                     </div>
                 </div>
             </div>
+
+            {/* Detail Modal */}
+            {selectedArtworkId && (
+                <Detail
+                    artworkId={selectedArtworkId}
+                    onClose={() => setSelectedArtworkId(null)}
+
+                    //TODO: Fix logic
+                    onPrev={() => setSelectedArtworkId(
+                        (prev) =>
+                            (prev ? prev - 1 : prev)
+                    )}
+                    onNext={
+                        () => setSelectedArtworkId(
+                            (next) => (next ? next + 1 : next)
+                        )
+                    }
+                />
+            )}
 
         </section>
     );

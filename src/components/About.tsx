@@ -1,6 +1,13 @@
-import portraitPainting from '../assets/portrait.jpg';
+import portraitPainting from '/public/artworks/portrait.jpg';
 
 export default function About() {
+    const scrollToSection = (sectionId: string) => {
+        const section = document.getElementById(sectionId)
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
+
     return (
         <section
             id="about"
@@ -28,13 +35,12 @@ export default function About() {
                         </div>
 
                         {/* Back to Portfolio Button */}
-                        <div className="mt-20">
-                            <a href="#portfolio" className="text-lg text-[#C6A664] hover:underline">
-                                ← Back to Gallery
-                            </a>
-                        </div>
+                        <button
+                            onClick={() => scrollToSection('portfolio')}
+                            className="!text-lg text-[#C6A664] hover:underline mt-8 -ml-6">
+                            ← Back to Portfolio
+                        </button>
                     </div>
-
                 </div>
 
                 {/* Right column: Image */}

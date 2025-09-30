@@ -1,18 +1,44 @@
-export default function Detail() {
+import { artworks } from "@/data/artworks";
+
+export default function Detail({
+    artworkId,
+    onClose,
+    onPrev,
+    onNext }:
+    {
+        artworkId: number,
+        onClose: () => void,
+        onPrev: () => void,
+        onNext: () => void
+    }) {
+
+    const artwork = artworks.find(a => a.id === artworkId);
+
+    if (!artwork) {
+        // TODO : Handle case where artwork is not found
+        return <div className="w-full min-h-screen p-8 bg-[#1A1510] text-[#C6A664] flex flex-col items-center justify-center center">
+            <p>Artwork not found.</p>
+        </div>;
+    }
+
     return (
-        <div className="w-full min-h-screen p-8 bg-[#1A1510] text-[#C6A664] flex flex-col items-center justify-center center">
+        <div className="fixed inset-0 bg-black/70 z-[60] flex flex-col items-center justify-center">
             <div className="max-w-xl w-full p-4 relative">
-                <img src="/src/assets/hobbit-painting.jpg" alt="Artwork Detail" className="w-full h-auto rounded-2xl shadow-lg" />
+                {/* Artwork Image */}
+                <img 
+                key={artwork.id} 
+                src={artwork.src} 
+                alt="Artwork Detail" 
+                className="w-full h-auto rounded-2xl shadow-lg" />
 
                 {/* Close button */}
                 <button
                     type="button"
-                    onClick={() => {
-                        // clear logic
-                    }}
-                    className="absolute top-4 right-4 px-3 text-white 
-                    text-2xl font-extrabold 
-                    bg-transparent hover:text-gray-300"
+                    onClick={onClose}
+                    className="absolute top-3 right-5 !px-3 
+                    bg-transparent text-white font-extrabold 
+                    leading-none !text-[24px] md:text-[36px]
+                     hover:text-black"
                 >
                     ✕
                 </button>
@@ -20,9 +46,7 @@ export default function Detail() {
                 {/* Prev button */}
                 <button
                     type="button"
-                    onClick={() => {
-                        // clear logic
-                    }}
+                    onClick={onPrev}
                     className="absolute top-1/2 left-1 px-3 text-white text-2xl font-bold bg-transparent hover:text-gray-300"
                 >
                     ◀
@@ -31,9 +55,7 @@ export default function Detail() {
                 {/* Next button */}
                 <button
                     type="button"
-                    onClick={() => {
-                        // clear logic
-                    }}
+                    onClick={onNext}
                     className="absolute top-1/2 right-1 px-3 text-white text-2xl font-bold bg-transparent hover:text-gray-300"
                 >
                     ▶
@@ -42,13 +64,12 @@ export default function Detail() {
             </div>
 
             {/* Info box */}
-            <div>
-                <div className="max-w-xl bg-[#C6A664] text-[#221B10] p-6 rounded-2xl shadow-lg mt-5 mb-10">
-                    <h2 className="text-3xl font-semibold mb-4">Hobbit Painting</h2>
-                    <p className="mb-4">A beautiful depiction of a hobbit, capturing the essence of fantasy and adventure through intricate brushwork and vibrant colors.</p>
-                    <p className="mb-2"><span className="font-semibold">Medium:</span> Oil on Canvas</p>
-                    <p className="mb-2"><span className="font-semibold">Dimensions:</span> 24" x 36"</p>
-                    <p className="mb-2"><span className="font-semibold">Year:</span> 2023</p>
+            <div className="max-w-xl w-full p-4 mx-auto">
+                <div className="bg-[#C6A664] text-[#221B10] p-6 rounded-2xl shadow-lg mb-10">
+                    <h2 className="text-3xl font-semibold mb-4">{artwork.title}</h2>
+                    <p className="mb-4">{artwork.description}</p>
+                    <p className="mb-2"><span className="font-semibold">Medium:</span> {artwork.medium}</p>
+                    <p className="mb-2"><span className="font-semibold">Year:</span> {artwork.year}</p>
                 </div>
             </div>
         </div>
