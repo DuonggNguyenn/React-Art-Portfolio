@@ -9,7 +9,7 @@ export default function Portfolio() {
     const [filter, setFilter] = useState("All");
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 3;
+    const itemsPerPage = 6;
 
     //Apply filtering + searching
     const filteredArtworks = artworks.filter(artwork => {
@@ -30,10 +30,15 @@ export default function Portfolio() {
     //Selected Artwork
     const [selectedArtworkId, setSelectedArtworkId] = useState<number | null>(null);
 
+    const currentImageId = filteredArtworks.findIndex(a => a.id === selectedArtworkId);
+
     return (
         <section
             id="portfolio"
-            className="min-h-screen w-full bg-[rgb(34,27,16)] text-[#C6A664] py-25">
+            className="min-h-screen w-full 
+            bg-[rgb(10,7,1)] text-[#C6A664]
+            bg-[url('/public/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay 
+            py-25">
             <div className="max-w-6xl mx-auto px-8">
                 {/* Heading */}
                 <div className="w-full text-center">
@@ -43,13 +48,16 @@ export default function Portfolio() {
 
                 {/* Filters */}
                 <div className="flex flex-wrap justify-center gap-4 mb-10 mt-10">
-                    {['All', 'Portrait', 'Oil Painting', 'Landscape', 'Anime'].map((filter) => (
+                    {['All', 'Portrait', 'Oil Painting', 'Landscape', 'Anime'].map((category) => (
                         <span
-                            key={filter}
-                            onClick={() => setFilter(filter)}
-                            className="bg-[#C6A664] text-[#221B10] px-5 py-2 rounded-2xl text-center font-semibold hover:bg-[rgb(34,27,16)] border border-[#C6A664] hover:text-[#C6A664] transition-colors duration-200 cursor-pointer"
-                        >
-                            {filter}
+                            key={category}
+                            onClick={() => setFilter(category)}
+                            className={`px-5 py-2 rounded-2xl text-center font-semibold 
+                                ${filter === category ?
+                                    "bg-[#C6A664] text-[#221B10]" :
+                                    "bg-transparent border border-[#C6A664] text-[#C6A664] hover:bg-[#3a2b16] hover:text-[#f5d899]"
+                                }`}>
+                            {category}
                         </span>
                     ))}
                 </div>
@@ -63,7 +71,7 @@ export default function Portfolio() {
                             onChange={(e) => setSearchTerm(e.target.value)}
                             aria-label="Search"
                             placeholder="Search..."
-                            className="w-full md:w-65 border border-[#C6A664] rounded-2xl px-4 py-2 text-[#C6A664] placeholder-[#C6A664]/70 focus-visible:ring-[#C6A664]"
+                            className="w-full md:w-65 border border-[#C6A664] rounded-2xl px-4 py-2 text-[#C6A664] placeholder:text-[#C6A664] focus-visible:ring-[#C6A664]"
                         />
                         {/* ✕ button */}
                         <button
@@ -78,42 +86,48 @@ export default function Portfolio() {
                     </div>
                 </div>
 
-                {/* Portfolio Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 mt-6">
-                    {paginatedArtworks.map((artwork, index) => (
-                        <Card
-                            key={index}
-                            className="group relative overflow-hidden rounded-2xl border border-[#C6A664]/40 bg-[#1b140c] transition-transform duration-200 hover:scale-[1.01]"
-                        >
-                            <CardContent className="p-0">
-                                <div
-                                    className="aspect-[3/4] w-full relative cursor-pointer"
-                                    onClick={() => setSelectedArtworkId(artwork.id)}
+                {filteredArtworks.length === 0 ?
+                    (<p className="text-center text-lg text-[#C6A664] mt-8">
+                        No artworks found.
+                    </p>) :
+                    (
+                        // Artworks Grid
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 mt-6">
+                            {paginatedArtworks.map((artwork, index) => (
+                                <Card
+                                    key={index}
+                                    className="group relative overflow-hidden rounded-2xl border border-[#C6A664]/40 bg-[#1b140c] transition-transform duration-200 hover:scale-[1.01]"
                                 >
-                                    <img
-                                        src={artwork.src}
-                                        alt={artwork.title}
-                                        loading="lazy"
-                                        className="block w-full h-full object-cover"
-                                    />
+                                    <CardContent className="p-0">
+                                        <div
+                                            className=" w-full relative cursor-pointer"
+                                            onClick={() => setSelectedArtworkId(artwork.id)}
+                                        >
+                                            <img
+                                                src={artwork.src}
+                                                alt={artwork.title}
+                                                loading="lazy"
+                                                className="block w-full h-full object-cover max-h-[420px] rounded-2xl"
+                                            />
 
-                                    {/* Overlay on hover */}
-                                    <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                                        <div className="p-4 text-white bg-black/50 rounded-lg">
-                                            <h3 className="text-lg font-semibold">{artwork.title}</h3>
-                                            <p className="text-sm">{artwork.year} | {artwork.medium}</p>
+                                            {/* Overlay on hover */}
+                                            <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                                <div className="p-4 text-white bg-black/50 rounded-lg">
+                                                    <h3 className="text-[15px] font-semibold mb-1">{artwork.title}</h3>
+                                                    <p className="text-[13px]">{artwork.year} | {artwork.medium}</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </div>)
+                }
 
                 {/* Pagination */}
-                <div className="flex justify-end">
-                    <div className="mt-4">
-                        <Pagination>
+                {totalPages > 1 && (
+                    <div className="flex justify-end mr-[-20px]">
+                        <Pagination className="[&]:mx-0 [&]:w-auto [&]:justify-end my-8 mt-8">
                             <PaginationContent>
                                 <PaginationItem>
                                     {/* Previous Page Button */}
@@ -128,7 +142,7 @@ export default function Portfolio() {
                                             }
                                         }
                                         size="default"
-                                        className="text-[#C6A664] text-lg hover:underline" />
+                                        className="text-[#C6A664] text-lg hover:underline hover:!bg-[#3a2b16] hover:!text-[#f5d899]" />
                                 </PaginationItem>
 
                                 {/* First page */}
@@ -140,7 +154,7 @@ export default function Portfolio() {
                                             setCurrentPage(1);
                                         }}
                                         size="default"
-                                        className="text-[#C6A664] text-lg hover:underline">
+                                        className="text-[#C6A664] text-lg hover:underline hover:!bg-[#3a2b16] hover:!text-[#f5d899]">
                                         1
                                     </PaginationLink>
                                 </PaginationItem>
@@ -170,7 +184,7 @@ export default function Portfolio() {
                                                 setCurrentPage(page);
                                             }}
                                             size="default"
-                                            className="text-[#C6A664] text-lg hover:underline">
+                                            className="text-[#C6A664] text-lg hover:underline hover:!bg-[#3a2b16] hover:!text-[#f5d899]">
                                             {page}
                                         </PaginationLink>
                                     </PaginationItem>
@@ -192,7 +206,7 @@ export default function Portfolio() {
                                             setCurrentPage(totalPages);
                                         }}
                                         size="default"
-                                        className="text-[#C6A664] text-lg hover:underline">
+                                        className="text-[#C6A664] text-lg hover:underline hover:!bg-[#3a2b16] hover:!text-[#f5d899]">
                                         {totalPages}
                                     </PaginationLink>
                                 </PaginationItem>
@@ -208,33 +222,34 @@ export default function Portfolio() {
                                             }
                                         }}
                                         size="default"
-                                        className="text-[#C6A664] text-lg hover:underline" />
+                                        className="text-[#C6A664] text-lg hover:underline hover:!bg-[#3a2b16] hover:!text-[#f5d899]" />
                                 </PaginationItem>
                             </PaginationContent>
                         </Pagination>
                     </div>
-                </div>
+                )}
+
+                {/* Detail Modal */}
+                {selectedArtworkId && (
+                    <Detail
+                        artworkId={selectedArtworkId}
+                        currentImageId={currentImageId}
+                        totalArtworks={filteredArtworks.length}
+                        onClose={() => setSelectedArtworkId(null)}
+
+                        onPrev={() => {
+                            if (currentImageId > 0) {
+                                setSelectedArtworkId(filteredArtworks[currentImageId - 1].id)
+                            }
+                        }}
+                        onNext={() => {
+                            if (currentImageId < filteredArtworks.length - 1) {
+                                setSelectedArtworkId(filteredArtworks[currentImageId + 1].id)
+                            }
+                        }}
+                    />
+                )}
             </div>
-
-            {/* Detail Modal */}
-            {selectedArtworkId && (
-                <Detail
-                    artworkId={selectedArtworkId}
-                    onClose={() => setSelectedArtworkId(null)}
-
-                    //TODO: Fix logic
-                    onPrev={() => setSelectedArtworkId(
-                        (prev) =>
-                            (prev ? prev - 1 : prev)
-                    )}
-                    onNext={
-                        () => setSelectedArtworkId(
-                            (next) => (next ? next + 1 : next)
-                        )
-                    }
-                />
-            )}
-
-        </section>
+        </section >
     );
 }

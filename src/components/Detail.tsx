@@ -2,11 +2,15 @@ import { artworks } from "@/data/artworks";
 
 export default function Detail({
     artworkId,
+    currentImageId,
+    totalArtworks,
     onClose,
     onPrev,
     onNext }:
     {
         artworkId: number,
+        currentImageId: number,
+        totalArtworks: number,
         onClose: () => void,
         onPrev: () => void,
         onNext: () => void
@@ -22,54 +26,66 @@ export default function Detail({
     }
 
     return (
-        <div className="fixed inset-0 bg-black/70 z-[60] flex flex-col items-center justify-center">
+        <div className="fixed inset-0
+         bg-black/80 
+         z-[60] flex flex-col items-center justify-center
+         ">
             <div className="max-w-xl w-full p-4 relative">
                 {/* Artwork Image */}
-                <img 
-                key={artwork.id} 
-                src={artwork.src} 
-                alt="Artwork Detail" 
-                className="w-full h-auto rounded-2xl shadow-lg" />
+                <img
+                    key={artwork.id}
+                    src={artwork.src}
+                    alt="Artwork Detail"
+                    className="w-full max-h-[65vh] rounded-t-sm border-2 border-[#C6A664] shadow-lg" />
 
                 {/* Close button */}
                 <button
                     type="button"
                     onClick={onClose}
-                    className="absolute top-3 right-5 !px-3 
-                    bg-transparent text-white font-extrabold 
-                    leading-none !text-[24px] md:text-[36px]
-                     hover:text-black"
+                    className="absolute top-4 right-4 w-12 h-12
+                    border border-[#C6A664] 
+                 flex items-center justify-center text-[#C6A664] !text-[20px]
+                 hover:bg-[#C6A664] hover:text-[#221B10] transition "
+
                 >
                     ✕
                 </button>
 
                 {/* Prev button */}
-                <button
-                    type="button"
-                    onClick={onPrev}
-                    className="absolute top-1/2 left-1 px-3 text-white text-2xl font-bold bg-transparent hover:text-gray-300"
-                >
-                    ◀
-                </button>
+                {currentImageId > 0 && (
+                    <button
+                        type="button"
+                        onClick={onPrev}
+                        className="absolute top-1/2 left-4 
+                                    w-10 h-10
+                                    border border-[#C6A664] 
+                                    flex items-center justify-center text-[#C6A664] !text-[20px]
+                                hover:bg-[#C6A664] hover:text-[#221B10] transition"
+                    >
+                        ◀
+                    </button>
+                )}
 
                 {/* Next button */}
-                <button
-                    type="button"
-                    onClick={onNext}
-                    className="absolute top-1/2 right-1 px-3 text-white text-2xl font-bold bg-transparent hover:text-gray-300"
-                >
-                    ▶
-                </button>
+                {currentImageId < totalArtworks - 1 && (
+                    <button
+                        type="button"
+                        onClick={onNext}
+                        className="absolute top-1/2 right-4 w-10 h-10
+                                    border border-[#C6A664] 
+                                    flex items-center justify-center text-[#C6A664] !text-[20px]
+                                hover:bg-[#C6A664] hover:text-[#221B10] transition"
+                    >
+                        ▶
+                    </button>
+                )}
 
-            </div>
-
-            {/* Info box */}
-            <div className="max-w-xl w-full p-4 mx-auto">
-                <div className="bg-[#C6A664] text-[#221B10] p-6 rounded-2xl shadow-lg mb-10">
-                    <h2 className="text-3xl font-semibold mb-4">{artwork.title}</h2>
-                    <p className="mb-4">{artwork.description}</p>
-                    <p className="mb-2"><span className="font-semibold">Medium:</span> {artwork.medium}</p>
-                    <p className="mb-2"><span className="font-semibold">Year:</span> {artwork.year}</p>
+                {/* Info box */}
+                <div className="bg-[#221B10] border border-[#C6A664] rounded-b-md p-5 text-[#C6A664]">
+                    <h2 className="text-xl font-semibold font-serif mb-2 tracking-wide">{artwork.title}</h2>
+                    <p className="mb-4 text-[#f5f2e7]">{artwork.description}</p>
+                    <p className="text-sm tracking-wider opacity-80"><span className="font-semibold">Medium:</span> {artwork.medium}</p>
+                    <p className="text-sm tracking-wider opacity-80"><span className="font-semibold">Year:</span> {artwork.year}</p>
                 </div>
             </div>
         </div>

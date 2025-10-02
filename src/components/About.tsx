@@ -1,3 +1,4 @@
+import { Button } from './ui/button';
 import portraitPainting from '/public/artworks/portrait.jpg';
 
 export default function About() {
@@ -11,59 +12,76 @@ export default function About() {
     return (
         <section
             id="about"
-            className="min-h-screen w-full flex items-center bg-[#15110B] text-[#C6A664] py-16">
+            className="min-h-screen w-full flex items-center 
+            bg-[#110a01] text-[#C6A664] py-16
+            bg-[url('/public/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay
+            ">
             <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 items-center gap-16 w-full">
                 {/* Left column: Title + text + buttons */}
                 <div className="flex flex-col items-start w-full md:pr-8">
                     <div className="max-w-2xl md:text-left w-full">
-                        <h2 className="text-5xl font-semibold mb-8">About the Artist</h2>
-                        <p className="text-lg mb-6 text-white leading-relaxed">
+                        <h2 className="text-5xl font-serif font-semibold mb-8 tracking-wide">About the Artist</h2>
+                        <p className="border-b border-[#C6A664] mb-6"></p>
+                        <p className="text-lg mb-6 text-[#f5f2e7] leading-loose font-sans">
                             With over a decade of experience in visual arts, I specialize in creating thought-provoking pieces that bridge the gap between traditional and contemporary art forms.
                         </p>
-                        <p className="text-lg mb-6 text-white leading-relaxed">
-                            My work explores themes of human connection, urban life, and the natural world. I hold a Bachelor in Mathematic and a Bachelor in Data Engineering. My artistic journey began in childhood, and I've since developed a distinctive style that combines technical precision with emotional depth.
+                        <p className="text-lg text-[#f5f2e7] leading-loose font-sans">
+                            My work explores themes of human connection, urban life , and the natural world. I hold a Bachelor in Mathematic and a Bachelor in Data Engineering. My artistic journey began in childhood, and I've since developed a distinctive style that combines technical precision with emotional depth.
                         </p>
 
                         {/* Artistic Focus */}
-                        <h3 className="text-3xl font-semibold mt-16">Artistic Focus</h3>
+                        <h3 className="text-3xl font-serif font-semibold mt-10">Artistic Focus</h3>
                         <div className="grid grid-cols-3 gap-8 mb-8 mt-8">
                             {['Portraits', 'Oil Painting', 'Gouache', 'Landscape', 'Anime'].map((focus) => (
-                                <span key={focus} className="bg-[#C6A664] text-[#221B10] px-4 py-2 rounded-2xl text-center font-semibold hover:bg-[#A68B5B] transition-colors duration-200 cursor-pointer block">
+                                <span key={focus} className="
+                                        border border-[#C6A664] text-[#C6A664] 
+                                        px-4 py-2 rounded-full
+                                        text-medium tracking-wide font-serif
+                                        text-center
+                                        hover:bg-[#C6A664] hover:text-[#221B10] 
+                                        transition-colors duration-200 cursor-pointer block">
                                     {focus}
                                 </span>
                             ))}
                         </div>
-
-                        {/* Back to Portfolio Button */}
-                        <button
-                            onClick={() => scrollToSection('portfolio')}
-                            className="!text-lg text-[#C6A664] hover:underline mt-8 -ml-6">
-                            ← Back to Portfolio
-                        </button>
                     </div>
                 </div>
 
                 {/* Right column: Image */}
                 <div className="flex flex-col items-center w-full md:pl-8">
                     <div className="relative mb-6 w-full">
-                        <img
-                            src={portraitPainting}
-                            alt="Portrait Painting Artwork"
-                            className="w-full max-w-xl rounded-2xl shadow-lg"
-                        />
+
+                        {/* Image with double border */}
+                        <div className="border-2 border-[#C6A664] shadow-[0_8px_20px_rgba(0,0,0,0.6)] bg-[#0F0C08] p-2">
+                            <div className="border-2 border-[#C6A664]/60 p-2">
+                                <img
+                                    src={portraitPainting}
+                                    alt="Portrait Painting Artwork"
+                                    className="w-full max-w-xl rounded-sm shadow-lg"
+                                />
+                            </div>
+                        </div>
 
                         {/* Feature label overlay - clickable */}
-                        <a
-                            href="#portfolio"
-                            className="absolute bottom-0 right-2 bg-[#C6A664] text-[#221B10] px-7 py-4 rounded-3xl text-sm font-medium shadow-lg border border-[#221B10] transform translate-y-1/2 hover:bg-[#A68B5B] transition-colors duration-200 cursor-pointer block"
+                        <Button
+                            asChild={true}
+                            onClick={() => scrollToSection('portfolio')}
+                            className="absolute bottom-1 right-0 
+                                    bg-[#221B10] text-[#C6A664]  
+                                        border border-[#C6A664] rounded-md shadow-md transform translate-y-1/2
+                                       px-9 py-9
+                                      hover:bg-[#C6A664] hover:text-[#221B10] hover:scale-105
+                                      hover:border-[#221B10] transition-all duration-200 cursor-pointer block"
                         >
-                            <div className="text-sm opacity-80">#Feature work:</div>
-                            <div className="font-semibold text-lg">Hobbit Painting</div>
-                        </a>
+
+                            <div className="flex flex-col items-start leading-tight">
+                                <span className="text-[0.75rem] uppercase tracking-widest opacity-80 font-serif">#Feature Work</span>
+                                <span className="font-semibold text-sm font-serif ">The Hobbit Painting</span>
+                            </div>
+
+                        </Button>
                     </div>
-
                 </div>
-
             </div>
         </section>
     );

@@ -1,4 +1,3 @@
-
 import { Button } from "./ui/button"
 import hobbitPainting from "/public/artworks/hobbit-painting.jpg"
 import landscapePaiting from "/public/artworks/landscape-painting.jpg"
@@ -18,7 +17,7 @@ export default function Hero() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 3000); // Change image every 3 seconds
+        }, 5000); // Change image every 5 seconds
 
         return () => clearInterval(interval);
     }, [images.length]);
@@ -33,18 +32,38 @@ export default function Hero() {
     return (
         <section
             id="hero"
-            className="min-h-screen items-center flex bg-[#15110B] text-[#C6A664] px-4"
+            className="min-h-screen items-center px-4 flex
+                    bg-[#110a01]
+                     text-[#C6A664]  
+                     bg-[radial-gradient(circle_at_center,rgba(198,166,100,0.25)_0%,transparent_70%)]
+                     bg-[url('/public/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay"
         >
             <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-30 w-full">
 
                 {/* Left column: Image + Button */}
                 <div className="flex flex-col items-center">
-                    <img
-                        key={currentImageIndex}
-                        src={images[currentImageIndex].src}
-                        alt={images[currentImageIndex].alt}
-                        className="w-135 rounded-2xl shadow-lg mb-8 animate-fadeIn"
-                    />
+                    <div className="relative mb-6">
+                        {/* Outer frame */}
+                        <div className="border-2 border-[#C6A664] rounded-sm shadow-[0_8px_20px_rgba(0,0,0,0.6)] mb-6
+                                      bg-[#0F0C08] ">
+                            <div className="border-2 border-[#C6A664]/60 m-2">
+                                {/* Inner frame with image */}
+                                <div className="bg-[#1f1a12] p-4 rounded-sm">
+                                    {/* Current image (fading in) */}
+                                    <img
+                                        src={images[currentImageIndex].src}
+                                        alt={images[currentImageIndex].alt}
+                                        className="w-135 rounded-2xl shadow-lg mb-8 
+                                                   animate-fadeCrossfade"
+                                    />
+
+                                    <p className="italic font-serif text-medium text-[#C6A664]/80 text-center mb-2 tracking-wide">
+                                        {images[currentImageIndex].alt}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <Button
                         onClick={
                             (e) => {
@@ -53,16 +72,19 @@ export default function Hero() {
                             }
                         }
                         asChild={true}
-                        className="bg-[#221B10] text-[#C6A664] px-18 hover:bg-[#A68B5B] border border-[#C6A664] hover:text-[#221B10] transition-colors duration-300 rounded-2xl py-5 text-lg font-semibold"
+                        className="bg-[#221B10] text-[#C6A664] text-medium font-serif italic px-20
+                         hover:bg-[#A68B5B] border border-[#C6A664] hover:text-[#221B10] 
+                         transition-colors duration-300 rounded-full py-5 text-base font-semibold shadow-md"
                     >
-                        <a href="#portfolio">View My Work</a>
+                        <a href="#portfolio">View My Works</a>
                     </Button>
                 </div>
 
                 {/* Right column: Title + Text + Button */}
                 <div className="max-w-md md:text-left">
-                    <h2 className="text-6xl font-semibold mb-8">Art <br /> Journey</h2>
-                    <p className="text-lg mb-8 text-white leading-relaxed">Art is a continuous journey of exploration and expression. Through each piece, I seek to capture moments, moods, and stories that connect with the viewer on a personal level</p>
+                    <h2 className="text-6xl font-serif mb-6 tracking-wide">Art <br /> Journey</h2>
+                    <p className="border-b border-[#C6A664] mb-6"></p>
+                    <p className="text-lg mb-8 text-[#f5f2e7]  leading-loose font-sans">Art is a continuous journey of exploration and expression. Through each piece, I seek to capture moments, moods, and stories that connect with the viewer on a personal level</p>
                     <Button
                         onClick={
                             (e) => {
@@ -71,7 +93,9 @@ export default function Hero() {
                             }
                         }
                         asChild={true}
-                        className="bg-[#221B10] text-white hover:bg-[#A68B5B] border border-white hover:text-white transition-colors duration-300 rounded-2xl py-5 px-10 text-lg font-semibold">
+                        className="bg-[#221B10] text-white font-serif hover:bg-[#A68B5B] 
+                        border border-white hover:text-white 
+                        transition-colors duration-300 rounded-full py-5 px-10 text-base font-semibold shadow-md">
                         <a href="#contact">Contact Me</a>
                     </Button>
                 </div>
