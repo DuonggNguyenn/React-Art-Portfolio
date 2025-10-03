@@ -1,15 +1,13 @@
 import { Button } from "./ui/button"
-import hobbitPainting from "/public/artworks/hobbit-painting.jpg"
-import landscapePaiting from "/public/artworks/landscape-painting.jpg"
-import portraitPainting from "/public/artworks/portrait.jpg"
+import hobbitPainting from "/artworks/oilpainting/thehobbit-oilpainting.jpeg"
+import theswanPainting from "/artworks/oilpainting/theswan-oilpainting.jpeg"
 import { useEffect, useState } from "react"
 
 
 export default function Hero() {
     const images = [
         { src: hobbitPainting, alt: "Hobbit Painting Artwork" },
-        { src: landscapePaiting, alt: "Landscape Painting Artwork" },
-        { src: portraitPainting, alt: "Portrait Painting Artwork" },
+        { src: theswanPainting, alt: "The Swan Lake Artwork" }
     ];
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -82,9 +80,9 @@ export default function Hero() {
 
                 {/* Right column: Title + Text + Button */}
                 <div className="max-w-md md:text-left">
-                    <h2 className="text-6xl font-serif mb-6 tracking-wide">Art <br /> Journey</h2>
+                    <h2 className="text-6xl font-serif mb-6 tracking-wide">Art <br />  Journey</h2>
                     <p className="border-b border-[#C6A664] mb-6"></p>
-                    <p className="text-lg mb-8 text-[#f5f2e7]  leading-loose font-sans">Art is a continuous journey of exploration and expression. Through each piece, I seek to capture moments, moods, and stories that connect with the viewer on a personal level</p>
+                    <p className="text-lg mb-8 text-[#f5f2e7]  leading-loose font-sans">Art has always been my way of balancing life with creativity and expression. Painting and sketching let me explore stories, moods, and ideas that can’t be explained with code or numbers — only felt. Each piece reflects that balance.</p>
                     <Button
                         onClick={
                             (e) => {

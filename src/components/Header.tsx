@@ -16,7 +16,7 @@ export default function Header() {
                     {/* Logo */}
                     <button
                         onClick={() => scrollToSection('hero')}
-                        className="text-[#C6A664] font-serif font-semibold !text-2xl tracking-wide hover:text-[#E3C97B] transition "
+                        className="text-[#C6A664] font-serif font-semibold !text-xl tracking-wide hover:text-[#E3C97B] transition "
                     >
                         Artist Portfolio
                     </button>

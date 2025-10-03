@@ -49,9 +49,9 @@ export default function Contact() {
 
         emailjs.
             sendForm(
-                "service_2gniuy9" // service ID
-                , "template_ing8vkx" // template ID
-                , form.current,
+                "service_2gniuy9", // service ID
+                "template_ing8vkx", // template ID
+                form.current,
                 "-1aL7VDjLQyKmm8MC" // public key
             ).then(
                 (result: any) => {
@@ -90,27 +90,36 @@ export default function Contact() {
             className="min-h-screen w-full flex flex-col justify-center 
             bg-[rgb(10,7,1)] text-[#C6A664]
             bg-[url('/public/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay
-            ">
-
+            "
+        >
             {/* Heading */}
             <div className="text-center max-w-2xl mx-auto">
-                <h2 className="text-5xl font-semibold mb-6 font-serif tracking-wide">Contact Me</h2>
-                <p className="border-b border-[#C6A664] mb-4"></p>
+                <h2 className="text-5xl font-serif font-semibold mb-6 tracking-wide">Contact Me</h2> 
+                <p className="border-b border-[#C6A664] mb-4"></p> 
                 <p className="text-lg text-[#f5f2e7] mb-10 font-sans">Interested in commissioning a piece, collaborating, or just want to say hello? I’d love to hear from you.</p>
             </div>
 
             {/* Contact Form and Info Grid */}
-            <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-16 w-full items-stretch">
+            <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-16 w-full items-stretch relative">
+                
+                {/* ✨ change: vertical divider line to mimic hero’s separation */}
+                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[#C6A664]/30 hidden md:block"></div>
 
                 {/* Left Contact Form*/}
                 <div className="flex flex-col h-full">
-                    <Card className="border-2 border-[#C6A664] bg-[#0F0C08] shadow-[0_8px_20px_rgba(0,0,0,0.6)] rounded-xl p-6">
+                    <Card className="border-2 border-[#C6A664] bg-[#0F0C08] 
+                        shadow-[0_8px_20px_rgba(0,0,0,0.6)] 
+                        rounded-xl p-6 
+                        relative overflow-hidden">
+                                                
+                        <div className="absolute inset-0 pointer-events-none border border-[#C6A664]/40 rounded-xl"></div>
+
                         <CardContent className="flex-1 flex flex-col mt-4">
                             <form ref={form} onSubmit={sendEmail} className="space-y-5 flex-1">
 
                                 {/* Name */}
                                 <div>
-                                    <label htmlFor="name" className="block text-sm font-medium mb-2 font-serif">
+                                    <label htmlFor="name" className="block text-sm font-serif font-medium mb-2">
                                         Name*
                                     </label>
                                     <input
@@ -119,13 +128,15 @@ export default function Contact() {
                                         name="name"
                                         placeholder="Your full name"
                                         required
-                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-md bg-[#1f1a12] text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#A68B5B]"
-                                    />
+                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12] 
+                                        text-white placeholder-[#d8c6a0] 
+                                        focus:ring-0.5 focus:ring-[#C6A664] focus:border-[#C6A664]"
+                                    /> 
                                 </div>
 
                                 {/* Phone */}
                                 <div>
-                                    <label htmlFor="phone" className="block text-sm font-medium mb-2 font-serif">
+                                    <label htmlFor="phone" className="block text-sm font-serif font-medium mb-2">
                                         Phone
                                     </label>
                                     <input
@@ -133,13 +144,15 @@ export default function Contact() {
                                         id="phone"
                                         name="phone"
                                         placeholder="Your phone number"
-                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-md bg-[#1f1a12] text-white placeholder-gray-400 focus:ring-2 focus:ring-[#A68B5B]"
+                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12] 
+                                        text-white placeholder-[#d8c6a0] 
+                                        focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
                                     />
                                 </div>
 
                                 {/* Email */}
                                 <div>
-                                    <label htmlFor="email" className="block text-sm font-medium mb-2 font-serif">
+                                    <label htmlFor="email" className="block text-sm font-serif font-medium mb-2">
                                         Email*
                                     </label>
                                     <input
@@ -148,13 +161,15 @@ export default function Contact() {
                                         name="email"
                                         placeholder="Your email address"
                                         required
-                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-md bg-[#1f1a12] text-white placeholder-gray-400 focus:ring-2 focus:ring-[#A68B5B]"
+                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12] 
+                                        text-white placeholder-[#d8c6a0] 
+                                        focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
                                     />
                                 </div>
 
                                 {/* Message */}
                                 <div>
-                                    <label htmlFor="message" className="block text-sm font-medium mb-2 font-serif">
+                                    <label htmlFor="message" className="block text-sm font-serif font-medium mb-2">
                                         Message*
                                     </label>
                                     <textarea
@@ -163,17 +178,23 @@ export default function Contact() {
                                         rows={6}
                                         placeholder="Tell me what you think..."
                                         required
-                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-md focus:outline-none focus:ring-2 focus:ring-[#A68B5B] bg-[#1f1a12] text-white placeholder-gray-400"
+                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl 
+                                        focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664] 
+                                        bg-[#1f1a12] text-white placeholder-[#d8c6a0]"
                                     />
                                 </div>
 
                                 {/* Submit Button */}
                                 <Button
                                     type="submit"
-                                    className="bg-[#221B10] text-[#C6A664] font-serif hover:bg-[#A68B5B] hover:text-[#221B10] border border-[#C6A664] transition-all duration-300 rounded-full px-6 py-3 w-full"
+                                    className="bg-transparent text-[#C6A664] font-serif 
+                                    border border-[#C6A664] tracking-wide 
+                                    hover:bg-[#C6A664] hover:text-[#221B10] 
+                                    transition-all duration-300 
+                                    rounded-full px-6 py-3 w-full"
                                 >
                                     Send Your Message
-                                </Button>
+                                </Button> 
                             </form>
                         </CardContent>
                     </Card>
@@ -181,7 +202,9 @@ export default function Contact() {
                 
                 {/* Right Contact Info */}
                 <div className="flex flex-col h-full">
-                    <Card className="bg-[rgb(34,27,16)] border border-[#C6A664] rounded-2xl shadow-md h-full flex flex-col">
+                    <Card className="bg-[rgb(34,27,16)] border border-[#C6A664] rounded-2xl shadow-md h-full flex flex-col relative overflow-hidden">
+                        <div className="absolute inset-0 pointer-events-none border border-[#C6A664]/40 rounded-2xl"></div>
+
                         <CardContent className="flex flex-col p-6">
 
                             {/* Section heading */}
@@ -197,7 +220,7 @@ export default function Contact() {
 
                                 {/* Email */}
                                 <div className="flex items-start gap-3">
-                                    <Mail className="w-5 h-5 text-[#C6A664] mt-1" />
+                                    <Mail className="w-5 h-5 text-[#C6A664]/80 mt-1" /> 
                                     <div>
                                         <p className="text-sm font-medium text-[#C6A664] font-serif">Email</p>
                                         <div className="flex items-center gap-2">
@@ -223,7 +246,7 @@ export default function Contact() {
 
                                 {/* City */}
                                 <div className="flex items-start gap-3">
-                                    <MapPin className="w-5 h-5 text-[#C6A664] mt-1" />
+                                    <MapPin className="w-5 h-5 text-[#C6A664]/80 mt-1" />
                                     <div>
                                         <p className="text-sm font-medium text-[#C6A664] font-serif">City</p>
                                         <p className="text-white/80 font-serif mt-2">Oslo, Norway</p>
@@ -232,29 +255,27 @@ export default function Contact() {
 
                                 {/* Phone */}
                                 <div className="flex items-start gap-3">
-                                    <Phone className="w-5 h-5 text-[#C6A664] mt-1" />
+                                    <Phone className="w-5 h-5 text-[#C6A664]/80 mt-1" />
                                     <div>
                                         <p className="text-sm font-medium text-[#C6A664] font-serif">Phone</p>
                                         <p className="text-white/80 font-serif">+47 123 45 678</p>
                                     </div>
                                 </div>
-
                             </div>
 
                             {/* Socials */}
                             <div className="mt-10">
-                                <p className="text-lg font-medium mb-3 font-serif">Follow me</p>
+                                <p className="text-lg font-serif font-medium mb-3 underline decoration-[#C6A664]/60 underline-offset-4">Follow me</p>
                                 <div className="flex gap-5">
-                                    <a href="#"><Instagram className="w-5 h-5 hover:scale-115 hover:text-white transition-transform" /></a>
-                                    <a href="#"><Facebook className="w-5 h-5 hover:scale-115 hover:text-white transition-transform" /></a>
-                                    <a href="#"><Linkedin className="w-5 h-5 hover:scale-115 hover:text-white transition-transform" /></a>
+                                    <a href="https://www.instagram.com/"><Instagram className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
+                                    <a href="https://www.facebook.com/"><Facebook className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
+                                    <a href="https://www.linkedin.com/"><Linkedin className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
                                 </div>
                             </div>
 
                         </CardContent>
                     </Card>
                 </div>
-
             </div>
 
             <Toaster richColors position="bottom-right" />

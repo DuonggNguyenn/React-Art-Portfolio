@@ -1,5 +1,5 @@
 import { Button } from './ui/button';
-import portraitPainting from '/public/artworks/portrait.jpg';
+import portraitPainting from '/artworks/artist-portrait.jpg';
 
 export default function About() {
     const scrollToSection = (sectionId: string) => {
@@ -13,8 +13,8 @@ export default function About() {
         <section
             id="about"
             className="min-h-screen w-full flex items-center 
-            bg-[#110a01] text-[#C6A664] py-16
-            bg-[url('/public/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay
+            bg-[#110a01] text-[#C6A664]
+            bg-[url('/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay
             ">
             <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 items-center gap-16 w-full">
                 {/* Left column: Title + text + buttons */}
@@ -23,14 +23,14 @@ export default function About() {
                         <h2 className="text-5xl font-serif font-semibold mb-8 tracking-wide">About the Artist</h2>
                         <p className="border-b border-[#C6A664] mb-6"></p>
                         <p className="text-lg mb-6 text-[#f5f2e7] leading-loose font-sans">
-                            With over a decade of experience in visual arts, I specialize in creating thought-provoking pieces that bridge the gap between traditional and contemporary art forms.
+                           I have bachelor’s degrees in Data Engineering and Mathematics and work full-time as an integration developer. Outside of my tech career, I turn to painting and drawing as a way to step away from code and explore creativity in a more personal way.
                         </p>
                         <p className="text-lg text-[#f5f2e7] leading-loose font-sans">
-                            My work explores themes of human connection, urban life , and the natural world. I hold a Bachelor in Mathematic and a Bachelor in Data Engineering. My artistic journey began in childhood, and I've since developed a distinctive style that combines technical precision with emotional depth.
+                            In my free time, I create oil paintings, portraits, landscapes, and other works inspired by curiosity and imagination. I am entirely self-taught and paint simply because I love it — it’s my way of finding balance, expression, and a deeper connection outside of my everyday work.
                         </p>
 
                         {/* Artistic Focus */}
-                        <h3 className="text-3xl font-serif font-semibold mt-10">Artistic Focus</h3>
+                        <h3 className="text-3xl font-serif font-semibold mt-15">Artistic Focus</h3>
                         <div className="grid grid-cols-3 gap-8 mb-8 mt-8">
                             {['Portraits', 'Oil Painting', 'Gouache', 'Landscape', 'Anime'].map((focus) => (
                                 <span key={focus} className="
