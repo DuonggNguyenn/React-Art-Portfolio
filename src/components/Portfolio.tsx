@@ -15,6 +15,17 @@ export default function Portfolio() {
         setCurrentPage(1);
     }, [filter, searchTerm]);
 
+    useEffect(() => {
+        const portfolio = document.getElementById("portfolio");
+        if (portfolio) {
+            const timeout = setTimeout(() => {
+                portfolio.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 100); // 200ms delay
+
+            return () => clearTimeout(timeout);
+        }
+    }, [currentPage]);
+
     //Apply filtering + searching
     const filteredArtworks = artworks.filter(artwork => {
         const matchesCategory = filter === "All" || artwork.category === filter;
@@ -40,27 +51,27 @@ export default function Portfolio() {
         <section
             id="portfolio"
             className="min-h-screen w-full 
-            bg-[rgb(10,7,1)] text-[#C6A664]
+            bg-[rgb(20,14,2)] text-[#C6A664]
             bg-[url('/public/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay pt-25 pb-20
             ">
-            <div className="max-w-6xl mx-auto px-6">
+            <div className="xl:max-w-5xl 2xl:max-w-6xl mx-auto px-6">
                 {/* Heading */}
                 <div className="w-full text-center">
-                    <h2 className="text-5xl font-semibold mb-8 font-serif">Portfolio</h2>
-                    <p className="border-b border-[#C6A664] mb-8 w-150 mx-auto"></p>
-                    <p className="text-lg text-[#f5f5f5] font-serif tracking-wide">A collection of moments, sketches, and visions from my artistic journey.</p>
+                    <h2 className="xl:text-4xl 2xl:text-5xl font-semibold mb-6 font-serif">Portfolio</h2>
+                    <p className="border-b border-[#C6A664] mb-6 xl:w-135 2xl:w-135 mx-auto"></p>
+                    <p className="text-lg xl:text-base 2xl:text-base text-[#f5f5f5] font-serif tracking-wide">A collection of moments, sketches, and visions from my artistic journey.</p>
                 </div>
 
                 {/* Filters */}
-                <div className="flex flex-wrap justify-center gap-6 mb-8 mt-8">
+                <div className="flex flex-wrap justify-center gap-6 mb-8 mt-6 ">
                     {['All', 'Portrait', 'Oil Painting', 'Landscape', 'Anime'].map((category) => (
                         <span
                             key={category}
                             onClick={() => setFilter(category)}
                             className={`px-5 py-2 rounded-2xl text-center  
                                 ${filter === category ?
-                                    "bg-[#C6A664] px-4 py-2 rounded-full text-[#221B10] text-base text-center tracking-wide font-serif cursor-pointer" :
-                                    "bg-transparent px-4 py-2 rounded-full border border-[#C6A664] text-[#C6A664] text-base text-center tracking-wide font-serif cursor-pointer hover:bg-[#C6A664] hover:text-[#221B10] transition-colors duration-200"
+                                    "bg-[#C6A664] xl:px-3 2xl:px-4 2xl:py-2 rounded-full text-[#221B10] xl:text-sm 2xl:text-base text-center tracking-wide font-serif cursor-pointer" :
+                                    "bg-transparent px-4 py-2 rounded-full border border-[#C6A664] text-[#C6A664] xl:text-sm 2xl:text-base text-center tracking-wide font-serif cursor-pointer hover:bg-[#C6A664] hover:text-[#221B10] transition-colors duration-200"
                                 }`}>
                             {category}
                         </span>
@@ -68,7 +79,7 @@ export default function Portfolio() {
                 </div>
 
                 {/* Search Bar */}
-                <div className="flex justify-end mb-12">
+                <div className="flex justify-end xl:mb-10 2xl:mb-10">
                     <div className="w-full md:w-auto relative">
                         <Input
                             type="text"
@@ -115,7 +126,7 @@ export default function Portfolio() {
                                                         src={artwork.src}
                                                         alt={artwork.title}
                                                         loading="lazy"
-                                                        className="block w-full h-[420px] object-cover "
+                                                        className="block w-full xl:h-[380px] 2xl:h-[420px] object-cover "
                                                     />
                                                 </div>
                                             </div>
@@ -143,7 +154,7 @@ export default function Portfolio() {
                                 <PaginationItem>
                                     {/* Previous Page Button */}
                                     <PaginationPrevious
-                                        href="#"
+
                                         onClick={
                                             (e) => {
                                                 if (currentPage > 1) {
@@ -154,7 +165,7 @@ export default function Portfolio() {
                                         }
                                         size="default"
                                         className="
-                                        px-3 py-2 h-10 flex items-center justify-center
+                                        px-3 py-2 h-10 flex items-center justify-center cursor-pointer
                                         rounded-full border border-[#C6A664]/60 
                                         text-[#C6A664] font-serif 
                                         transition hover:!bg-[#C6A664] hover:text-[#221B10] hover:shadow-[0_0_10px_rgba(198,166,100,0.5)]" />
@@ -195,7 +206,6 @@ export default function Portfolio() {
                                 <PaginationItem>
                                     {/* Next Page Button */}
                                     <PaginationNext
-                                        href="#"
                                         onClick={(e) => {
                                             e.preventDefault();
                                             if (currentPage < totalPages) {
@@ -204,7 +214,7 @@ export default function Portfolio() {
                                         }}
                                         size="default"
                                         className="
-                                        px-3 py-2 h-10 flex items-center justify-center
+                                        px-3 py-2 h-10 flex items-center justify-center cursor-pointer
                                         rounded-full border border-[#C6A664]/60 
                                         text-[#C6A664] font-serif 
                                         transition hover:!bg-[#C6A664] hover:text-[#221B10] hover:shadow-[0_0_10px_rgba(198,166,100,0.5)]" />

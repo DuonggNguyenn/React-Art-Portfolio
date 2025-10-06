@@ -31,18 +31,21 @@ export default function Hero() {
         <section
             id="hero"
             className="min-h-screen items-center px-4 flex
-                    bg-[#110a01]
+                    bg-[#1b1206]
                      text-[#C6A664]  
                      bg-[radial-gradient(circle_at_center,rgba(198,166,100,0.25)_0%,transparent_70%)]
                      bg-[url('/public/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay"
         >
-            <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-30 w-full">
+            <div className="max-w-6xl mx-auto px-6 
+            flex flex-col md:flex-row items-center justify-center 
+            xl:gap-15 2xl: gap-20
+            w-full">
 
                 {/* Left column: Image + Button */}
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center xl:mt-25 2xl:mt-10">
                     <div className="relative mb-6">
                         {/* Outer frame */}
-                        <div className="border-2 border-[#C6A664] rounded-sm shadow-[0_8px_20px_rgba(0,0,0,0.6)] mb-6
+                        <div className="border-2 border-[#C6A664] rounded-sm shadow-[0_0_40px_rgba(198,140,100,0.5)] mb-4
                                       bg-[#0F0C08] ">
                             <div className="border-2 border-[#C6A664]/60 m-2">
                                 {/* Inner frame with image */}
@@ -51,11 +54,15 @@ export default function Hero() {
                                     <img
                                         src={images[currentImageIndex].src}
                                         alt={images[currentImageIndex].alt}
-                                        className="w-135 rounded-2xl shadow-lg mb-8 
-                                                   animate-fadeCrossfade"
+                                        className="
+                                            xl:max-w-[350px] xl:h-[450px]
+                                            2xl:max-w-[400px] 2xl:h-[540px]
+                                        object-cover rounded-2xl shadow-lg mb-8 animate-fadeCrossfade"
                                     />
 
-                                    <p className="italic font-serif text-medium text-[#C6A664]/80 text-center mb-2 tracking-wide">
+                                    <p className="italic font-serif 
+                                                xl: text-sm 
+                                                text-medium text-[#C6A664]/80 text-center mb-2 tracking-wide">
                                         {images[currentImageIndex].alt}
                                     </p>
                                 </div>
@@ -72,7 +79,9 @@ export default function Hero() {
                         asChild={true}
                         className="bg-[#221B10] text-[#C6A664] text-medium font-serif italic px-20
                          hover:bg-[#A68B5B] border border-[#C6A664] hover:text-[#221B10] 
-                         transition-colors duration-300 rounded-full py-5 text-base font-semibold shadow-md"
+                         transition-colors duration-300 rounded-full py-5 font-semibold shadow-md
+                         xl:text-sm xl:mb-10 2xl:text-base
+                         "
                     >
                         <a href="#portfolio">View My Works</a>
                     </Button>
@@ -80,9 +89,14 @@ export default function Hero() {
 
                 {/* Right column: Title + Text + Button */}
                 <div className="max-w-md md:text-left">
-                    <h2 className="text-6xl font-serif mb-6 tracking-wide">Art <br />  Journey</h2>
+                    <h2 className="
+                    text-6xl xl:text-4xl 2xl:text-6xl 
+                    font-serif mb-6 tracking-wide">Art <br />  Journey</h2>
                     <p className="border-b border-[#C6A664] mb-6"></p>
-                    <p className="text-lg mb-8 text-[#f5f2e7]  leading-loose font-sans">Art has always been my way of balancing life with creativity and expression. Painting and sketching let me explore stories, moods, and ideas that can’t be explained with code or numbers — only felt. Each piece reflects that balance.</p>
+                    <p className="text-lg mb-8 
+                    text-[#f5f2e7]  
+                     xl:text-base 2xl:text-base
+                    leading-loose font-sans">Art has always been my way of balancing life with creativity and expression. Painting and sketching let me explore stories, moods, and ideas that can’t be explained with code or numbers — only felt. Each piece reflects that balance.</p>
                     <Button
                         onClick={
                             (e) => {
@@ -93,7 +107,8 @@ export default function Hero() {
                         asChild={true}
                         className="bg-[#221B10] text-white font-serif hover:bg-[#A68B5B] 
                         border border-white hover:text-white 
-                        transition-colors duration-300 rounded-full py-5 px-10 text-base font-semibold shadow-md">
+                        transition-colors duration-300 rounded-full py-5 px-10 text-base font-semibold shadow-md
+                         xl:text-sm 2xl:text-base">
                         <a href="#contact">Contact Me</a>
                     </Button>
                 </div>

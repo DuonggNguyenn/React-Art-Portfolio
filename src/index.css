@@ -84,6 +84,7 @@ button {
 }
 button:hover {
   border-color: #646cff;
+  border-color: transparent; 
 }
 
 /* button:focus,
@@ -214,3 +215,5 @@ button:focus-visible {
     animation: fadeCrossfade 5s ease-in-out infinite;
   }
 }
+
+

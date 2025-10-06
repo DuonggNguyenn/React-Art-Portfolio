@@ -88,20 +88,26 @@ export default function Contact() {
         <section
             id="contact"
             className="min-h-screen w-full flex flex-col justify-center 
-            bg-[rgb(10,7,1)] text-[#C6A664]
+            bg-[rgb(20,14,2)] text-[#C6A664]
             bg-[url('/public/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay
             "
         >
             {/* Heading */}
-            <div className="text-center max-w-2xl mx-auto">
-                <h2 className="text-5xl font-serif font-semibold mb-6 tracking-wide">Contact Me</h2> 
-                <p className="border-b border-[#C6A664] mb-4"></p> 
-                <p className="text-lg text-[#f5f2e7] mb-10 font-sans">Interested in commissioning a piece, collaborating, or just want to say hello? I’d love to hear from you.</p>
+            <div className="text-center max-w-2xl mx-auto xl:my-10">
+                <h2 className="text-5xl font-serif font-semibold mb-6 tracking-wide xl:mt-15 2xl:mt-15">Contact Me</h2>
+                <p className="border-b border-[#C6A664] mb-4"></p>
+                <p className="text-lg text-[#f5f2e7] font-sans">Interested in commissioning a piece, collaborating, or just want to say hello? I’d love to hear from you.</p>
             </div>
 
             {/* Contact Form and Info Grid */}
-            <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-16 w-full items-stretch relative">
-                
+            <div className=" max-w-6xl  
+                            mx-auto 
+                            px-6 sm:px-8 lg:px-12  
+                            grid md:grid-cols-2 
+                            gap-10 lg:gap-16 xl:gap-20  
+                            w-full items-start relative
+                            xl:mb-30 2xl:mb-35">
+
                 {/* ✨ change: vertical divider line to mimic hero’s separation */}
                 <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[#C6A664]/30 hidden md:block"></div>
 
@@ -110,8 +116,9 @@ export default function Contact() {
                     <Card className="border-2 border-[#C6A664] bg-[#0F0C08] 
                         shadow-[0_8px_20px_rgba(0,0,0,0.6)] 
                         rounded-xl p-6 
-                        relative overflow-hidden">
-                                                
+                        relative overflow-hidden
+                        w-full max-w-lg">
+
                         <div className="absolute inset-0 pointer-events-none border border-[#C6A664]/40 rounded-xl"></div>
 
                         <CardContent className="flex-1 flex flex-col mt-4">
@@ -131,7 +138,7 @@ export default function Contact() {
                                         className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12] 
                                         text-white placeholder-[#d8c6a0] 
                                         focus:ring-0.5 focus:ring-[#C6A664] focus:border-[#C6A664]"
-                                    /> 
+                                    />
                                 </div>
 
                                 {/* Phone */}
@@ -194,12 +201,12 @@ export default function Contact() {
                                     rounded-full px-6 py-3 w-full"
                                 >
                                     Send Your Message
-                                </Button> 
+                                </Button>
                             </form>
                         </CardContent>
                     </Card>
                 </div>
-                
+
                 {/* Right Contact Info */}
                 <div className="flex flex-col h-full">
                     <Card className="bg-[rgb(34,27,16)] border border-[#C6A664] rounded-2xl shadow-md h-full flex flex-col relative overflow-hidden">
@@ -220,7 +227,7 @@ export default function Contact() {
 
                                 {/* Email */}
                                 <div className="flex items-start gap-3">
-                                    <Mail className="w-5 h-5 text-[#C6A664]/80 mt-1" /> 
+                                    <Mail className="w-5 h-5 text-[#C6A664]/80 mt-1" />
                                     <div>
                                         <p className="text-sm font-medium text-[#C6A664] font-serif">Email</p>
                                         <div className="flex items-center gap-2">
@@ -237,7 +244,7 @@ export default function Contact() {
                                                 }}
                                                 className="flex items-center gap-1 px-2 py-1 ml-2 text-xs text-[#C6A664] bg-[#C6A664]/10 border border-[#C6A664]/30 rounded-md hover:bg-[#C6A664]/20 hover:scale-105 transition"
                                             >
-                                                <Copy size={12} /> 
+                                                <Copy size={12} />
                                                 <span className="text-[#C6A664] px-1 text-sm font-serif">Copy</span>
                                             </button>
                                         </div>
