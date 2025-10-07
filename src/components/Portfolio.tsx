@@ -52,18 +52,21 @@ export default function Portfolio() {
             id="portfolio"
             className="min-h-screen w-full 
             bg-[rgb(20,14,2)] text-[#C6A664]
-            bg-[url('/public/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay pt-25 pb-20
+            bg-[url('textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay pt-25 pb-20
             ">
             <div className="xl:max-w-5xl 2xl:max-w-6xl mx-auto px-6">
                 {/* Heading */}
                 <div className="w-full text-center">
-                    <h2 className="xl:text-4xl 2xl:text-5xl font-semibold mb-6 font-serif">Portfolio</h2>
-                    <p className="border-b border-[#C6A664] mb-6 xl:w-135 2xl:w-135 mx-auto"></p>
-                    <p className="text-lg xl:text-base 2xl:text-base text-[#f5f5f5] font-serif tracking-wide">A collection of moments, sketches, and visions from my artistic journey.</p>
+                    <h2 className="text-xl xl:text-4xl 2xl:text-5xl font-semibold mb-6 font-serif">
+                        Portfolio
+                        <p className="border-b border-[#C6A664] my-4 xl:my-6 2xl:my-6 "></p>
+                    </h2>
+                    
+                    <p className="text-sm xl:text-base 2xl:text-base text-[#f5f5f5] font-serif tracking-wide">A collection of moments, sketches, and visions from my artistic journey.</p>
                 </div>
 
                 {/* Filters */}
-                <div className="flex flex-wrap justify-center gap-6 mb-8 mt-6 ">
+                <div className="flex flex-wrap justify-center gap-4 xl:gap-6 2xl:gap-6 mb-8 mt-6 text-sm xl:text-base 2xl:text-base">
                     {['All', 'Portrait', 'Oil Painting', 'Landscape', 'Anime'].map((category) => (
                         <span
                             key={category}
@@ -87,7 +90,7 @@ export default function Portfolio() {
                             onChange={(e) => setSearchTerm(e.target.value)}
                             aria-label="Search"
                             placeholder="Search..."
-                            className="w-full md:w-65 border border-[#C6A664] rounded-2xl px-4 py-2 text-[#C6A664] font-serif placeholder:text-[#C6A664] focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
+                            className="w-full text-sm mb-10 xl:text-base 2xl:text-base md:w-65 border border-[#C6A664] rounded-2xl px-4 py-2 text-[#C6A664] font-serif placeholder:text-[#C6A664] focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
                         />
                         {/* ✕ button */}
                         <button
@@ -126,7 +129,9 @@ export default function Portfolio() {
                                                         src={artwork.src}
                                                         alt={artwork.title}
                                                         loading="lazy"
-                                                        className="block w-full xl:h-[380px] 2xl:h-[420px] object-cover "
+                                                        className="block w-full xl:h-[380px] 2xl:h-[420px] object-cover
+                                                                   transition-all duration-500 ease-in-out
+                                                                   group-hover:object-contain group-hover:bg-black"
                                                     />
                                                 </div>
                                             </div>

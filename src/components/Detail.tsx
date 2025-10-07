@@ -44,8 +44,8 @@ export default function Detail({
                             type="button"
                             onClick={onPrev}
                             className="absolute top-1/2 left-0 -translate-y-1/2 w-10 h-10 border border-[#C6A664] rounded-full
-            flex items-center justify-center text-[#C6A664] text-lg
-            bg-black/60 hover:bg-[#C6A664] hover:text-[#221B10] transition"
+                                       flex items-center justify-center text-[#C6A664] text-lg
+                                     bg-black/60 hover:bg-[#C6A664] hover:text-[#221B10] transition"
                         >
                             ◀
                         </button>
@@ -71,7 +71,7 @@ export default function Detail({
                     <h2 className="xl:text-xl 2xl:text-2xl font-serif font-semibold mb-3 tracking-wide">
                         {artwork.title}
                     </h2>
-                    <p className="mb-4 text-[#f5f2e7] xl:text-sm 2xl:text-base leading-relaxed">
+                    <p className="mb-4 text-[#f5f2e7] text-[15px] md:text-sm xl:text-sm 2xl:text-base leading-relaxed">
                         {artwork.description}
                     </p>
                     <p className="text-sm tracking-wider opacity-80 mb-1">
@@ -87,8 +87,8 @@ export default function Detail({
                     type="button"
                     onClick={onClose}
                     className="absolute top-0 right-0 w-10 h-10 border border-[#C6A664] rounded-full
-          flex items-center justify-center text-[#C6A664] text-lg
-          hover:bg-[#C6A664] hover:text-[#221B10] transition"
+                               flex items-center justify-center text-[#C6A664] text-lg
+                             hover:bg-[#C6A664] hover:text-[#221B10] transition"
                 >
                     ✕
                 </button>

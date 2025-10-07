@@ -89,14 +89,15 @@ export default function Contact() {
             id="contact"
             className="min-h-screen w-full flex flex-col justify-center 
             bg-[rgb(20,14,2)] text-[#C6A664]
-            bg-[url('/public/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay
-            "
+            bg-[url('/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay"
         >
             {/* Heading */}
-            <div className="text-center max-w-2xl mx-auto xl:my-10">
-                <h2 className="text-5xl font-serif font-semibold mb-6 tracking-wide xl:mt-15 2xl:mt-15">Contact Me</h2>
-                <p className="border-b border-[#C6A664] mb-4"></p>
-                <p className="text-lg text-[#f5f2e7] font-sans">Interested in commissioning a piece, collaborating, or just want to say hello? I’d love to hear from you.</p>
+            <div className="text-center max-w-2xl mx-auto mt-6 mb-4 xl:my-10">
+                <h2 className="font-serif font-semibold mb-3 tracking-wide text-xl xl:text-5xl 2xl:text-5xl sm:mt-10 xl:mt-15 2xl:mt-15">
+                    Contact Me
+                    <p className="border-b border-[#C6A664] mx-6 mt-3 xl:my-4 2xl:my-4"></p>
+                </h2>
+                <p className="text-[12px] mx-6 xl:text-lg 2xl:text-lg text-[#f5f2e7] font-sans">Interested in commissioning a piece, collaborating, or just want to say hello? I’d love to hear from you.</p>
             </div>
 
             {/* Contact Form and Info Grid */}
@@ -104,20 +105,20 @@ export default function Contact() {
                             mx-auto 
                             px-6 sm:px-8 lg:px-12  
                             grid md:grid-cols-2 
-                            gap-10 lg:gap-16 xl:gap-20  
+                            gap-5 lg:gap-16 xl:gap-20 2xl:gap-20
                             w-full items-start relative
-                            xl:mb-30 2xl:mb-35">
+                            mb-12 xl:mb-30 2xl:mb-35">
 
-                {/* ✨ change: vertical divider line to mimic hero’s separation */}
-                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[#C6A664]/30 hidden md:block"></div>
+                {/* Vertical line for tablet/desktop */}
+                <div className="absolute h-full w-px top-0 left-1/2 bg-[#C6A664]/60 hidden md:block"></div>
 
                 {/* Left Contact Form*/}
                 <div className="flex flex-col h-full">
-                    <Card className="border-2 border-[#C6A664] bg-[#0F0C08] 
+                    <Card className="border-1 border-[#C6A664] bg-[#0F0C08] 
                         shadow-[0_8px_20px_rgba(0,0,0,0.6)] 
-                        rounded-xl p-6 
+                        rounded-xl px-0 xl:p-6 2xl:px-6
                         relative overflow-hidden
-                        w-full max-w-lg">
+                        w-full h-full">
 
                         <div className="absolute inset-0 pointer-events-none border border-[#C6A664]/40 rounded-xl"></div>
 
@@ -126,7 +127,7 @@ export default function Contact() {
 
                                 {/* Name */}
                                 <div>
-                                    <label htmlFor="name" className="block text-sm font-serif font-medium mb-2">
+                                    <label htmlFor="name" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
                                         Name*
                                     </label>
                                     <input
@@ -135,7 +136,8 @@ export default function Contact() {
                                         name="name"
                                         placeholder="Your full name"
                                         required
-                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12] 
+                                        className="w-full px-3 py-2 bg-[#1f1a12]
+                                        text-[12px] xl:text-base 2xl:text-base 
                                         text-white placeholder-[#d8c6a0] 
                                         focus:ring-0.5 focus:ring-[#C6A664] focus:border-[#C6A664]"
                                     />
@@ -143,7 +145,7 @@ export default function Contact() {
 
                                 {/* Phone */}
                                 <div>
-                                    <label htmlFor="phone" className="block text-sm font-serif font-medium mb-2">
+                                    <label htmlFor="phone" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
                                         Phone
                                     </label>
                                     <input
@@ -151,15 +153,16 @@ export default function Contact() {
                                         id="phone"
                                         name="phone"
                                         placeholder="Your phone number"
-                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12] 
-                                        text-white placeholder-[#d8c6a0] 
+                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12]
+                                        text-[12px] xl:text-base 2xl:text-base
+                                        text-white placeholder-[#d8c6a0]
                                         focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
                                     />
                                 </div>
 
                                 {/* Email */}
                                 <div>
-                                    <label htmlFor="email" className="block text-sm font-serif font-medium mb-2">
+                                    <label htmlFor="email" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
                                         Email*
                                     </label>
                                     <input
@@ -169,6 +172,7 @@ export default function Contact() {
                                         placeholder="Your email address"
                                         required
                                         className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12] 
+                                        text-[12px] xl:text-base 2xl:text-base
                                         text-white placeholder-[#d8c6a0] 
                                         focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
                                     />
@@ -176,7 +180,7 @@ export default function Contact() {
 
                                 {/* Message */}
                                 <div>
-                                    <label htmlFor="message" className="block text-sm font-serif font-medium mb-2">
+                                    <label htmlFor="message" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
                                         Message*
                                     </label>
                                     <textarea
@@ -186,6 +190,7 @@ export default function Contact() {
                                         placeholder="Tell me what you think..."
                                         required
                                         className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl 
+                                        text-[12px] xl:text-base 2xl:text-base
                                         focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664] 
                                         bg-[#1f1a12] text-white placeholder-[#d8c6a0]"
                                     />
@@ -195,6 +200,7 @@ export default function Contact() {
                                 <Button
                                     type="submit"
                                     className="bg-transparent text-[#C6A664] font-serif 
+                                    !text-sm xl:text-base 2xl:text-medium
                                     border border-[#C6A664] tracking-wide 
                                     hover:bg-[#C6A664] hover:text-[#221B10] 
                                     transition-all duration-300 
@@ -209,14 +215,14 @@ export default function Contact() {
 
                 {/* Right Contact Info */}
                 <div className="flex flex-col h-full">
-                    <Card className="bg-[rgb(34,27,16)] border border-[#C6A664] rounded-2xl shadow-md h-full flex flex-col relative overflow-hidden">
-                        <div className="absolute inset-0 pointer-events-none border border-[#C6A664]/40 rounded-2xl"></div>
+                    <Card className="bg-[rgb(34,27,16)] shadow-[0_8px_20px_rgba(0,0,0,0.6)]  h-full flex flex-col relative overflow-hidden">
+                        <div className="absolute inset-0 pointer-events-none mb-10"></div>
 
                         <CardContent className="flex flex-col p-6">
 
                             {/* Section heading */}
                             <div className="mb-6">
-                                <h3 className="text-xl font-serif font-medium text-[#C6A664] tracking-wide">
+                                <h3 className="text-base xl:text-xl 2xl:text-xl font-serif font-medium text-[#C6A664] tracking-wide">
                                     Let’s Connect
                                 </h3>
                                 <div className="h-[1px] bg-[#C6A664]/40 mt-4" />
@@ -233,7 +239,7 @@ export default function Contact() {
                                         <div className="flex items-center gap-2">
                                             <a
                                                 href="mailto:abc@gmail.com"
-                                                className="text-white hover:underline font-serif"
+                                                className="text-white hover:underline font-serif text-[12px] xl:text-base 2xl:text-base"
                                             >
                                                 abc@gmail.com
                                             </a>
@@ -242,10 +248,10 @@ export default function Contact() {
                                                     navigator.clipboard.writeText("abc@gmail.com");
                                                     toast.success("Email copied to clipboard!");
                                                 }}
-                                                className="flex items-center gap-1 px-2 py-1 ml-2 text-xs text-[#C6A664] bg-[#C6A664]/10 border border-[#C6A664]/30 rounded-md hover:bg-[#C6A664]/20 hover:scale-105 transition"
+                                                className="flex items-center gap-1 xl:px-2 xl:py-1 ml-2 2xl:px-2 2xl:py-1 text-[#C6A664] bg-[#C6A664]/10 border border-[#C6A664]/30 rounded-md hover:bg-[#C6A664]/20 hover:scale-105 transition"
                                             >
                                                 <Copy size={12} />
-                                                <span className="text-[#C6A664] px-1 text-sm font-serif">Copy</span>
+                                                <span className="text-[#C6A664] px-1 text-[12px] xl:text-sm 2xl:text-sm font-serif">Copy</span>
                                             </button>
                                         </div>
                                     </div>
@@ -256,7 +262,7 @@ export default function Contact() {
                                     <MapPin className="w-5 h-5 text-[#C6A664]/80 mt-1" />
                                     <div>
                                         <p className="text-sm font-medium text-[#C6A664] font-serif">City</p>
-                                        <p className="text-white/80 font-serif mt-2">Oslo, Norway</p>
+                                        <p className="text-white/80 text-[12px] xl:text-sm 2xl:text-smfont-serif mt-2">Oslo, Norway</p>
                                     </div>
                                 </div>
 
@@ -265,14 +271,14 @@ export default function Contact() {
                                     <Phone className="w-5 h-5 text-[#C6A664]/80 mt-1" />
                                     <div>
                                         <p className="text-sm font-medium text-[#C6A664] font-serif">Phone</p>
-                                        <p className="text-white/80 font-serif">+47 123 45 678</p>
+                                        <p className="text-white/80 text-[12px] xl:text-sm 2xl:text-sm font-serif">+47 123 45 678</p>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Socials */}
                             <div className="mt-10">
-                                <p className="text-lg font-serif font-medium mb-3 underline decoration-[#C6A664]/60 underline-offset-4">Follow me</p>
+                                <p className="text-sm xl:text-lg 2xl:text-lg font-serif font-medium mb-3 underline decoration-[#C6A664]/60 underline-offset-4">Follow me</p>
                                 <div className="flex gap-5">
                                     <a href="https://www.instagram.com/"><Instagram className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
                                     <a href="https://www.facebook.com/"><Facebook className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
