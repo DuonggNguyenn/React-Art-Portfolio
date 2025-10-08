@@ -92,203 +92,196 @@ export default function Contact() {
             bg-[url('/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay"
         >
             {/* Heading */}
-            <div className="text-center max-w-2xl mx-auto mt-6 mb-4 xl:my-10">
-                <h2 className="font-serif font-semibold mb-3 tracking-wide text-xl xl:text-5xl 2xl:text-5xl sm:mt-10 xl:mt-15 2xl:mt-15">
+            <div className="text-center max-w-2xl mx-auto mt-6 mb-6 lg:my-10">
+                <h2 className="font-serif font-semibold tracking-wide text-2xl sm:text-3xl lg:text-4xl xl:text-5xl my-6 lg:my-8">
                     Contact Me
-                    <p className="border-b border-[#C6A664] mx-6 mt-3 xl:my-4 2xl:my-4"></p>
+                    <div className="h-[1px] bg-[#C6A664] mx-auto mt-4 lg:mt-6"></div>
                 </h2>
-                <p className="text-[12px] mx-6 xl:text-lg 2xl:text-lg text-[#f5f2e7] font-sans">Interested in commissioning a piece, collaborating, or just want to say hello? I’d love to hear from you.</p>
+                <p className="text-sm sm:text-base lg:text-lg text-[#f5f2e7] font-sans px-4">Interested in commissioning a piece, collaborating, or just want to say hello? I’d love to hear from you.</p>
             </div>
 
             {/* Contact Form and Info Grid */}
-            <div className=" max-w-6xl  
-                            mx-auto 
-                            px-6 sm:px-8 lg:px-12  
-                            grid md:grid-cols-2 
-                            gap-5 lg:gap-16 xl:gap-20 2xl:gap-20
-                            w-full items-start relative
-                            mb-12 xl:mb-30 2xl:mb-35">
+            <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 
+                             grid lg:grid-cols-[2fr_1fr] gap-10 items-stretch relative mb-16">
 
                 {/* Vertical line for tablet/desktop */}
-                <div className="absolute h-full w-px top-0 left-1/2 bg-[#C6A664]/60 hidden md:block"></div>
+                <div className="absolute inset-y-0 left-1/2 w-px bg-[#C6A664]/40 hidden lg:block"></div>
 
                 {/* Left Contact Form*/}
-                <div className="flex flex-col h-full">
-                    <Card className="border-1 border-[#C6A664] bg-[#0F0C08] 
+
+                <Card className="border-1 border-[#C6A664] bg-[#0F0C08] 
                         shadow-[0_8px_20px_rgba(0,0,0,0.6)] 
                         rounded-xl px-0 xl:p-6 2xl:px-6
                         relative overflow-hidden
-                        w-full h-full">
+                        w-full h-full flex flex-col">
 
-                        <div className="absolute inset-0 pointer-events-none border border-[#C6A664]/40 rounded-xl"></div>
+                    <div className="absolute inset-0 pointer-events-none border border-[#C6A664]/40 rounded-xl"></div>
 
-                        <CardContent className="flex-1 flex flex-col mt-4">
-                            <form ref={form} onSubmit={sendEmail} className="space-y-5 flex-1">
+                    <CardContent className="flex-1 flex flex-col mt-4">
+                        <form ref={form} onSubmit={sendEmail} className="space-y-5 flex-1">
 
-                                {/* Name */}
-                                <div>
-                                    <label htmlFor="name" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
-                                        Name*
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        placeholder="Your full name"
-                                        required
-                                        className="w-full px-3 py-2 bg-[#1f1a12]
+                            {/* Name */}
+                            <div>
+                                <label htmlFor="name" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
+                                    Name*
+                                </label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Your full name"
+                                    required
+                                    className="w-full px-3 py-2 bg-[#1f1a12]
                                         text-[12px] xl:text-base 2xl:text-base 
                                         text-white placeholder-[#d8c6a0] 
                                         focus:ring-0.5 focus:ring-[#C6A664] focus:border-[#C6A664]"
-                                    />
-                                </div>
+                                />
+                            </div>
 
-                                {/* Phone */}
-                                <div>
-                                    <label htmlFor="phone" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
-                                        Phone
-                                    </label>
-                                    <input
-                                        type="tel"
-                                        id="phone"
-                                        name="phone"
-                                        placeholder="Your phone number"
-                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12]
+                            {/* Phone */}
+                            <div>
+                                <label htmlFor="phone" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
+                                    Phone
+                                </label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="Your phone number"
+                                    className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12]
                                         text-[12px] xl:text-base 2xl:text-base
                                         text-white placeholder-[#d8c6a0]
                                         focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
-                                    />
-                                </div>
+                                />
+                            </div>
 
-                                {/* Email */}
-                                <div>
-                                    <label htmlFor="email" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
-                                        Email*
-                                    </label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        placeholder="Your email address"
-                                        required
-                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12] 
+                            {/* Email */}
+                            <div>
+                                <label htmlFor="email" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
+                                    Email*
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="Your email address"
+                                    required
+                                    className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12] 
                                         text-[12px] xl:text-base 2xl:text-base
                                         text-white placeholder-[#d8c6a0] 
                                         focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
-                                    />
-                                </div>
+                                />
+                            </div>
 
-                                {/* Message */}
-                                <div>
-                                    <label htmlFor="message" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
-                                        Message*
-                                    </label>
-                                    <textarea
-                                        id="message"
-                                        name="message"
-                                        rows={6}
-                                        placeholder="Tell me what you think..."
-                                        required
-                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl 
+                            {/* Message */}
+                            <div>
+                                <label htmlFor="message" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
+                                    Message*
+                                </label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows={6}
+                                    placeholder="Tell me what you think..."
+                                    required
+                                    className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl 
                                         text-[12px] xl:text-base 2xl:text-base
                                         focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664] 
                                         bg-[#1f1a12] text-white placeholder-[#d8c6a0]"
-                                    />
-                                </div>
+                                />
+                            </div>
 
-                                {/* Submit Button */}
-                                <Button
-                                    type="submit"
-                                    className="bg-transparent text-[#C6A664] font-serif 
+                            {/* Submit Button */}
+                            <Button
+                                type="submit"
+                                className="bg-transparent text-[#C6A664] font-serif 
                                     !text-sm xl:text-base 2xl:text-medium
                                     border border-[#C6A664] tracking-wide 
                                     hover:bg-[#C6A664] hover:text-[#221B10] 
                                     transition-all duration-300 
                                     rounded-full px-6 py-3 w-full"
-                                >
-                                    Send Your Message
-                                </Button>
-                            </form>
-                        </CardContent>
-                    </Card>
-                </div>
+                            >
+                                Send Your Message
+                            </Button>
+                        </form>
+                    </CardContent>
+                </Card>
 
                 {/* Right Contact Info */}
-                <div className="flex flex-col h-full">
-                    <Card className="bg-[rgb(34,27,16)] shadow-[0_8px_20px_rgba(0,0,0,0.6)]  h-full flex flex-col relative overflow-hidden">
-                        <div className="absolute inset-0 pointer-events-none mb-10"></div>
+                <Card className="bg-[rgb(34,27,16)] shadow-[0_8px_20px_rgba(0,0,0,0.6)] w-full h-full flex flex-col relative overflow-hidden">
+                    <div className="absolute inset-0 pointer-events-none mb-10"></div>
 
-                        <CardContent className="flex flex-col p-6">
+                    <CardContent className="flex flex-col p-6">
 
-                            {/* Section heading */}
-                            <div className="mb-6">
-                                <h3 className="text-base xl:text-xl 2xl:text-xl font-serif font-medium text-[#C6A664] tracking-wide">
-                                    Let’s Connect
-                                </h3>
-                                <div className="h-[1px] bg-[#C6A664]/40 mt-4" />
-                            </div>
+                        {/* Section heading */}
+                        <div className="mb-6">
+                            <h3 className="text-base xl:text-xl 2xl:text-xl font-serif font-medium text-[#C6A664] tracking-wide">
+                                Let’s Connect
+                            </h3>
+                            <div className="h-[1px] bg-[#C6A664]/40 mt-4" />
+                        </div>
 
-                            {/* Contact items */}
-                            <div className="flex flex-col gap-4">
+                        {/* Contact items */}
+                        <div className="flex flex-col gap-4">
 
-                                {/* Email */}
-                                <div className="flex items-start gap-3">
-                                    <Mail className="w-5 h-5 text-[#C6A664]/80 mt-1" />
-                                    <div>
-                                        <p className="text-sm font-medium text-[#C6A664] font-serif">Email</p>
-                                        <div className="flex items-center gap-2">
-                                            <a
-                                                href="mailto:abc@gmail.com"
-                                                className="text-white hover:underline font-serif text-[12px] xl:text-base 2xl:text-base"
-                                            >
-                                                abc@gmail.com
-                                            </a>
-                                            <button
-                                                onClick={() => {
-                                                    navigator.clipboard.writeText("abc@gmail.com");
-                                                    toast.success("Email copied to clipboard!");
-                                                }}
-                                                className="flex items-center gap-1 xl:px-2 xl:py-1 ml-2 2xl:px-2 2xl:py-1 text-[#C6A664] bg-[#C6A664]/10 border border-[#C6A664]/30 rounded-md hover:bg-[#C6A664]/20 hover:scale-105 transition"
-                                            >
-                                                <Copy size={12} />
-                                                <span className="text-[#C6A664] px-1 text-[12px] xl:text-sm 2xl:text-sm font-serif">Copy</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* City */}
-                                <div className="flex items-start gap-3">
-                                    <MapPin className="w-5 h-5 text-[#C6A664]/80 mt-1" />
-                                    <div>
-                                        <p className="text-sm font-medium text-[#C6A664] font-serif">City</p>
-                                        <p className="text-white/80 text-[12px] xl:text-sm 2xl:text-smfont-serif mt-2">Oslo, Norway</p>
-                                    </div>
-                                </div>
-
-                                {/* Phone */}
-                                <div className="flex items-start gap-3">
-                                    <Phone className="w-5 h-5 text-[#C6A664]/80 mt-1" />
-                                    <div>
-                                        <p className="text-sm font-medium text-[#C6A664] font-serif">Phone</p>
-                                        <p className="text-white/80 text-[12px] xl:text-sm 2xl:text-sm font-serif">+47 123 45 678</p>
+                            {/* Email */}
+                            <div className="flex items-start gap-3">
+                                <Mail className="w-5 h-5 text-[#C6A664]/80 mt-1" />
+                                <div>
+                                    <p className="text-sm font-medium text-[#C6A664] font-serif">Email</p>
+                                    <div className="flex items-center gap-2">
+                                        <a
+                                            href="mailto:abc@gmail.com"
+                                            className="text-white hover:underline font-serif text-[12px] xl:text-base 2xl:text-base"
+                                        >
+                                            abc@gmail.com
+                                        </a>
+                                        <button
+                                            onClick={() => {
+                                                navigator.clipboard.writeText("abc@gmail.com");
+                                                toast.success("Email copied to clipboard!");
+                                            }}
+                                            className="flex items-center gap-1 xl:px-2 xl:py-1 ml-2 2xl:px-2 2xl:py-1 text-[#C6A664] bg-[#C6A664]/10 border border-[#C6A664]/30 rounded-md hover:bg-[#C6A664]/20 hover:scale-105 transition"
+                                        >
+                                            <Copy size={12} />
+                                            <span className="text-[#C6A664] px-1 text-[12px] xl:text-sm 2xl:text-sm font-serif">Copy</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Socials */}
-                            <div className="mt-10">
-                                <p className="text-sm xl:text-lg 2xl:text-lg font-serif font-medium mb-3 underline decoration-[#C6A664]/60 underline-offset-4">Follow me</p>
-                                <div className="flex gap-5">
-                                    <a href="https://www.instagram.com/"><Instagram className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
-                                    <a href="https://www.facebook.com/"><Facebook className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
-                                    <a href="https://www.linkedin.com/"><Linkedin className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
+                            {/* City */}
+                            <div className="flex items-start gap-3">
+                                <MapPin className="w-5 h-5 text-[#C6A664]/80 mt-1" />
+                                <div>
+                                    <p className="text-sm font-medium text-[#C6A664] font-serif">City</p>
+                                    <p className="text-white/80 text-[12px] xl:text-sm 2xl:text-smfont-serif mt-2">Oslo, Norway</p>
                                 </div>
                             </div>
 
-                        </CardContent>
-                    </Card>
-                </div>
+                            {/* Phone */}
+                            <div className="flex items-start gap-3">
+                                <Phone className="w-5 h-5 text-[#C6A664]/80 mt-1" />
+                                <div>
+                                    <p className="text-sm font-medium text-[#C6A664] font-serif">Phone</p>
+                                    <p className="text-white/80 text-[12px] xl:text-sm 2xl:text-sm font-serif">+47 123 45 678</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Socials */}
+                        <div className="mt-10">
+                            <p className="text-sm xl:text-lg 2xl:text-lg font-serif font-medium mb-3 underline decoration-[#C6A664]/60 underline-offset-4">Follow me</p>
+                            <div className="flex gap-5">
+                                <a href="https://www.instagram.com/"><Instagram className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
+                                <a href="https://www.facebook.com/"><Facebook className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
+                                <a href="https://www.linkedin.com/"><Linkedin className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
+                            </div>
+                        </div>
+
+                    </CardContent>
+                </Card>
+
             </div>
 
             <Toaster richColors position="bottom-right" />

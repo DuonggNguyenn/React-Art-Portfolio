@@ -55,11 +55,12 @@ export default function Hero() {
                                         src={images[currentImageIndex].src}
                                         alt={images[currentImageIndex].alt}
                                         className="
-                                            sm:max-w-[400px] sm:h-[450px]
-                                            md:max-w-[300px] md:h-[400px]
-                                            lg:max-w-[350px] lg:h-[450px]
-                                            xl:max-w-[350px] xl:h-[450px]
-                                            2xl:max-w-[400px] 2xl:h-[540px]
+                                            sm:w-[400px] 
+                                            md:w-[300px]
+                                            lg:w-[350px] 
+                                            xl:w-[350px] 
+                                            2xl:w-[400px] 
+                                            h-auto
                                         object-cover rounded-2xl shadow-lg mb-8 animate-fadeCrossfade"
                                     />
 
@@ -80,10 +81,10 @@ export default function Hero() {
                             }
                         }
                         asChild={true}
-                        className="bg-[#221B10] text-[#C6A664] text-medium font-serif italic px-15 xl:px-20 2xl:px-20
+                        className="bg-[#221B10] text-[#C6A664] text-medium font-serif italic px-15 lg:px-20
                          hover:bg-[#A68B5B] border border-[#C6A664] hover:text-[#221B10] 
-                         transition-colors duration-300 rounded-full py-3 xl:py-5 2xl:py-5 font-semibold shadow-md
-                         text-[12px] xl:text-sm xl:mb-10 2xl:text-base
+                         transition-colors duration-300 rounded-full py-3 lg:py-5  font-semibold shadow-md
+                         text-[12px] lg:text-base
                          "
                     >
                         <a href="#portfolio">View My Works</a>
@@ -91,13 +92,12 @@ export default function Hero() {
                 </div>
 
                 {/* Right column: Title + Text + Button */}
-                <div className="max-w-md text-center mt-6 md:mt-0 md:text-left md:ml-10 xl:mt-0 2xl:mt-0 xl:md:text-left 2xl:md:text-left">
+                <div className="max-w-md text-center md:text-left md:ml-10">
                     <h2 className="
-                    text-lg md:text-2xl xl:text-4xl 2xl:text-6xl 
-                    font-serif mb-4 xl:mb-6 2xl:mb-6 tracking-wide">Art <br />  Journey</h2>
+                    text-2xl md:text-4xl lg:text-5xl font-serif mb-4 mt-8 tracking-wide">Art <br />  Journey</h2>
                     <p className="border-b border-[#C6A664] mb-6"></p>
                     <p className="mb-8 
-                    text-[#f5f2e7]  
+                    text-[#f5f2e7]
                      text-sm md:sm xl:text-base 2xl:text-base
                     leading-loose font-sans">Art has always been my way of balancing life with creativity and expression. Painting and sketching let me explore stories, moods, and ideas that can’t be explained with code or numbers — only felt. Each piece reflects that balance.</p>
                     <Button
@@ -110,8 +110,9 @@ export default function Hero() {
                         asChild={true}
                         className="bg-[#221B10] text-white font-serif hover:bg-[#A68B5B] 
                         border border-white hover:text-white 
-                        transition-colors duration-300 rounded-full px-6 xl:py-5 2xl:py-5 xl:px-10 2xl:px-10 font-semibold shadow-md
-                        text-[12px] xl:text-sm 2xl:text-base">
+                        transition-colors duration-300 rounded-full 
+                        px-8 md:px-10 py-3 md:py-5
+                        text-[12px] md:text-sm 2xl:text-base">
                         <a href="#contact">Contact Me</a>
                     </Button>
                 </div>

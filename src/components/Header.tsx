@@ -15,15 +15,15 @@ export default function Header() {
     return (
         <header className="w-full fixed top-0 left-0 z-60
                          bg-[#15110B] bg-gradient-to-b from-[#15110B] to-[#302617]
-                          text-[#C6A664]  
+                          text-[#C6A664] 
                           border-b border-[#C6A664]">
-            <div className="max-w-7xl mx-auto w-full sm:px-6 md:px-8 lg:px-10 xl:px-4 2xl:px-10">
-                <nav className="flex items-center sm:h-8 md:h-8 lg:h-8 xl:h-12 2xl:h-14">
+            <div className="max-w-7xl mx-auto w-full px-6 xl:px-4">
+                <nav className="flex items-center h-8 xl:h-12">
                     {/* Logo */}
                     <button
                         onClick={() => scrollToSection('hero')}
                         className="text-[#C6A664] font-serif font-semibold 
-                        sm:!text-sm md:!text-sm lg:!text-base xl:!text-xl 2xl:!text-2xl
+                        !text-sm xl:!text-xl 
                         tracking-wide hover:text-[#E3C97B] hover:scale-105 hover:drop-shadow-[0_0_6px_rgba(227,201,123,0.8)] transition outline-none focus:outline-none"
                     >
                         Artist Portfolio
@@ -34,8 +34,8 @@ export default function Header() {
 
                     {/* Nav links */}
                     <ul className="hidden md:flex items-center 
-                                   md:space-x-4 lg:space-x-5 xl:space-x-5 2xl:space-x-5 
-                                   text-sm md:text-[12px] lg:text-sm xl:text-sm 2xl:text-base
+                                   space-x-4 xl:space-x-5
+                                   text-sm xl:text-medium
                                    font-light tracking-wide
                                   ">
                         {['portfolio', 'about', 'contact'].map((id) => (
@@ -53,7 +53,7 @@ export default function Header() {
                     {/* Mobile menu hamburger */}
                     <div className="md:hidden">
                         <button onClick={() => setMenuOpen(!menuOpen)}
-                            className="flex items-center justify-center p-2 rounded-md text-[#C6A664] hover:text-[#E3C97B] transition-colors duration-200 focus:outline-none"
+                            className="!p-0 !m-0 flex items-center justify-center rounded-md text-[#C6A664] hover:text-[#E3C97B] transition-colors duration-200 focus:outline-none"
                             aria-label="Toggle menu"
                         >
                             {menuOpen ? (
@@ -73,12 +73,12 @@ export default function Header() {
                         {/* When menu is open, show mobile menu items */}
                         {menuOpen && (
                             <div className="absolute top-full right-0 mt-2 w-40 bg-[#15110B] border border-[#C6A664] border:p-1 rounded-md shadow-lg">
-                                <ul className="flex flex-col p-2 space-y-2">
+                                <ul className="flex flex-col p-2 space-y-1">
                                     {['portfolio', 'about', 'contact'].map((id) => (    
                                         <li key={id}>
                                             <button
                                                 onClick={() => scrollToSection(id)}
-                                                className="font-serif text-sm hover:text-[#E3C97B] hover:scale-105 hover:drop-shadow-[0_0_6px_rgba(227,201,123,0.8)] transition-colors duration-200 focus:outline-none focus-visible:outline-none"
+                                                className="!font-serif font-light text-sm hover:text-[#E3C97B] hover:scale-105 hover:drop-shadow-[0_0_6px_rgba(227,201,123,0.8)] transition-colors duration-200 focus:outline-none focus-visible:outline-none"
                                             >
                                                 {id.charAt(0).toUpperCase() + id.slice(1)}
                                             </button>

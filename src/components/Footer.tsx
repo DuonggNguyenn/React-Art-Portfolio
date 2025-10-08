@@ -6,7 +6,7 @@ export default function Footer() {
          bg-[#15110B] bg-gradient-to-b from-[#302617] to-[#0a0805]
         text-[#C6A664] text-center font-serif tracking-wide
         border-t border-[#C6A664]/40 
-        text-[10px] lg:text-[12px] xl:text-sm 2xl:text-base
+        text-sm xl:text-base
         ">
             <p>&copy; {new Date().getFullYear()} | Made with
                 <span className="text-pink-300"> ♥️</span> by artist</p>

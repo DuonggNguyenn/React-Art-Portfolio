@@ -52,29 +52,29 @@ export default function Portfolio() {
             id="portfolio"
             className="min-h-screen w-full 
             bg-[rgb(20,14,2)] text-[#C6A664]
-            bg-[url('textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay pt-25 pb-20
+            bg-[url('textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay 
             ">
-            <div className="xl:max-w-5xl 2xl:max-w-6xl mx-auto px-6">
+            <div className="max-w-xl xl:max-w-5xl 2xl:max-w-6xl mx-auto">
                 {/* Heading */}
                 <div className="w-full text-center">
-                    <h2 className="text-xl xl:text-4xl 2xl:text-5xl font-semibold mb-6 font-serif">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl 2xl:text-5xl pt-20 lg:pt-20 font-semibold  font-serif">
                         Portfolio
-                        <p className="border-b border-[#C6A664] my-4 xl:my-6 2xl:my-6 "></p>
+                        <div className="border-b border-[#C6A664] my-4 lg:my-6 mx-auto w-90 sm:w-120 lg:w-140"></div>
                     </h2>
-                    
-                    <p className="text-sm xl:text-base 2xl:text-base text-[#f5f5f5] font-serif tracking-wide">A collection of moments, sketches, and visions from my artistic journey.</p>
+
+                    <p className="text-sm mx-6 xl:text-base 2xl:text-base text-[#f5f5f5] font-sans tracking-wide">A collection of moments, sketches, and visions from my artistic journey.</p>
                 </div>
 
                 {/* Filters */}
-                <div className="flex flex-wrap justify-center gap-4 xl:gap-6 2xl:gap-6 mb-8 mt-6 text-sm xl:text-base 2xl:text-base">
+                <div className="flex flex-wrap justify-center mx-2 gap-3 lg:gap-6 mb-8 mt-6 font-serif text-[12px] md:text-sm lg:text-base">
                     {['All', 'Portrait', 'Oil Painting', 'Landscape', 'Anime'].map((category) => (
                         <span
                             key={category}
                             onClick={() => setFilter(category)}
                             className={`px-5 py-2 rounded-2xl text-center  
                                 ${filter === category ?
-                                    "bg-[#C6A664] xl:px-3 2xl:px-4 2xl:py-2 rounded-full text-[#221B10] xl:text-sm 2xl:text-base text-center tracking-wide font-serif cursor-pointer" :
-                                    "bg-transparent px-4 py-2 rounded-full border border-[#C6A664] text-[#C6A664] xl:text-sm 2xl:text-base text-center tracking-wide font-serif cursor-pointer hover:bg-[#C6A664] hover:text-[#221B10] transition-colors duration-200"
+                                    "bg-[#C6A664] lg:px-3 rounded-full text-[#221B10] lg:text-sm text-center tracking-wide font-serif cursor-pointer" :
+                                    "bg-transparent px-4 py-2 rounded-full border border-[#C6A664] text-[#C6A664] lg:text-sm text-center tracking-wide font-serif cursor-pointer hover:bg-[#C6A664] hover:text-[#221B10] transition-colors duration-200"
                                 }`}>
                             {category}
                         </span>
@@ -82,23 +82,23 @@ export default function Portfolio() {
                 </div>
 
                 {/* Search Bar */}
-                <div className="flex justify-end xl:mb-10 2xl:mb-10">
-                    <div className="w-full md:w-auto relative">
+                <div className="flex justify-center xl:justify-end mb-10 px-6 sm:px-4 lg:px-8">
+                    <div className="relative w-full max-w-xs xl:max-w-sm">
                         <Input
                             type="text"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             aria-label="Search"
                             placeholder="Search..."
-                            className="w-full text-sm mb-10 xl:text-base 2xl:text-base md:w-65 border border-[#C6A664] rounded-2xl px-4 py-2 text-[#C6A664] font-serif placeholder:text-[#C6A664] focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
-                        />
+                            className="w-full text-sm xl:text-base 2xl:text-base border border-[#C6A664] rounded-2xl px-4 py-2 text-[#C6A664] font-serif placeholder:text-[#C6A664] focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
+                        ></Input>
                         {/* ✕ button */}
                         <button
                             type="button"
                             onClick={() => {
                                 setSearchTerm("");
                             }}
-                            className="absolute inset-y-0 right-0 px-3 flex items-center text-[#C6A664] bg-transparent hover:text-white"
+                            className="absolute inset-y-[-0.5rem] right-0 text-[#C6A664] bg-transparent hover:text-white"
                         >
                             ✕
                         </button>
@@ -106,12 +106,12 @@ export default function Portfolio() {
                 </div>
 
                 {filteredArtworks.length === 0 ?
-                    (<p className="text-center text-lg text-[#C6A664] mt-10 font-serif">
+                    (<p className="text-center text-sm lg:text-base xl:text-lg 2xl:text-lg text-[#C6A664] mt-10 font-serif">
                         No artworks found.
                     </p>) :
                     (
                         // Artworks Grid
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-6 px-6 sm:px-4 lg:px-8 justify-center">
                             {paginatedArtworks.map((artwork, index) => (
                                 <Card
                                     key={index}
@@ -124,12 +124,12 @@ export default function Portfolio() {
                                         >
                                             {/* Artwork Image */}
                                             <div className="border-1 border-[#C6A664] shadow-[0_8px_20px_rgba(0,0,0,0.6)] bg-[#0F0C08] p-2">
-                                                <div className="border-1 border-[#C6A664]/60 p-2">
+                                                <div className="aspect-[3/4] border-1 border-[#C6A664]/60 p-2 bg-black">
                                                     <img
                                                         src={artwork.src}
                                                         alt={artwork.title}
                                                         loading="lazy"
-                                                        className="block w-full xl:h-[380px] 2xl:h-[420px] object-cover
+                                                        className="h-full w-full object-cover
                                                                    transition-all duration-500 ease-in-out
                                                                    group-hover:object-contain group-hover:bg-black"
                                                     />
@@ -153,9 +153,10 @@ export default function Portfolio() {
 
                 {/* Pagination */}
                 {totalPages > 1 && (
-                    <div className="flex justify-end mt-12">
-                        <Pagination className="[&]:mx-0 [&]:justify-end">
-                            <PaginationContent className="flex items-center gap-2">
+                    <div className="flex justify-end py-6 sm:py-8">
+                        <Pagination className="[&]:mx-0">
+                            <PaginationContent className="flex flex-wrap items-center gap-2
+                                                          justify-center sm:justify-end">
                                 <PaginationItem>
                                     {/* Previous Page Button */}
                                     <PaginationPrevious
@@ -178,6 +179,7 @@ export default function Portfolio() {
 
 
                                 {/* Middle pages (current -1, current, current +1) */}
+                                <div className="hidden sm:flex items-center gap-2">
                                 {Array.from({ length: totalPages }, (_, i) =>
                                     i + 1
                                 ).filter(
@@ -208,6 +210,8 @@ export default function Portfolio() {
                                         </PaginationItem>
                                     </React.Fragment>
                                 ))}
+                                </div>
+
                                 <PaginationItem>
                                     {/* Next Page Button */}
                                     <PaginationNext
