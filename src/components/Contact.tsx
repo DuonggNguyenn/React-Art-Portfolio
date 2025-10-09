@@ -92,28 +92,24 @@ export default function Contact() {
             bg-[url('/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay"
         >
             {/* Heading */}
-            <div className="text-center max-w-2xl mx-auto mt-6 mb-6 lg:my-10">
-                <h2 className="font-serif font-semibold tracking-wide text-2xl sm:text-3xl lg:text-4xl xl:text-5xl my-6 lg:my-8">
+            <div className="text-center max-w-2xl mx-auto my-6 lg:my-10">
+                <h2 className="font-serif font-semibold tracking-wide text-2xl sm:text-3xl xl:text-4xl my-4 lg:my-6">
                     Contact Me
-                    <div className="h-[1px] bg-[#C6A664] mx-auto mt-4 lg:mt-6"></div>
                 </h2>
-                <p className="text-sm sm:text-base lg:text-lg text-[#f5f2e7] font-sans px-4">Interested in commissioning a piece, collaborating, or just want to say hello? I’d love to hear from you.</p>
+                 <div className="border-b border-[#C6A664] my-3 lg:my-6 mx-auto w-1/2"></div>
+                <p className="text-sm sm:text-base lg:text-lg text-[#f5f2e7] font-sans px-10">Interested in commissioning a piece, collaborating, or just want to say hello? I’d love to hear from you.</p>
             </div>
 
             {/* Contact Form and Info Grid */}
-            <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 
-                             grid lg:grid-cols-[2fr_1fr] gap-10 items-stretch relative mb-16">
-
-                {/* Vertical line for tablet/desktop */}
-                <div className="absolute inset-y-0 left-1/2 w-px bg-[#C6A664]/40 hidden lg:block"></div>
+            <div className=" max-w-7xl mx-auto px-4 sm:px-8
+                             grid md:grid-cols-[2fr_1fr] gap-10 items-stretch relative pb-12 md:pb-16 xl:pb-24">
 
                 {/* Left Contact Form*/}
-
                 <Card className="border-1 border-[#C6A664] bg-[#0F0C08] 
                         shadow-[0_8px_20px_rgba(0,0,0,0.6)] 
-                        rounded-xl px-0 xl:p-6 2xl:px-6
+                        rounded-xl px-4 xl:p-6
                         relative overflow-hidden
-                        w-full h-full flex flex-col">
+                        w-full max-w-full mx-auto">
 
                     <div className="absolute inset-0 pointer-events-none border border-[#C6A664]/40 rounded-xl"></div>
 
@@ -122,7 +118,7 @@ export default function Contact() {
 
                             {/* Name */}
                             <div>
-                                <label htmlFor="name" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
+                                <label htmlFor="name" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
                                     Name*
                                 </label>
                                 <input
@@ -140,7 +136,7 @@ export default function Contact() {
 
                             {/* Phone */}
                             <div>
-                                <label htmlFor="phone" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
+                                <label htmlFor="phone" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
                                     Phone
                                 </label>
                                 <input
@@ -149,7 +145,7 @@ export default function Contact() {
                                     name="phone"
                                     placeholder="Your phone number"
                                     className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12]
-                                        text-[12px] xl:text-base 2xl:text-base
+                                        text-[12px] xl:text-base
                                         text-white placeholder-[#d8c6a0]
                                         focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
                                 />
@@ -157,7 +153,7 @@ export default function Contact() {
 
                             {/* Email */}
                             <div>
-                                <label htmlFor="email" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
+                                <label htmlFor="email" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
                                     Email*
                                 </label>
                                 <input
@@ -167,7 +163,7 @@ export default function Contact() {
                                     placeholder="Your email address"
                                     required
                                     className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12] 
-                                        text-[12px] xl:text-base 2xl:text-base
+                                        text-[12px] xl:text-base
                                         text-white placeholder-[#d8c6a0] 
                                         focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
                                 />
@@ -175,7 +171,7 @@ export default function Contact() {
 
                             {/* Message */}
                             <div>
-                                <label htmlFor="message" className="block text-[12px] xl:text-sm 2xl:text-sm font-serif font-medium mb-2">
+                                <label htmlFor="message" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
                                     Message*
                                 </label>
                                 <textarea
@@ -185,7 +181,7 @@ export default function Contact() {
                                     placeholder="Tell me what you think..."
                                     required
                                     className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl 
-                                        text-[12px] xl:text-base 2xl:text-base
+                                        text-[12px] xl:text-base
                                         focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664] 
                                         bg-[#1f1a12] text-white placeholder-[#d8c6a0]"
                                 />
@@ -195,11 +191,11 @@ export default function Contact() {
                             <Button
                                 type="submit"
                                 className="bg-transparent text-[#C6A664] font-serif 
-                                    !text-sm xl:text-base 2xl:text-medium
+                                    !text-sm xl:!text-base
                                     border border-[#C6A664] tracking-wide 
                                     hover:bg-[#C6A664] hover:text-[#221B10] 
                                     transition-all duration-300 
-                                    rounded-full px-6 py-3 w-full"
+                                    rounded-full px-4 sm:px-8 w-full lg:mt-4"
                             >
                                 Send Your Message
                             </Button>
@@ -208,14 +204,14 @@ export default function Contact() {
                 </Card>
 
                 {/* Right Contact Info */}
-                <Card className="bg-[rgb(34,27,16)] shadow-[0_8px_20px_rgba(0,0,0,0.6)] w-full h-full flex flex-col relative overflow-hidden">
+                <Card className="bg-[rgb(34,27,16)] shadow-[0_8px_20px_rgba(0,0,0,0.6)] w-full max-w-full sm:max-w-full mx-auto relative overflow-hidden">
                     <div className="absolute inset-0 pointer-events-none mb-10"></div>
 
                     <CardContent className="flex flex-col p-6">
 
                         {/* Section heading */}
                         <div className="mb-6">
-                            <h3 className="text-base xl:text-xl 2xl:text-xl font-serif font-medium text-[#C6A664] tracking-wide">
+                            <h3 className="text-base xl:text-xl font-serif font-medium text-[#C6A664] tracking-wide">
                                 Let’s Connect
                             </h3>
                             <div className="h-[1px] bg-[#C6A664]/40 mt-4" />
@@ -232,7 +228,7 @@ export default function Contact() {
                                     <div className="flex items-center gap-2">
                                         <a
                                             href="mailto:abc@gmail.com"
-                                            className="text-white hover:underline font-serif text-[12px] xl:text-base 2xl:text-base"
+                                            className="text-white hover:underline font-serif text-[12px] xl:text-base"
                                         >
                                             abc@gmail.com
                                         </a>
@@ -241,10 +237,10 @@ export default function Contact() {
                                                 navigator.clipboard.writeText("abc@gmail.com");
                                                 toast.success("Email copied to clipboard!");
                                             }}
-                                            className="flex items-center gap-1 xl:px-2 xl:py-1 ml-2 2xl:px-2 2xl:py-1 text-[#C6A664] bg-[#C6A664]/10 border border-[#C6A664]/30 rounded-md hover:bg-[#C6A664]/20 hover:scale-105 transition"
+                                            className="flex items-center gap-1 xl:px-2 xl:py-1 ml-2  text-[#C6A664] bg-[#C6A664]/10 border border-[#C6A664]/30 rounded-md hover:bg-[#C6A664]/20 hover:scale-105 transition"
                                         >
                                             <Copy size={12} />
-                                            <span className="text-[#C6A664] px-1 text-[12px] xl:text-sm 2xl:text-sm font-serif">Copy</span>
+                                            <span className="text-[#C6A664] px-1 text-[12px] xl:text-sm font-serif">Copy</span>
                                         </button>
                                     </div>
                                 </div>
@@ -255,7 +251,7 @@ export default function Contact() {
                                 <MapPin className="w-5 h-5 text-[#C6A664]/80 mt-1" />
                                 <div>
                                     <p className="text-sm font-medium text-[#C6A664] font-serif">City</p>
-                                    <p className="text-white/80 text-[12px] xl:text-sm 2xl:text-smfont-serif mt-2">Oslo, Norway</p>
+                                    <p className="text-white/80 text-[12px] xl:text-sm font-serif mt-2">Oslo, Norway</p>
                                 </div>
                             </div>
 
@@ -264,14 +260,14 @@ export default function Contact() {
                                 <Phone className="w-5 h-5 text-[#C6A664]/80 mt-1" />
                                 <div>
                                     <p className="text-sm font-medium text-[#C6A664] font-serif">Phone</p>
-                                    <p className="text-white/80 text-[12px] xl:text-sm 2xl:text-sm font-serif">+47 123 45 678</p>
+                                    <p className="text-white/80 text-[12px] xl:text-sm font-serif">+47 123 45 678</p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Socials */}
                         <div className="mt-10">
-                            <p className="text-sm xl:text-lg 2xl:text-lg font-serif font-medium mb-3 underline decoration-[#C6A664]/60 underline-offset-4">Follow me</p>
+                            <p className="text-sm xl:text-lg font-serif font-medium mb-3 underline decoration-[#C6A664]/60 underline-offset-4">Follow me</p>
                             <div className="flex gap-5">
                                 <a href="https://www.instagram.com/"><Instagram className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
                                 <a href="https://www.facebook.com/"><Facebook className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>

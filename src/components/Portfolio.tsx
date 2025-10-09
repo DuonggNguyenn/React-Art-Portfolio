@@ -57,7 +57,7 @@ export default function Portfolio() {
             <div className="max-w-xl xl:max-w-5xl 2xl:max-w-6xl mx-auto">
                 {/* Heading */}
                 <div className="w-full text-center">
-                    <h2 className="text-xl sm:text-2xl md:text-3xl 2xl:text-5xl pt-20 lg:pt-20 font-semibold  font-serif">
+                    <h2 className="text-xl sm:text-2xl xl:text-4xl pt-20 lg:pt-20 font-semibold  font-serif">
                         Portfolio
                         <div className="border-b border-[#C6A664] my-4 lg:my-6 mx-auto w-90 sm:w-120 lg:w-140"></div>
                     </h2>
@@ -66,18 +66,25 @@ export default function Portfolio() {
                 </div>
 
                 {/* Filters */}
-                <div className="flex flex-wrap justify-center mx-2 gap-3 lg:gap-6 mb-8 mt-6 font-serif text-[12px] md:text-sm lg:text-base">
+                <div className="flex flex-wrap justify-center gap-3 lg:gap-6 my-4 lg:my-6 font-serif text-sm md:text-base">
                     {['All', 'Portrait', 'Oil Painting', 'Landscape', 'Anime'].map((category) => (
-                        <span
+                        <button
                             key={category}
                             onClick={() => setFilter(category)}
-                            className={`px-5 py-2 rounded-2xl text-center  
-                                ${filter === category ?
-                                    "bg-[#C6A664] lg:px-3 rounded-full text-[#221B10] lg:text-sm text-center tracking-wide font-serif cursor-pointer" :
-                                    "bg-transparent px-4 py-2 rounded-full border border-[#C6A664] text-[#C6A664] lg:text-sm text-center tracking-wide font-serif cursor-pointer hover:bg-[#C6A664] hover:text-[#221B10] transition-colors duration-200"
-                                }`}>
+                            role="tab"
+                            aria-selected={filter === category}
+                            className={`
+                                    relative cursor-pointer transition-colors duration-200
+                                    ${filter === category
+                                    ? "text-[#C6A664] font-bold after:w-full"
+                                    : "text-[#C6A664]/50 hover:text-[#C6A664] after:w-0 hover:after:w-full"
+                                }
+                                    after:absolute after:left-1 after:-bottom-[0.2px] after:h-[1px] after:bg-[#C6A664]
+                                    after:transition-all after:duration-300
+                                    `}
+                        >
                             {category}
-                        </span>
+                        </button>
                     ))}
                 </div>
 
@@ -171,45 +178,42 @@ export default function Portfolio() {
                                         }
                                         size="default"
                                         className="
-                                        px-3 py-2 h-10 flex items-center justify-center cursor-pointer
-                                        rounded-full border border-[#C6A664]/60 
-                                        text-[#C6A664] font-serif 
-                                        transition hover:!bg-[#C6A664] hover:text-[#221B10] hover:shadow-[0_0_10px_rgba(198,166,100,0.5)]" />
+                                        !bg-transparent !border-none !shadow-none text-[#C6A664] hover:text-[#e2c98f] hover:underline hover:underline-offset-5 transition-colors cursor-pointer" />
                                 </PaginationItem>
 
 
                                 {/* Middle pages (current -1, current, current +1) */}
                                 <div className="hidden sm:flex items-center gap-2">
-                                {Array.from({ length: totalPages }, (_, i) =>
-                                    i + 1
-                                ).filter(
-                                    (page) =>
-                                        page === 1 ||
-                                        page === totalPages ||
-                                        (page >= currentPage - 1 && page <= currentPage + 1)
-                                ).map((page, idx, arr) => (
-                                    <React.Fragment key={page}>
-                                        {idx > 0 && page - arr[idx - 1] > 1 && (
-                                            <PaginationItem>
-                                                <PaginationEllipsis className="text-[#C6A664]" />
-                                            </PaginationItem>
-                                        )}
+                                    {Array.from({ length: totalPages }, (_, i) =>
+                                        i + 1
+                                    ).filter(
+                                        (page) =>
+                                            page === 1 ||
+                                            page === totalPages ||
+                                            (page >= currentPage - 1 && page <= currentPage + 1)
+                                    ).map((page, idx, arr) => (
+                                        <React.Fragment key={page}>
+                                            {idx > 0 && page - arr[idx - 1] > 1 && (
+                                                <PaginationItem>
+                                                    <PaginationEllipsis className="text-[#C6A664]" />
+                                                </PaginationItem>
+                                            )}
 
-                                        <PaginationItem>
-                                            {/* Normal page button */}
-                                            <PaginationLink onClick={(e) => {
-                                                e.preventDefault();
-                                                setCurrentPage(page);
-                                            }}
-                                                className={`px-3 py-2 rounded-full border border-[#C6A664]/60 flex items-center justify-center min-w-[2.5rem] h-10 cursor-pointer
+                                            <PaginationItem>
+                                                {/* Normal page button */}
+                                                <PaginationLink onClick={(e) => {
+                                                    e.preventDefault();
+                                                    setCurrentPage(page);
+                                                }}
+                                                    className={` flex items-center justify-center min-w-[2.5rem] h-10 cursor-pointer
                                                         ${currentPage === page ?
-                                                        'bg-[#C6A664] text-[#221B10] font-serif' :
-                                                        'border border-[#C6A664]/60 text-[#C6A664] font-serif hover:!bg-[#C6A664] hover:text-[#221B10] hover:shadow-[0_0_10px_rgba(198,166,100,0.5)]'}`}>
-                                                {page}
-                                            </PaginationLink>
-                                        </PaginationItem>
-                                    </React.Fragment>
-                                ))}
+                                                            'text-[#C6A664] font-semibold underline underline-offset-5 font-serif hover:!bg-transparent hover:!border-none hover:text-[#e2c98f]' :
+                                                            'text-[#C6A664]/70 hover:text-[#e2c98f] hover:!bg-transparent hover:!border-none'} `}>
+                                                    {page}
+                                                </PaginationLink>
+                                            </PaginationItem>
+                                        </React.Fragment>
+                                    ))}
                                 </div>
 
                                 <PaginationItem>
@@ -223,10 +227,7 @@ export default function Portfolio() {
                                         }}
                                         size="default"
                                         className="
-                                        px-3 py-2 h-10 flex items-center justify-center cursor-pointer
-                                        rounded-full border border-[#C6A664]/60 
-                                        text-[#C6A664] font-serif 
-                                        transition hover:!bg-[#C6A664] hover:text-[#221B10] hover:shadow-[0_0_10px_rgba(198,166,100,0.5)]" />
+                                        !bg-transparent !border-none !shadow-none text-[#C6A664] hover:text-[#e2c98f] hover:underline hover:underline-offset-5 transition-colors cursor-pointer" />
                                 </PaginationItem>
                             </PaginationContent>
                         </Pagination>
