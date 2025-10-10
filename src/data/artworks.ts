@@ -6,6 +6,7 @@ export type Artwork = {
     medium: string;
     category: string;
     src: string;
+    views?: number; // Optional field for tracking views
 };
 
 export const artworks: Artwork[] = [
@@ -18,7 +19,8 @@ export const artworks: Artwork[] = [
         year: 2024,
         medium: "Oil on Canvas",
         category: "Oil Painting",
-        src: "artworks/oilpainting/thehobbit-oilpainting.jpeg"
+        src: "artworks/oilpainting/thehobbit-oilpainting.jpeg",
+        views: 0
     },
     {
         id: 2,
@@ -27,7 +29,8 @@ export const artworks: Artwork[] = [
         year: 2025,
         medium: "Oil on Canvas",
         category: "Oil Painting",
-        src: "artworks/oilpainting/theswan-oilpainting.jpeg"
+        src: "artworks/oilpainting/theswan-oilpainting.jpeg",
+        
     },
     {
         id: 3,
@@ -36,7 +39,8 @@ export const artworks: Artwork[] = [
         year: 2024,
         medium: "Oil on Canvas",
         category: "Oil Painting",
-        src: "artworks/oilpainting/stilllife-oilpainting.jpeg"
+        src: "artworks/oilpainting/stilllife-oilpainting.jpeg",
+        views: 0
     },
     {
         id: 4,
@@ -45,7 +49,8 @@ export const artworks: Artwork[] = [
         year: 2025,
         medium: "Oil on Canvas",
         category: "Portrait",
-        src: "artworks/artist-portrait.jpg"
+        src: "artworks/artist-portrait.jpg",
+        views: 0
     },
 
     /* Portraits */
@@ -56,7 +61,8 @@ export const artworks: Artwork[] = [
         year: 2025,
         medium: "Graphite on Paper",
         category: "Portrait",
-        src: "artworks/portrait/squidgame-portrait.jpeg"
+        src: "artworks/portrait/squidgame-portrait.jpeg",
+        views: 0
     },
     {
         id: 6,
@@ -65,7 +71,8 @@ export const artworks: Artwork[] = [
         year: 2025,
         medium: "Graphite on Paper",
         category: "Portrait",
-        src: "artworks/portrait/thebeatles-portrait.jpeg"
+        src: "artworks/portrait/thebeatles-portrait.jpeg",
+        views: 0
     },
     {
         id: 7,
@@ -74,7 +81,8 @@ export const artworks: Artwork[] = [
         year: 2024,
         medium: "Graphite on Paper",
         category: "Portrait",
-        src: "artworks/portrait/jacksparrow_portrait.jpeg"
+        src: "artworks/portrait/jacksparrow_portrait.jpeg",
+        
     },
     {
         id: 8,
@@ -83,7 +91,8 @@ export const artworks: Artwork[] = [
         year: 2025,
         medium: "Graphite on Paper",
         category: "Portrait",
-        src: "artworks/portrait/mcgonagall_portrait.jpeg"
+        src: "artworks/portrait/mcgonagall_portrait.jpeg",
+        views: 0
     },
     {
         id: 9,
@@ -92,7 +101,8 @@ export const artworks: Artwork[] = [
         year: 2025,
         medium: "Graphite on Paper",
         category: "Portrait",
-        src: "artworks/portrait/oppenheimer-portrait.jpeg"
+        src: "artworks/portrait/oppenheimer-portrait.jpeg",
+        views: 0
     },
     {
         id: 10,
@@ -101,7 +111,8 @@ export const artworks: Artwork[] = [
         year: 2025,
         medium: "Graphite on Paper",
         category: "Portrait",
-        src: "artworks/portrait/audreyhepburn-portrait.jpeg"
+        src: "artworks/portrait/audreyhepburn-portrait.jpeg",
+        views: 0
     },
     {
         id: 11,
@@ -110,7 +121,8 @@ export const artworks: Artwork[] = [
         year: 2025,
         medium: "Graphite on Paper",
         category: "Portrait",
-        src: "artworks/portrait/davyjones-portrait.jpeg"
+        src: "artworks/portrait/davyjones-portrait.jpeg",
+        views: 0
     },
     {
         id: 12,
@@ -119,7 +131,8 @@ export const artworks: Artwork[] = [
         year: 2025,
         medium: "Graphite on Paper",
         category: "Portrait",
-        src: "artworks/portrait/freddiemercury-portrait.jpeg"
+        src: "artworks/portrait/freddiemercury-portrait.jpeg",
+        views: 0
     },
     {
         id: 13,
@@ -128,7 +141,8 @@ export const artworks: Artwork[] = [
         year: 2024,
         medium: "Graphite on Paper",
         category: "Portrait",
-        src: "artworks/portrait/friend_portrait.jpeg"
+        src: "artworks/portrait/friend_portrait.jpeg",
+        views: 0
     },
     {
         id: 14,
@@ -137,7 +151,8 @@ export const artworks: Artwork[] = [
         year: 2023,
         medium: "Graphite on Paper",
         category: "Portrait",
-        src: "artworks/portrait/gameofthrones-portrait.jpeg"
+        src: "artworks/portrait/gameofthrones-portrait.jpeg",
+        views: 0
     },
     {
         id: 15,
@@ -146,7 +161,8 @@ export const artworks: Artwork[] = [
         year: 2023,
         medium: "Graphite on Paper",
         category: "Portrait",
-        src: "artworks/portrait/colesprouse-portrait.jpeg"
+        src: "artworks/portrait/colesprouse-portrait.jpeg",
+        views: 0
     },
     {
         id: 16,
@@ -155,7 +171,8 @@ export const artworks: Artwork[] = [
         year: 2023,
         medium: "Graphite on Paper",
         category: "Portrait",
-        src: "artworks/portrait/danaerys_portrait.jpeg"
+        src: "artworks/portrait/danaerys_portrait.jpeg",
+        views: 0
     },
     {
         id: 17,
@@ -164,7 +181,8 @@ export const artworks: Artwork[] = [
         year: 2024,
         medium: "Graphite on Paper",
         category: "Portrait",
-        src: "artworks/portrait/tomhiddleston_portrait.jpeg"
+        src: "artworks/portrait/tomhiddleston_portrait.jpeg",
+        views: 0
     },
 
     /* Landscapes */
@@ -176,6 +194,7 @@ export const artworks: Artwork[] = [
         medium: "Watercolor on Paper",
         category: "Landscape",
         src: "artworks/landscape/trondheim-landscape.jpeg",
+        views: 0
     },
     {
         id: 19,
@@ -184,7 +203,8 @@ export const artworks: Artwork[] = [
         year: 2025,
         medium: "Watercolor on Paper",
         category: "Landscape",
-        src: "artworks/landscape/arendal-landscape.jpeg"
+        src: "artworks/landscape/arendal-landscape.jpeg",
+        views: 0
     },
     {
         id: 20,
@@ -193,7 +213,8 @@ export const artworks: Artwork[] = [
         year: 2024,
         medium: "Watercolor on Paper",
         category: "Landscape",
-        src: "artworks/landscape/nidarosdommen-landscape.jpeg"
+        src: "artworks/landscape/nidarosdommen-landscape.jpeg",
+        views: 0
     },
     {
         id: 21,
@@ -202,7 +223,8 @@ export const artworks: Artwork[] = [
         year: 2024,
         medium: "Gouache on Paper",
         category: "Landscape",
-        src: "artworks/landscape/hogwartstrain-landscape.jpeg"
+        src: "artworks/landscape/hogwartstrain-landscape.jpeg",
+        views: 0
     },
 
     /* Anime */
@@ -213,7 +235,8 @@ export const artworks: Artwork[] = [
         year: 2023,
         medium: "Colored Pencils on Paper",
         category: "Anime",
-        src: "artworks/anime/aot-anime.jpeg"
+        src: "artworks/anime/aot-anime.jpeg",
+        views: 0
     },
         {
         id: 23,
@@ -222,7 +245,8 @@ export const artworks: Artwork[] = [
         year: 2023,
         medium: "Gouache on Paper",
         category: "Anime",
-        src: "artworks/anime/howls-moving-castle-ghibli.jpeg"
+        src: "artworks/anime/howls-moving-castle-ghibli.jpeg",
+        views: 0
     },
     {
         id: 24,
@@ -231,7 +255,8 @@ export const artworks: Artwork[] = [
         year: 2024,
         medium: "Gouache on Paper",
         category: "Anime",
-        src: "artworks/anime/totoro-ghibli.jpeg"
+        src: "artworks/anime/totoro-ghibli.jpeg",
+        views: 0
     },
      {
         id: 25,
@@ -240,7 +265,8 @@ export const artworks: Artwork[] = [
         year: 2023,
         medium: "Gouache on Paper",
         category: "Anime",
-        src: "artworks/anime/howland-sophie-ghibli.jpeg"
+        src: "artworks/anime/howland-sophie-ghibli.jpeg",
+        views: 0
     },
      {
         id: 26,
@@ -249,7 +275,8 @@ export const artworks: Artwork[] = [
         year: 2023,
         medium: "Gouache on Paper",
         category: "Anime",
-        src: "artworks/anime/kiki-ghibli.jpeg"
+        src: "artworks/anime/kiki-ghibli.jpeg",
+        views: 0
     },
     {
         id: 27,
@@ -258,7 +285,8 @@ export const artworks: Artwork[] = [
         year: 2024,
         medium: "Gouache on Paper",
         category: "Anime",
-        src: "artworks/anime/power-and-vy-arcane.jpeg"
+        src: "artworks/anime/power-and-vy-arcane.jpeg",
+        views: 0
     },
     {
         id: 28,
@@ -267,7 +295,8 @@ export const artworks: Artwork[] = [
         year: 2023,
         medium: "Gouache on Paper",
         category: "Anime",
-        src: "artworks/anime/chihiroandhaku-ghibli.jpeg"
+        src: "artworks/anime/chihiroandhaku-ghibli.jpeg",
+        views: 0
     },
     {
         id: 29,
@@ -276,7 +305,8 @@ export const artworks: Artwork[] = [
         year: 2023,
         medium: "Gouache on Paper",
         category: "Anime",
-        src: "artworks/anime/ducks-in-a-bath-ghibli.jpeg"
+        src: "artworks/anime/ducks-in-a-bath-ghibli.jpeg",
+        views: 0
     },
     {
         id: 30,
@@ -285,7 +315,8 @@ export const artworks: Artwork[] = [
         year: 2023,
         medium: "Gouache on Paper",
         category: "Anime",
-        src: "artworks/anime/laputa-ghibli.jpeg"
+        src: "artworks/anime/laputa-ghibli.jpeg",
+        views: 0
     },
     {
         id: 31,
@@ -294,6 +325,7 @@ export const artworks: Artwork[] = [
         year: 2023,
         medium: "Gouache on Paper",
         category: "Anime",
-        src: "artworks/anime/chihiros-flowers-ghibli.jpeg"
+        src: "artworks/anime/chihiros-flowers-ghibli.jpeg",
+        views: 0
     }
 ]

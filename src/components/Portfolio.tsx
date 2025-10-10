@@ -125,9 +125,27 @@ export default function Portfolio() {
                                     className="group relative overflow-hidden rounded-2xl border border-[#C6A664]/40 bg-[#1b140c] transition-transform duration-200 hover:scale-[1.01] hover:shadow-[0_0_20px_rgba(198,166,100,0.4)]"
                                 >
                                     <CardContent className="p-0">
-                                        <div
+                                            <div
                                             className=" w-full relative cursor-pointer"
-                                            onClick={() => setSelectedArtworkId(artwork.id)}
+                                            onClick={() => {
+                                                //Get stored artwork views if it exists, or create new object in local storage
+                                                const storedViews = localStorage.getItem('artworkViews') ?? '{}';
+
+                                                //Parse the store views from string to object
+                                                const views = JSON.parse(storedViews);
+
+                                                //Increase the view count for each artwork
+                                                views[artwork.id] = (views[artwork.id] ?? 0) + 1;
+
+                                                //Save back to local storage
+                                                localStorage.setItem('artworkViews', JSON.stringify(views));
+
+                                                // Log the view count for the current artwork
+                                                console.log(`Artwork title ${artwork.title} has been viewed ${views[artwork.id]} times.`);
+
+                                                // Open detail modal
+                                                setSelectedArtworkId(artwork.id)
+                                            }}
                                         >
                                             {/* Artwork Image */}
                                             <div className="border-1 border-[#C6A664] shadow-[0_8px_20px_rgba(0,0,0,0.6)] bg-[#0F0C08] p-2">
