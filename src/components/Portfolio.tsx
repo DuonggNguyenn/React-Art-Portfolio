@@ -50,11 +50,11 @@ export default function Portfolio() {
     return (
         <section
             id="portfolio"
-            className="min-h-screen w-full 
+            className="flex flex-col min-h-screen w-full 
             bg-[rgb(20,14,2)] text-[#C6A664]
             bg-[url('textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay 
             ">
-            <div className="max-w-xl xl:max-w-5xl 2xl:max-w-6xl mb-6 mx-auto">
+            <div className="flex-grow max-w-xl xl:max-w-5xl 2xl:max-w-6xl mb-6 mx-auto">
                 {/* Heading */}
                 <div className="w-full text-center">
                     <h2 className="text-xl sm:text-2xl xl:text-4xl pt-20 lg:pt-20 font-semibold  font-serif">
@@ -118,7 +118,7 @@ export default function Portfolio() {
                     </p>) :
                     (
                         // Artworks Grid
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-6 px-6 pb-6 sm:px-4 sm:pb-6 lg:px-8 lg:pb-8 justify-center">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-6 px-6 pb-6 sm:px-4 sm:pb-6 justify-center">
                             {paginatedArtworks.map((artwork, index) => (
                                 <Card
                                     key={index}
@@ -178,7 +178,7 @@ export default function Portfolio() {
 
                 {/* Pagination */}
                 {totalPages > 1 && (
-                    <div className="flex justify-end pb-6 sm:pb-8">
+                    <div className="flex justify-end">
                         <Pagination className="[&]:mx-0">
                             <PaginationContent className="flex flex-wrap items-center gap-2
                                                           justify-center sm:justify-end">
