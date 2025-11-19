@@ -1,9 +1,14 @@
+export type TranslationText = {
+    en: string;
+    no: string;
+};
+
 export type Artwork = {
     id: number;
-    title: string;
-    description: string;
+    title: TranslationText;
+    description: TranslationText;
     year: number;
-    medium: string;
+    medium: TranslationText;
     category: string;
     src: string;
     views?: number; // Optional field for tracking views
@@ -14,40 +19,77 @@ export const artworks: Artwork[] = [
     /* Oil Paintings */
     {
         id: 1,
-        title: "Hobbit Painting",
-        description: "A beautiful depiction of a hobbit, capturing the essence of fantasy and adventure through intricate brushwork and vibrant colors.",
+        title:
+        {
+            "en": "The Shire",
+            "no": "Hobbiten"
+        },
+        description: {
+            "en": "A warm oil painting of the Shire from The Hobbit, with green hills, hobbit-holes, and a calm blue sky—capturing the peaceful charm of Tolkien’s world.",
+            "no": "Et varmt oljemaleri av Hobbiten, med grønne åser, hobbithuler og en rolig blå himmel som fanger den fredelige sjarmen i Tolkiens verden."
+        },
         year: 2024,
-        medium: "Oil on Canvas",
+        medium: {
+            "en": "Oil on Canvas",
+            "no": "Olje på lerret"
+        },
         category: "Oil Painting",
         src: "artworks/oilpainting/thehobbit-oilpainting.jpeg",
         views: 0
     },
     {
         id: 2,
-        title: "The swan lake",
-        description: "A serene landscape scene that captures the beauty of nature, with lush greenery and a tranquil atmosphere.",
+        title: {
+            "en": "The Swan Lake",
+            "no": "Svanesjøen"
+        },
+        description: {
+            "en": "A peaceful oil painting of a swan family swimming together across a lily-covered lake, shaded by the soft branches of a willow tree.",
+            "no": "Et fredelig oljemaleri av en svanefamilie som svømmer sammen over en liljedekket innsjø, skygget av de myke grenene til et piletre."
+        },
         year: 2025,
-        medium: "Oil on Canvas",
+        medium: {
+            "en": "Oil on Canvas",
+            "no": "Olje på lerret"
+        },
         category: "Oil Painting",
         src: "artworks/oilpainting/theswan-oilpainting.jpeg",
-        
+        views: 0
     },
     {
         id: 3,
-        title: "Still Life Painting",
-        description: "A beautiful depiction of a still life arrangement, capturing the essence of everyday objects through intricate brushwork and vibrant colors.",
+        title: {
+            "en": "Still Life with Everyday Objects",
+            "no": "Stilleben med hverdagsobjekter"
+        },
+        description: {
+            "en": "A quiet still life oil painting, where everyday objects rest in soft shadows and gentle light.",
+            "no": "Et stille oljemaleri, hvor hverdagsobjekter hviler i myke skygger og mildt lys."
+        },
         year: 2024,
-        medium: "Oil on Canvas",
+        medium: {
+            "en": "Oil on Canvas",
+            "no": "Olje på lerret"
+        },
         category: "Oil Painting",
         src: "artworks/oilpainting/stilllife-oilpainting.jpeg",
         views: 0
     },
     {
         id: 4,
-        title: "Portrait",
-        description: "A detailed portrait of a person, showcasing their unique features and expressions with a blend of realism and artistic flair.",
+        title: { 
+            "en": "Artist Portrait",
+            "no": "Kunstnerportrett"
+            },
+        description: {
+            "en": "A detailed portrait of a person, showcasing their unique features and expressions with a blend of realism and artistic flair.",
+            "no": "Et detaljert portrett av en person, som viser deres unike trekk og uttrykk med en blanding av realisme og kunstnerisk stil."
+        },
         year: 2025,
-        medium: "Oil on Canvas",
+        medium: {
+            "en": "Oil on Canvas",
+            "no": "Olje på lerret"
+        },
         category: "Portrait",
         src: "artworks/artist-portrait.jpg",
         views: 0
@@ -56,130 +98,247 @@ export const artworks: Artwork[] = [
     /* Portraits */
     {
         id: 5,
-        title: "Squid Game Portrait",
-        description: "A detailed portrait of a character from Squid Game, capturing their unique features and expressions with a blend of realism and artistic flair.",
+        title: {
+            "en": "Squid Game",
+            "no": "Squid Game"
+        },
+        description: {
+            "en": "A graphite sketch of the main player, with the Chairman and guards in the background, capturing the intense atmosphere of the series.",
+            "no": "En grafittskisse av hovedspilleren, med formannen og vaktene i bakgrunnen, som fanger den intense atmosfæren i serien."
+        },
         year: 2025,
-        medium: "Graphite on Paper",
+        medium: {
+            "en": "Graphite on Paper",
+            "no": "Grafitt på papir"
+        },
         category: "Portrait",
         src: "artworks/portrait/squidgame-portrait.jpeg",
         views: 0
     },
     {
         id: 6,
-        title: "The Beatles Portrait",
-        description: "A detailed portrait of The Beatles, capturing their unique features and expressions with a blend of realism and artistic flair.",
+        title: {
+            "en": "The Beatles in Starry Night",
+            "no": "The Beatles i Stjernenatt"
+        },
+        description: {
+            "en": "A detailed portrait of The Beatles set against the backdrop of Van Gogh's Starry Night, blending their unique features with the iconic swirling skies.",
+            "no": "Et detaljert portrett av The Beatles satt mot bakteppet av Van Goghs Stjernenatt, som blander deres unike trekk med de ikoniske virvlende himlene."
+        },
         year: 2025,
-        medium: "Graphite on Paper",
+        medium: {
+            "en": "Graphite on Paper",
+            "no": "Grafitt på papir"
+        },
         category: "Portrait",
         src: "artworks/portrait/thebeatles-portrait.jpeg",
         views: 0
     },
     {
         id: 7,
-        title: "Jack Sparrow Portrait",
-        description: "A detailed portrait of Jack Sparrow, showcasing his unique features and expressions with a blend of realism and artistic flair.",
+        title: {
+            "en": "Jack Sparrow",
+            "no": "Jack Sparrow"
+        },
+        description: {
+            "en": "A graphite portrait of the charismatic Captain Jack Sparrow, one of my favorite characters from the Pirates of the Caribbean series.",
+            "no": "Et grafittportrett av den karismatiske kaptein Jack Sparrow, en av mine favorittkarakterer fra Pirates of the Caribbean-serien."
+        },
         year: 2024,
-        medium: "Graphite on Paper",
+        medium: {
+            "en": "Graphite on Paper",
+            "no": "Grafitt på papir"
+        },
         category: "Portrait",
         src: "artworks/portrait/jacksparrow_portrait.jpeg",
-        
+        views: 0
     },
     {
         id: 8,
-        title: "Professor McGonagall Portrait",
-        description: "A detailed portrait of Professor McGonagall, capturing her unique features and expressions with a blend of realism and artistic flair.",
+        title: {
+            "en": "Professor McGonagall",
+            "no": "Professor McGonagall"
+        },
+        description: {
+            "en": "A graphite sketch of Professor McGonagall, one of the most respected and powerful witches in the Harry Potter series.",
+            "no": "En grafittskisse av professor McGonagall, en av de mest respekterte og mektige heksene i Harry Potter-serien."
+        },
         year: 2025,
-        medium: "Graphite on Paper",
+        medium: {
+            "en": "Graphite on Paper",
+            "no": "Grafitt på papir"
+        },
         category: "Portrait",
         src: "artworks/portrait/mcgonagall_portrait.jpeg",
         views: 0
     },
     {
         id: 9,
-        title: "Oppenheimer Portrait",
-        description: "A detailed portrait of Oppenheimer, showcasing his intelligence and complexity with a blend of realism and artistic flair.",
+        title: {
+            "en": "Oppenheimer",
+            "no": "Oppenheimer"
+        },
+        description: {
+            "en": "A graphite portrait capturing J. Robert Oppenheimer at three significant stages of his life—before, during, and after the creation of the atom bomb.",
+            "no": "Et grafittportrett som fanger J. Robert Oppenheimer i tre betydningsfulle stadier av hans liv—før, under og etter skapelsen av atombomben."
+        },
         year: 2025,
-        medium: "Graphite on Paper",
+        medium: {
+            "en": "Graphite on Paper",
+            "no": "Grafitt på papir"
+        },
         category: "Portrait",
         src: "artworks/portrait/oppenheimer-portrait.jpeg",
         views: 0
     },
     {
         id: 10,
-        title: "Audrey Hepburn Portrait",
-        description: "A detailed portrait of Audrey Hepburn, showcasing her timeless elegance and charm with a blend of realism and artistic flair.",
+        title: {
+            "en": "Audrey Hepburn",
+            "no": "Audrey Hepburn"
+        },
+        description: {
+            "en": "A graphite portrait capturing the timeless elegance and grace of Audrey Hepburn, an icon of elegance and grace whose timeless style has always inspired me.",
+            "no": "Et grafittportrett som fanger den tidløse elegansen og nåden til Audrey Hepburn, et ikon for eleganse og nåde hvis tidløse stil alltid har inspirert meg."
+        },
         year: 2025,
-        medium: "Graphite on Paper",
+        medium: {
+            "en": "Graphite on Paper",
+            "no": "Grafitt på papir"
+        },
         category: "Portrait",
         src: "artworks/portrait/audreyhepburn-portrait.jpeg",
         views: 0
     },
     {
         id: 11,
-        title: "Davy Jones Portrait",
-        description: "A detailed portrait of Davy Jones, capturing his enigmatic presence and intricate features with a blend of realism and artistic flair.",
+        title: {
+            "en": "Davy Jones",
+            "no": "Davy Jones"
+        },
+        description: {
+            "en": "A graphite sketch of Davy Jones, known for his tragic love and haunting presence beneath the waves in the Pirates of the Caribbean series.",
+            "no": "En grafittskisse av Davy Jones, kjent for sin tragiske kjærlighet og hjemsøkende tilstedeværelse under bølgene i Pirates of the Caribbean-serien."
+        },
         year: 2025,
-        medium: "Graphite on Paper",
+        medium: {
+            "en": "Graphite on Paper",
+            "no": "Grafitt på papir"
+        },
         category: "Portrait",
         src: "artworks/portrait/davyjones-portrait.jpeg",
         views: 0
     },
     {
         id: 12,
-        title: "Freddie Mercury Portrait",
-        description: "A detailed portrait of Freddie Mercury, showcasing his charisma and unique style with a blend of realism and artistic flair.",
+        title: {
+            "en": "Freddie Mercury",
+            "no": "Freddie Mercury"
+        },
+        description: {
+            "en": "A graphite sketch capturing the legendary Freddie Mercury, portrayed with his trademark charisma and powerful stage presence.",
+            "no": "En grafittskisse som fanger den legendariske Freddie Mercury, portrettert med sin karakteristiske karisma og kraftige scenetilstedeværelse."
+        },
         year: 2025,
-        medium: "Graphite on Paper",
+        medium: {
+            "en": "Graphite on Paper",
+            "no": "Grafitt på papir"
+        },
         category: "Portrait",
         src: "artworks/portrait/freddiemercury-portrait.jpeg",
         views: 0
     },
     {
         id: 13,
-        title: "A girlfriend Portrait",
-        description: "A detailed portrait of a girlfriend, capturing her beauty and charm with a blend of realism and artistic flair.",
+        title: {
+            "en": "A Girlfriend Portrait",
+            "no": "Et portrett av en kjæreste"
+        },
+        description: {
+            "en": "A graphite sketch of my friend in her prime, showing her natural confidence and the bright joy of youth that I admire so much.",
+            "no": "En grafittskisse av min venninne i sin beste alder, som viser hennes naturlige selvtillit og den lyse gleden av ungdom som jeg beundrer så mye."
+        },
         year: 2024,
-        medium: "Graphite on Paper",
+        medium: {
+            "en": "Graphite on Paper",
+            "no": "Grafitt på papir"
+        },
         category: "Portrait",
         src: "artworks/portrait/friend_portrait.jpeg",
         views: 0
     },
     {
         id: 14,
-        title: "Game of Thrones Portrait",
-        description: "A detailed portrait of a character from Game of Thrones, showcasing their unique features and expressions with a blend of realism and artistic flair.",
+        title: {
+            "en": "Mother of Dragons",
+            "no": "Dragenes mor"
+        },
+        description: {
+            "en": "A graphite sketch of Daenerys Targaryen, surrounded by her dragons and bearing the Targaryen sigil",
+            "no": "En grafittskisse av Daenerys Targaryen, omgitt av dragene sine og bærende Targaryen-sigillet"
+        },
         year: 2023,
-        medium: "Graphite on Paper",
+        medium: {
+            "en": "Graphite on Paper",
+            "no": "Grafitt på papir"
+        },
         category: "Portrait",
         src: "artworks/portrait/gameofthrones-portrait.jpeg",
         views: 0
     },
     {
         id: 15,
-        title: "Cole Sprouse Portrait",
-        description: "A detailed portrait of Cole Sprouse, capturing his unique features and expressions with a blend of realism and artistic flair.",
+        title: {
+            "en": "Cole Sprouse",
+            "no": "Cole Sprouse"
+        },
+        description: {
+            "en": "A graphite portrait of Cole Sprouse, whom many people recognize from “The Suite Life of Zack & Cody.",
+            "no": "Et grafittportrett av Cole Sprouse, som mange kjenner igjen fra «The Suite Life of Zack & Cody.»"
+        },
         year: 2023,
-        medium: "Graphite on Paper",
+        medium: {
+            "en": "Graphite on Paper",
+            "no": "Grafitt på papir"
+        },
         category: "Portrait",
         src: "artworks/portrait/colesprouse-portrait.jpeg",
         views: 0
     },
     {
         id: 16,
-        title: "Daenerys Targaryen Portrait",
-        description: "A detailed portrait of Daenerys Targaryen, showcasing her strength and beauty with a blend of realism and artistic flair.",
+        title: {
+            "en": "Daenerys Targaryen I",
+            "no": "Daenerys Targaryen I"
+        },
+        description: {
+            "en": "My first graphite portrait of Daenerys Targaryen, inspired by her strength and grace as the Mother of Dragons.",
+            "no": "Mitt første grafittportrett av Daenerys Targaryen, inspirert av hennes styrke og nåde som Dragenes mor."
+        },
         year: 2023,
-        medium: "Graphite on Paper",
+        medium: {
+            "en": "Graphite on Paper",
+            "no": "Grafitt på papir"
+        },
         category: "Portrait",
         src: "artworks/portrait/danaerys_portrait.jpeg",
         views: 0
     },
     {
         id: 17,
-        title: "Tom Hiddleston Portrait",
-        description: "A detailed portrait of Tom Hiddleston, capturing his charismatic presence and intricate features with a blend of realism and artistic flair.",
+        title: {
+            "en": "Tom Hiddleston",
+            "no": "Tom Hiddleston"
+        },
+        description: {
+            "en": "A graphite sketch of Tom Hiddleston—an actor I admire, especially for his witty and unforgettable role as Loki in the Marvel universe.",
+            "no": "En grafittskisse av Tom Hiddleston—en skuespiller jeg beundrer, spesielt for hans vittige og uforglemmelige rolle som Loki i Marvel-universet."
+        },
         year: 2024,
-        medium: "Graphite on Paper",
+        medium: {
+            "en": "Graphite on Paper",
+            "no": "Grafitt på papir"
+        },
         category: "Portrait",
         src: "artworks/portrait/tomhiddleston_portrait.jpeg",
         views: 0
@@ -188,40 +347,76 @@ export const artworks: Artwork[] = [
     /* Landscapes */
     {
         id: 18,
-        title: "Trondheim Landscape",
-        description: "A breathtaking view of Trondheim, Norway, capturing the charm of its historic architecture and stunning natural surroundings with intricate detail and vibrant colors.",
-        year: 2024,
-        medium: "Watercolor on Paper",
+        title: {
+            "en": "Den Røde Broen, Trondheim",
+            "no": "Den Røde Broen, Trondheim"
+        },
+        description: {
+            "en": "A watercolor painting of Den Røde Broen in Trondheim, Norway - one of my favourite views in the city",
+            "no": "Et akvarellmaleri av Den Røde Broen i Trondheim, Norge - en av mine favorittutkikkspunkter i byen"
+        },
+        year: 2025,
+        medium: {
+            "en": "Watercolor on Paper",
+            "no": "Akvarell på papir"
+        },
         category: "Landscape",
         src: "artworks/landscape/trondheim-landscape.jpeg",
         views: 0
     },
     {
         id: 19,
-        title: "Arendal Landscape",
-        description: "A stunning coastal landscape, showcasing the beauty of Arendal's archipelago with intricate detail and vibrant colors.",
+        title: {
+            "en": "Arendal Landscape",
+            "no": "Arendal Landskap"
+        },
+        description: {
+            "en": "A stunning coastal landscape, showcasing the beauty of Arendal with intricate detail and vibrant colors.",
+            "no": "Et fantastisk kystlandskap som viser skjønnheten i Arendal med intrikat detalj og levende farger."
+        },
         year: 2025,
-        medium: "Watercolor on Paper",
+        medium: {
+            "en": "Watercolor on Paper",
+            "no": "Akvarell på papir"
+        },
         category: "Landscape",
         src: "artworks/landscape/arendal-landscape.jpeg",
         views: 0
     },
     {
         id: 20,
-        title: "Nidarosdommen Landscape",    
-        description: "A captivating view of Nidarosdommen, the stunning cathedral in Trondheim, Norway, showcasing its intricate architecture and historical significance with vibrant colors.",
+        title: {
+            "en": "Nidarosdommen Landscape",
+            "no": "Nidarosdommen Landskap"
+        },
+        description: {
+            "en": "A captivating view of Nidarosdommen, the stunning cathedral in Trondheim, Norway. A place full of history and architectural beauty.",
+            "no": "En fengslende utsikt over Nidarosdommen, den fantastiske katedralen i Trondheim, Norge. Et sted fullt av historie og arkitektonisk skjønnhet."
+        },
         year: 2024,
-        medium: "Watercolor on Paper",
+        medium: {
+            "en": "Watercolor on Paper",
+            "no": "Akvarell på papir"
+        },
         category: "Landscape",
         src: "artworks/landscape/nidarosdommen-landscape.jpeg",
         views: 0
     },
     {
         id: 21,
-        title: "Hogwarts Express Landscape",
-        description: "A beautiful depiction of the Hogwarts Express traveling through the Scottish Highlands, capturing the essence of its magical journey with intricate detail and vibrant colors.",
+        title: {
+            "en": "Hogwarts Express Landscape",
+            "no": "Hogwarts-ekspressen Landskap"
+        },
+        description: {
+            "en": "A gouache painting of the Hogwarts Express traveling through the Scottish Highlands. Bringing back magical memories from the Harry Potter series.",
+            "no": "Et gouache-maleri av Hogwarts-ekspressen som reiser gjennom de skotske høylandene. Vekker magiske minner fra Harry Potter-serien."
+        },
         year: 2024,
-        medium: "Gouache on Paper",
+        medium: {
+            "en": "Gouache on Paper",
+            "no": "Gouache på papir"
+        },
         category: "Landscape",
         src: "artworks/landscape/hogwartstrain-landscape.jpeg",
         views: 0
@@ -230,100 +425,190 @@ export const artworks: Artwork[] = [
     /* Anime */
     {
         id: 22,
-        title: "All Titan Forms (Attack on Titan)",
-        description: "A dynamic illustration showcasing all the titan forms from Attack on Titan, capturing their unique features and powerful presence with vibrant colors and intricate details.",
+        title: {
+            "en": "Titans and Their Hosts",
+            "no": "Titanene og deres verter"
+        },
+        description: {
+            "en": "A colored pencil artwork of all the Titan forms and their human hosts from Attack on Titan.",
+            "no": "Et fargeblyantkunstverk av alle titanformene og deres menneskelige verter fra Attack on Titan."
+        },
         year: 2023,
-        medium: "Colored Pencils on Paper",
+        medium: {
+            "en": "Colored Pencils on Paper",
+            "no": "Fargeblyanter på papir"
+        },
         category: "Anime",
         src: "artworks/anime/aot-anime.jpeg",
         views: 0
     },
-        {
+    {
         id: 23,
-        title: "Howl's Moving Castle",
-        description: "A stunning illustration of Howl's Moving Castle, capturing its whimsical design and magical essence with vibrant colors and intricate details.",
+        title: {
+            "en": "Howl's Moving Castle",
+            "no": "Howl's Moving Castle"
+        },
+        description: {
+            "en": "A gouache painting of the flying castle from Howl’s Moving Castle, inspired by the film’s final scene where it soars through the sky.",
+            "no": "Et gouache-maleri av det flygende slottet fra Howl’s Moving Castle, inspirert av filmens siste scene der det svever gjennom himmelen."
+        },
         year: 2023,
-        medium: "Gouache on Paper",
+        medium: {
+            "en": "Gouache on Paper",
+            "no": "Gouache på papir"
+        },
         category: "Anime",
         src: "artworks/anime/howls-moving-castle-ghibli.jpeg",
         views: 0
     },
     {
         id: 24,
-        title: "Totoro in a forest (My Neighbor Totoro)",
-        description: "A striking illustration of Totoro from My Neighbor Totoro, capturing his whimsical presence and unique design with bold colors and intricate details.",
+        title: {
+            "en": "Totoro in a forest (My Neighbor Totoro)",
+            "no": "Totoro i en skog (Min nabo Totoro)"
+        },
+        description: {
+            "en": "A gouache painting of Totoro resting peacefully among the trees, surrounded by the calm and magic of the forest.",
+            "no": "Et gouache-maleri av Totoro som hviler fredelig blant trærne, omgitt av skogens ro og magi."
+        },
         year: 2024,
-        medium: "Gouache on Paper",
+        medium: {
+            "en": "Gouache on Paper",
+            "no": "Gouache på papir"
+        },
         category: "Anime",
         src: "artworks/anime/totoro-ghibli.jpeg",
         views: 0
     },
-     {
+    {
         id: 25,
-        title: "Howl and Sophie (Howl's Moving Castle)",
-        description: "A beautiful illustration featuring Howl and Sophie from Howl's Moving Castle, capturing their unique personalities and dynamic poses with intricate details and bold colors.",
+        title: {
+            "en": "Howl and Sophie (Howl's Moving Castle)",
+            "no": "Howl og Sophie (Howl's Moving Castle)"
+        },
+        description: {
+            "en": "A gouache painting of Howl and Sophie from Howl’s Moving Castle. Their story always inspires me with its themes of love and transformation.",
+            "no": "Et gouache-maleri av Howl og Sophie fra Howl’s Moving Castle. Deres historie inspirerer meg alltid med sine temaer om kjærlighet og forvandling."
+        },
         year: 2023,
-        medium: "Gouache on Paper",
+        medium: {
+            "en": "Gouache on Paper",
+            "no": "Gouache på papir"
+        },
         category: "Anime",
         src: "artworks/anime/howland-sophie-ghibli.jpeg",
         views: 0
     },
-     {
+    {
         id: 26,
-        title: "Kiki in the Bakery (Kiki's Delivery Service)",
-        description: "A charming illustration featuring Kiki and Jiji from Kiki's Delivery Service, capturing their unique personalities and dynamic poses with intricate details and bold colors.",
+        title: {
+            "en": "Kiki in the Bakery (Kiki's Delivery Service)",
+            "no": "Kiki i bakeriet (Kikis budservice)"
+        },
+        description: {
+            "en": "A gouache painting inspired by Kiki’s Delivery Service, showing Kiki and Jiji in Osono’s bakery as she waves to the customers.",
+            "no": "Et gouache-maleri inspirert av Kikis budservice, som viser Kiki og Jiji i Osonos bakeri mens hun vinker til kundene."
+        },
         year: 2023,
-        medium: "Gouache on Paper",
+        medium: {
+            "en": "Gouache on Paper",
+            "no": "Gouache på papir"
+        },
         category: "Anime",
         src: "artworks/anime/kiki-ghibli.jpeg",
         views: 0
     },
     {
         id: 27,
-        title: "Power and Vy (Arcane)",
-        description: "A delightful illustration featuring Power and Vy from Arcane, capturing their unique personalities and dynamic poses with intricate details and bold colors.",
-        year: 2024,
-        medium: "Gouache on Paper",
+        title: {
+            "en": "Power and Vy (Arcane)",
+            "no": "Power og Vy (Arcane)"
+        },
+        description: {
+            "en": "A gouache painting of Vi and Powder from Arcane, inspired by their bond and the emotional contrast between love, loss, and strength.",
+            "no": "Et gouache-maleri av Vi og Powder fra Arcane, inspirert av deres bånd og den emosjonelle kontrasten mellom kjærlighet, tap og styrke."
+        },
+        year: 2023,
+        medium: {
+            "en": "Gouache on Paper",
+            "no": "Gouache på papir"
+        },
         category: "Anime",
         src: "artworks/anime/power-and-vy-arcane.jpeg",
         views: 0
     },
     {
         id: 28,
-        title: "Chihiro and Haku (Spirited Away)",
-        description: "A vibrant illustration featuring Chihiro and Haku from Spirited Away, capturing their unique personalities and dynamic poses with intricate details and bold colors.",
+        title: {
+            "en": "Chihiro and Haku (Spirited Away)",
+            "no": "Chihiro og Haku (Chihiro og heksa)"
+        },
+        description: {
+            "en": "A gouache painting of Chihiro and Haku in their final embrace from Spirited Away. A tender moment where love, memory, and magic meet—two souls holding on before drifting apart.",
+            "no": "Et gouache-maleri av Chihiro og Haku i deres siste omfavnelse fra Chihiro og heksa. Et ømt øyeblikk hvor kjærlighet, minner og magi møtes—to sjeler som holder fast før de driver fra hverandre."
+        },
         year: 2023,
-        medium: "Gouache on Paper",
+        medium: {
+            "en": "Gouache on Paper",
+            "no": "Gouache på papir"
+        },
         category: "Anime",
         src: "artworks/anime/chihiroandhaku-ghibli.jpeg",
         views: 0
     },
     {
         id: 29,
-        title: "Ducks in a Bath (Spirited Away)",
-        description: "A captivating illustration featuring characters from Spirited Away, showcasing their unique designs and dynamic poses with vibrant colors and intricate details.",
+        title: {
+            "en": "Ducks in a Bath (Spirited Away)",
+            "no": "Ender i et bad (Chihiro og heksa)"
+        },
+        description: {
+            "en": "A gouache painting inspired by Spirited Away, showing the playful bathhouse scene with the ducks enjoying their time in the water.",
+            "no": "Et gouache-maleri inspirert av Chihiro og heksa, som viser den lekne badstuescenen med endene som nyter tiden i vannet."
+        },
         year: 2023,
-        medium: "Gouache on Paper",
+        medium: {
+            "en": "Gouache on Paper",
+            "no": "Gouache på papir"
+        },
         category: "Anime",
         src: "artworks/anime/ducks-in-a-bath-ghibli.jpeg",
         views: 0
     },
     {
         id: 30,
-        title: "Sheeta (Castle in the Sky)",
-        description: "A captivating illustration featuring Sheeta from Castle in the Sky, showcasing her enigmatic presence and unique design with vibrant colors and intricate details.",
+        title: {
+            "en": "Sheeta (Castle in the Sky)",
+            "no": "Sheeta (Himmelens slott)"
+        },
+        description: {
+            "en": "A gouache painting of Sheeta from Castle in the Sky, inspired by the peaceful moment when she feeds the pigeons.",
+            "no": "Et gouache-maleri av Sheeta fra Himmelens slott, inspirert av det fredelige øyeblikket når hun mater due."
+        },
         year: 2023,
-        medium: "Gouache on Paper",
+        medium: {
+            "en": "Gouache on Paper",
+            "no": "Gouache på papir"
+        },
         category: "Anime",
         src: "artworks/anime/laputa-ghibli.jpeg",
         views: 0
     },
     {
         id: 31,
-        title: "Chihiro's flowers (Spirited Away)",
-        description: "A striking illustration of Chihiro's flowers from Spirited Away, capturing their delicate beauty and vibrant colors with intricate details.",
+        title: {
+            "en": "Chihiro's flowers (Spirited Away)",
+            "no": "Chihiros blomster (Chihiro og heksa)"
+        },
+        description: {
+            "en": "A gouache painting inspired by the opening scene of Spirited Away, showing Chihiro’s flower bouquet with her name card tucked inside.",
+            "no": "Et gouache-maleri inspirert av åpningsscenen i Chihiro og heksa, som viser Chihiros blomsterbukett med navnekortet hennes stukket inn."
+        },
         year: 2023,
-        medium: "Gouache on Paper",
+        medium: {
+            "en": "Gouache on Paper",
+            "no": "Gouache på papir"
+        },
         category: "Anime",
         src: "artworks/anime/chihiros-flowers-ghibli.jpeg",
         views: 0

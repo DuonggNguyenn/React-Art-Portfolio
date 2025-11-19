@@ -1,13 +1,40 @@
 import { Button } from './ui/button';
 import portraitPainting from '/artworks/artist-portrait.jpg';
+import { useTranslation } from 'react-i18next';
+import { artworks, type Artwork } from "@/data/artworks"
+import { useEffect, useState } from 'react';
 
 export default function About() {
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language;
+  const lang = currentLanguage.startsWith("no") ? "no" : "en";
+  const [featuredArtwork, setFeaturedArtwork] = useState<Artwork | null>(null);
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId)
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' })
     }
   }
+
+  useEffect(() => {
+    const viewedArtworks = localStorage.getItem("artworkViews") || "{}";
+
+    const views = JSON.parse(viewedArtworks);
+
+    //merge views with artworks data to get full artwork details
+    const mergedArtworks = artworks.map((artwork) => ({
+      ...artwork,
+      views: views[artwork.id] || 0,
+    }))
+
+    //find the most viewed artwork
+    setFeaturedArtwork(mergedArtworks.sort((a, b) => b.views - a.views)[0]);
+
+    //If no views yet, pick a default artwork
+    if (mergedArtworks.every(artwork => artwork.views === 0)) {
+      setFeaturedArtwork(artworks.find(artwork => artwork.id === 1) || null);
+    }
+  }, []);
 
   return (
     <section
@@ -22,38 +49,31 @@ export default function About() {
         {/* Left column */}
         <div>
           <h2 className="font-serif font-semibold text-2xl sm:text-3xl xl:text-4xl mb-4">
-            About the Artist
+            {t('about.title')}
           </h2>
 
           <div className="h-[1px] bg-[#C6A664] mb-6"></div>
 
           <p className="text-[#f5f2e7] text-base lg:text-lg leading-loose mb-4">
-            I have bachelor’s degrees in Data Engineering and Mathematics and
-            work full-time as an integration developer. Outside of my tech career,
-            I turn to painting and drawing as a way to step away from code and
-            explore creativity in a more personal way.
+            {t('about.paragraph1')}
           </p>
 
           <p className="text-[#f5f2e7] text-base lg:text-lg leading-loose">
-            In my free time, I create oil paintings, portraits, landscapes,
-            and other works inspired by curiosity and imagination. I am
-            entirely self-taught and paint simply because I love it — it’s my
-            way of finding balance, expression, and a deeper connection
-            outside of my everyday work.
+            {t('about.paragraph2')}
           </p>
 
           <h3 className="text-lg lg:text-xl xl:text-2xl font-serif font-semibold mt-12 mb-4">
-            Artistic Focus
+            {t('about.artisticFocusTitle')}
           </h3>
 
           <div className="flex flex-wrap gap-6 text-sm lg:text-base">
-            {['Portraits', 'Oil Painting', 'Landscape', 'Gouache', 'Anime'].map((focus) => (
+            {[t('about.focus.portrait'), t('about.focus.oilPainting'), t('about.focus.landscape'), t('about.focus.gouache'), t('about.focus.anime')].map((focus) => (
               <span
                 key={focus}
                 className="
                         relative pb-1  text-[#C6A664]/80 
                       hover:text-[#C6A664] transition-colors"
-                >
+              >
                 {focus}
               </span>
             ))}
@@ -80,14 +100,14 @@ export default function About() {
               className="absolute bottom-0 right-0 translate-y-1/2
                      bg-[#221B10] text-[#C6A664] border border-[#C6A664] rounded-md shadow-md
                      px-8 py-8 sm:px-10 sm:py-9 hover:bg-[#C6A664] hover:text-[#221B10] hover:scale-105
-                     transition-all duration-200"
+                     transition-all duration-200 cursor-pointer"
             >
-              <div className="flex flex-col items-start leading-tight">
+              <div className="flex flex-col items-center leading-tight">
                 <span className="text-[10px] sm:text-sm uppercase tracking-widest opacity-80 font-serif">
-                  #Feature Work
+                  {t('about.featureLabel')}
                 </span>
                 <span className="font-semibold text-[11px] sm:text-sm font-serif">
-                  The Hobbit Painting
+                  {featuredArtwork ? featuredArtwork.title[lang] : t('about.featureDefault')}
                 </span>
               </div>
             </Button>

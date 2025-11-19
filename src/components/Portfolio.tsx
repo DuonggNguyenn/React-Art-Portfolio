@@ -2,14 +2,18 @@ import { Card, CardContent } from "./ui/card";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, PaginationEllipsis } from "./ui/pagination";
 import { Input } from "./ui/input";
 import Detail from "./Detail";
-import { artworks } from "@/data/artworks";
+import { artworks as initialArtworks, type Artwork } from "@/data/artworks";
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Portfolio() {
     const [filter, setFilter] = useState("All");
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
+    const [artworks, setArtworks] = useState<Artwork[]>(initialArtworks);
     const itemsPerPage = 6;
+    const { t, i18n } = useTranslation();
+    const ARTWORK_IDS = ["All", "Portrait", "Oil Painting", "Landscape", "Anime"];
 
     useEffect(() => {
         setCurrentPage(1);
@@ -26,12 +30,19 @@ export default function Portfolio() {
         }
     }, [currentPage]);
 
+    //Determine current language
+    const currentLang = i18n.language;
+    const lang = currentLang.startsWith("no") ? "no" : "en";
+
     //Apply filtering + searching
     const filteredArtworks = artworks.filter(artwork => {
         const matchesCategory = filter === "All" || artwork.category === filter;
-        const searchedArtworks = artwork.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            artwork.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            artwork.medium.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        const title = artwork.title[lang] ?? artwork.title['en'];
+        const description = artwork.description[lang] ?? artwork.description['en'];
+        const medium = artwork.medium[lang] ?? artwork.medium['en'];
+        const searchedArtworks = title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            medium.toLowerCase().includes(searchTerm.toLowerCase()) ||
             artwork.year.toString().includes(searchTerm);
         return matchesCategory && searchedArtworks;
     });
@@ -58,16 +69,16 @@ export default function Portfolio() {
                 {/* Heading */}
                 <div className="w-full text-center">
                     <h2 className="text-xl sm:text-2xl xl:text-4xl pt-20 lg:pt-20 font-semibold  font-serif">
-                        Portfolio
+                        {t('portfolio.title')}
                         <div className="border-b border-[#C6A664] my-4 lg:my-6 mx-auto w-90 sm:w-120 lg:w-140"></div>
                     </h2>
 
-                    <p className="text-sm mx-6 xl:text-base 2xl:text-base text-[#f5f5f5] font-sans tracking-wide">A collection of moments, sketches, and visions from my artistic journey.</p>
+                    <p className="text-sm mx-6 xl:text-base 2xl:text-base text-[#f5f5f5] font-sans tracking-wide">{t('portfolio.description')}</p>
                 </div>
 
                 {/* Filters */}
                 <div className="flex flex-wrap justify-center gap-3 lg:gap-6 my-4 lg:my-6 font-serif text-sm md:text-base">
-                    {['All', 'Portrait', 'Oil Painting', 'Landscape', 'Anime'].map((category) => (
+                    {ARTWORK_IDS.map((category) => (
                         <button
                             key={category}
                             onClick={() => setFilter(category)}
@@ -83,7 +94,7 @@ export default function Portfolio() {
                                     after:transition-all after:duration-300
                                     `}
                         >
-                            {category}
+                            {t(`portfolio.${category.toLowerCase().replace(" ", "")}`)}
                         </button>
                     ))}
                 </div>
@@ -95,8 +106,8 @@ export default function Portfolio() {
                             type="text"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            aria-label="Search"
-                            placeholder="Search..."
+                            aria-label={t('portfolio.searchPlaceholder')}
+                            placeholder={t('portfolio.searchPlaceholder')}
                             className="w-full text-sm xl:text-base 2xl:text-base border border-[#C6A664] rounded-2xl px-4 py-2 text-[#C6A664] font-serif placeholder:text-[#C6A664] focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
                         ></Input>
                         {/* ✕ button */}
@@ -114,7 +125,7 @@ export default function Portfolio() {
 
                 {filteredArtworks.length === 0 ?
                     (<p className="text-center text-sm lg:text-base xl:text-lg 2xl:text-lg text-[#C6A664] mt-10 font-serif">
-                        No artworks found.
+                        {t('portfolio.noArtworksFound')}
                     </p>) :
                     (
                         // Artworks Grid
@@ -140,6 +151,11 @@ export default function Portfolio() {
                                                 //Save back to local storage
                                                 localStorage.setItem('artworkViews', JSON.stringify(views));
 
+                                                //Update React state to re-render component
+                                                setArtworks((prev) => prev.map(a =>
+                                                    a.id === artwork.id ? { ...a, views: views[artwork.id] } : a
+                                                ));
+
                                                 // Log the view count for the current artwork
                                                 console.log(`Artwork title ${artwork.title} has been viewed ${views[artwork.id]} times.`);
 
@@ -152,7 +168,7 @@ export default function Portfolio() {
                                                 <div className="aspect-[3/4] border-1 border-[#C6A664]/60 p-2 bg-black">
                                                     <img
                                                         src={artwork.src}
-                                                        alt={artwork.title}
+                                                        alt={artwork.title[lang]}
                                                         loading="lazy"
                                                         className="h-full w-full object-cover
                                                                    transition-all duration-500 ease-in-out
@@ -165,8 +181,8 @@ export default function Portfolio() {
                                             <div className="absolute bottom-4.5 left-4.5 -translate-x-0 bg-[#0F0C08]/90 
                                                             border border-[#C6A664]/60 px-4 py-2 opacity-0 
                                                             group-hover:opacity-100 transition duration-300">
-                                                <h3 className="text-sm font-serif text-[#C6A664]">{artwork.title}</h3>
-                                                <p className="text-xs text-white/70 font-sans">{artwork.year} | {artwork.medium}</p>
+                                                <h3 className="text-sm font-serif text-[#C6A664]">{artwork.title[lang]}</h3>
+                                                <p className="text-xs text-white/70 font-sans">{artwork.year} | {artwork.medium[lang]}</p>
                                             </div>
 
                                         </div>

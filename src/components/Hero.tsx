@@ -1,14 +1,18 @@
 import { Button } from "./ui/button"
 import { useEffect, useState } from "react"
-import { artworks} from "@/data/artworks"
+import { artworks } from "@/data/artworks"
 import { type Artwork } from "@/data/artworks"
 import ArtworkFrame from "./ArtworkFrame"
+import { useTranslation } from "react-i18next";
 
 export default function Hero() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const [topViewedArtworks, setTopViewedArtworks] = useState<Artwork[]>([]);
 
+    const { t, i18n } = useTranslation();
+
+    //TODO: make a common utility to read artwork views from localStorage
     useEffect(() => {
         const viewedArtworks = localStorage.getItem("artworkViews") || "{}";
 
@@ -25,7 +29,7 @@ export default function Hero() {
     }, []);
 
     useEffect(() => {
-        if(topViewedArtworks.length === 0) return;
+        if (topViewedArtworks.length === 0) return;
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) => (prevIndex + 1) % topViewedArtworks.length);
         }, 5000); // Change image every 5 seconds
@@ -42,6 +46,9 @@ export default function Hero() {
 
     const currentArtwork = topViewedArtworks.length > 0 ? topViewedArtworks[currentImageIndex] : artworks[1];
 
+    const currentLang = i18n.language;
+    const lang = currentLang.startsWith("no") ? "no" : "en";
+
     return (
         <section
             id="hero"
@@ -52,16 +59,16 @@ export default function Hero() {
                      bg-[url('/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay"
         >
             <div className="max-w-6xl mx-auto
-            flex flex-col md:flex-row items-center justify-center 
-            pb-10
-            xl:gap-15
-            w-full">
+                            flex flex-col md:flex-row items-center justify-center 
+                            pb-10
+                            xl:gap-15
+                            w-full">
 
                 {/* Left column: Image + Button */}
                 <div className="flex flex-col items-center">
                     <ArtworkFrame
                         src={currentArtwork.src}
-                        title={currentArtwork.title}
+                        title={currentArtwork.title[lang]}
                     />
                     <Button
                         onClick={
@@ -76,32 +83,32 @@ export default function Hero() {
                          transition-colors duration-300 rounded-full py-3 lg:py-5 shadow-md font-semibold
                          text-[12px] lg:text-sm"
                     >
-                        <a href="#portfolio">View My Works</a>
+                        <a href="#portfolio">{t('hero.viewWorks')}</a>
                     </Button>
                 </div>
 
                 {/* Right column: Title + Text + Button */}
                 <div className="max-w-md text-center md:mx-8 md:text-left">
                     <h2 className="
-                    text-2xl md:text-4xl font-serif mb-4 mt-8 lg:mt-0 tracking-wide">Art <br />  Journey</h2>
+                    text-2xl md:text-4xl font-serif mb-4 mt-8 lg:mt-0 tracking-wide">{t('hero.titleLine1')}<br/>{t('hero.titleLine2')}</h2>
                     <div className="border-b border-[#C6A664] mb-6"></div>
                     <p className="
                     text-[#f5f2e7]
                      text-sm md:sm xl:text-base
-                    leading-loose font-sans">Art has always been my way of balancing life with creativity and expression. Painting and sketching let me explore stories, moods, and ideas that can’t be explained with code or numbers — only felt. Each piece reflects that balance.</p>
+                    leading-loose font-sans">{t('hero.description')}</p>
                     <p className="mt-6 text-sm lg:text-base font-sans text-[#f5f2e7] tracking-wide">
-                        Feel free to {" "}
+                        {t("hero.contactPrefix")}{" "}
                         <a
                             href="#contact"
                             onClick={(e) => {
-                                e.preventDefault()
-                                scrollToSection("contact")
+                                e.preventDefault();
+                                scrollToSection("contact");
                             }}
                             className="text-[#E3C97B] hover:underline hover:underline-offset-5 hover:text-[#F1D88C] transition-colors"
                         >
-                            connect with me
+                            {t("hero.contactLink")}
                         </a>{" "}
-                        anytime!
+                        {t("hero.contactSuffix")}
                     </p>
                 </div>
             </div>

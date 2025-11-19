@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
-
-    const[menuOpen, setMenuOpen] = useState(false);
+    const NAV_IDS = ['portfolio', 'about', 'contact'];
+    const [menuOpen, setMenuOpen] = useState(false);
+    const { t, i18n } = useTranslation();
 
     const scrollToSection = (sectionId: string) => {
         const section = document.getElementById(sectionId)
@@ -10,6 +12,10 @@ export default function Header() {
             section.scrollIntoView({ behavior: 'smooth' });
             setMenuOpen(false);
         }
+    }
+
+    const changeLanguage = (lng: "en" | "no") => {
+        i18n.changeLanguage(lng);
     }
 
     return (
@@ -26,7 +32,7 @@ export default function Header() {
                         !text-sm xl:!text-xl 
                         tracking-wide hover:text-[#E3C97B] hover:scale-105 hover:drop-shadow-[0_0_6px_rgba(227,201,123,0.8)] transition outline-none focus:outline-none"
                     >
-                        Artist Portfolio
+                        {t('header.title')}
                     </button>
 
                     {/* Spacer to match hero layout proportions */}
@@ -38,17 +44,35 @@ export default function Header() {
                                    text-sm xl:text-medium
                                    font-light tracking-wide
                                   ">
-                        {['portfolio', 'about', 'contact'].map((id) => (
+                        {NAV_IDS.map((id) => (
                             <li key={id}>
                                 <button
                                     onClick={() => scrollToSection(id)}
                                     className="hover:text-[#E3C97B] hover:scale-105 hover:drop-shadow-[0_0_6px_rgba(227,201,123,0.8)] transition-colors duration-200 focus:outline-none focus-visible:outline-none"
                                 >
-                                    {id.charAt(0).toUpperCase() + id.slice(1)}
+                                    {t(`header.${id}`)}
                                 </button>
                             </li>
                         ))}
                     </ul>
+
+                    {/* 🔀 Language switcher in top navbar */}
+                    <div className="hidden md:flex items-center space-x-2 ml-4">
+                        <button
+                            onClick={() => changeLanguage("en")}
+                            className={`text-xs border px-2 py-1 rounded 
+                         ${i18n.language.startsWith("en") ? "opacity-100" : "opacity-60"}`}
+                        >
+                            EN
+                        </button>
+                        <button
+                            onClick={() => changeLanguage("no")}
+                            className={`text-xs border px-2 py-1 rounded 
+                         ${i18n.language.startsWith("no") ? "opacity-100" : "opacity-60"}`}
+                        >
+                            NO
+                        </button>
+                    </div>
 
                     {/* Mobile menu hamburger */}
                     <div className="md:hidden">
@@ -67,28 +91,42 @@ export default function Header() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16"></path>
                                 </svg>
                             )}
-                            <span className="sr-only">{menuOpen ? "Close Menu" : "Open Menu"}</span>
+                            <span className="sr-only">{menuOpen ? t('header.closeMenu') : t('header.openMenu')}</span>
                         </button>
 
                         {/* When menu is open, show mobile menu items */}
                         {menuOpen && (
                             <div className="absolute top-full right-0 mt-2 w-40 bg-[#15110B] border border-[#C6A664] border:p-1 rounded-md shadow-lg">
                                 <ul className="flex flex-col p-2 space-y-1">
-                                    {['portfolio', 'about', 'contact'].map((id) => (    
+                                    {NAV_IDS.map((id) => (
                                         <li key={id}>
                                             <button
                                                 onClick={() => scrollToSection(id)}
                                                 className="!font-serif font-light text-sm hover:text-[#E3C97B] hover:scale-105 hover:drop-shadow-[0_0_6px_rgba(227,201,123,0.8)] transition-colors duration-200 focus:outline-none focus-visible:outline-none"
                                             >
-                                                {id.charAt(0).toUpperCase() + id.slice(1)}
+                                                {t(`header.${id}`)}
                                             </button>
                                         </li>
                                     ))}
+                                    <li>
+                                        <button
+                                            onClick={() => changeLanguage("en")}
+                                            className={`!font-serif font-light text-sm hover:text-[#E3C97B] hover:scale-105 hover:drop-shadow-[0_0_6px_rgba(227,201,123,0.8)] transition-colors duration-200 focus:outline-none focus-visible:outline-none
+                                        ${i18n.language.startsWith("en") ? "opacity-100" : "opacity-60"}`}
+                                        >EN</button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            onClick={() => changeLanguage("no")}
+                                            className={`!font-serif font-light text-sm hover:text-[#E3C97B] hover:scale-105 hover:drop-shadow-[0_0_6px_rgba(227,201,123,0.8)] transition-colors duration-200 focus:outline-none focus-visible:outline-none
+                                        ${i18n.language.startsWith("no") ? "opacity-100" : "opacity-60"}`}
+                                        >NO</button>
+                                    </li>
                                 </ul>
                             </div>
                         )}
                     </div>
-                </nav>  
+                </nav>
             </div>
         </header>
     )

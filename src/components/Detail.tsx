@@ -1,4 +1,5 @@
 import { artworks } from "@/data/artworks";
+import { useTranslation } from "react-i18next";
 
 export default function Detail({
     artworkId,
@@ -16,14 +17,18 @@ export default function Detail({
     onNext: () => void;
 }) {
     const artwork = artworks.find((a) => a.id === artworkId);
+    const { t, i18n } = useTranslation();
 
     if (!artwork) {
         return (
             <div className="w-full min-h-screen p-8 bg-[#1A1510] text-[#C6A664] flex flex-col items-center justify-center">
-                <p>Artwork not found.</p>
+                <p>{t('detail.notFound')}</p>
             </div>
         );
     }
+    
+    const currentLang = i18n.language;
+    const lang = currentLang.startsWith("no") ? "no" : "en";
 
     return (
         <div className="fixed inset-0 bg-black/80 z-[60] flex items-center justify-center p-4">
@@ -69,16 +74,16 @@ export default function Detail({
                 {/* Info Box */}
                 <div className="xl:w-[40%] p-6 text-[#C6A664] flex flex-col justify-center ">
                     <h2 className="xl:text-xl 2xl:text-2xl font-serif font-semibold mb-3 tracking-wide">
-                        {artwork.title}
+                        {artwork.title[lang]}
                     </h2>
                     <p className="mb-4 text-[#f5f2e7] text-[15px] md:text-sm xl:text-sm 2xl:text-base leading-relaxed">
-                        {artwork.description}
+                        {artwork.description[lang]}
                     </p>
                     <p className="text-sm tracking-wider opacity-80 mb-1">
-                        <span className="font-semibold">Medium:</span> {artwork.medium}
+                        <span className="font-semibold">{t('detail.medium')}:</span> {artwork.medium[lang]}
                     </p>
-                    <p className="text-sm tracking-wider opacity-80">
-                        <span className="font-semibold">Year:</span> {artwork.year}
+                    <p className="text-sm tracking-wider opacity-80 mb-1">
+                        <span className="font-semibold">{t('detail.year')}:</span> {artwork.year}
                     </p>
                 </div>
 

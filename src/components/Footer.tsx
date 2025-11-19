@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 export default function Footer() {
+    const { t } = useTranslation();
     return (
         <footer className="
         w-full 
@@ -8,8 +11,8 @@ export default function Footer() {
         border-t border-[#C6A664]/40 
         text-sm xl:text-base
         ">
-            <p>&copy; {new Date().getFullYear()} | Made with
-                <span className="text-pink-300"> ♥️</span> by artist</p>
+            <p>&copy; {new Date().getFullYear()} | {t('footer.madeWith')}
+                <span className="text-pink-300"> {t('footer.heart')}</span> {t('footer.by')} {t('footer.artist')}</p>
         </footer>
     );
 }

@@ -4,10 +4,12 @@ import { Mail, MapPin, Phone, Instagram, Facebook, Linkedin, Copy } from "lucide
 import emailjs from 'emailjs-com';
 import React, { useRef } from "react";
 import { Toaster } from "./ui/sonner.tsx";
-import { toast } from "sonner"
+import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
     const form = useRef<HTMLFormElement>(null);
+    const { t } = useTranslation();
 
     const sendEmail = (e: React.FormEvent) => {
         e.preventDefault();
@@ -20,29 +22,29 @@ export default function Contact() {
         const message = ((form.current.elements.namedItem("message") as HTMLTextAreaElement) || { value: "" }).value.trim();
 
         if (!/^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,}$/.test(name)) {
-            toast.error("Invalid name", {
-                description: "Please enter a valid name (at least 2 characters, letters, spaces, apostrophes, and hyphens only).",
+            toast.error(t("contact.validation.nameTitle"), {
+                description: t("contact.validation.nameDescription"),
             });
             return;
         }
 
         if (!/^\+?[1-9]\d{1,14}$/.test(phone)) {
-            toast.error("Invalid phone number", {
-                description: "Please enter a valid phone number.",
+            toast.error(t("contact.validation.phoneTitle"), {
+                description: t("contact.validation.phoneDescription"),
             });
             return;
         }
 
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            toast.error("Invalid email address", {
-                description: "Please enter a valid email address.",
+            toast.error(t("contact.validation.emailTitle"), {
+                description: t("contact.validation.emailDescription"),
             });
             return;
         }
 
         if (message.length < 10) {
-            toast.error("Message too short", {
-                description: "Please enter a message of at least 10 characters.",
+            toast.error(t("contact.validation.messageTitle"), {
+                description: t("contact.validation.messageDescription"),
             });
             return;
         }
@@ -56,8 +58,8 @@ export default function Contact() {
             ).then(
                 (result: any) => {
                     console.log("✅ EmailJS response:", result);
-                    toast.success("✅ Message sent successfully!", {
-                        description: "Thanks for reaching out — I’ll reply as soon as possible.",
+                    toast.success(t("contact.toast.successTitle"), {
+                        description: t("contact.toast.successDescription"),
                         style: {
                             backgroundColor: "#221B10",
                             color: "#C6A664",
@@ -70,8 +72,8 @@ export default function Contact() {
                 },
                 (error: any) => {
                     console.error("Failed to send the message:", error);
-                    toast.error("Failed to send the message", {
-                        description: "Please try again later.",
+                    toast.error(t("contact.toast.errorTitle"), {
+                        description: t("contact.toast.errorDescription"),
                         style: {
                             backgroundColor: "#C0392B",
                             color: "#fff",
@@ -94,15 +96,15 @@ export default function Contact() {
             {/* Heading */}
             <div className="text-center max-w-2xl mx-auto my-6 lg:my-10">
                 <h2 className="font-serif font-semibold tracking-wide text-2xl sm:text-3xl xl:text-4xl my-4 lg:my-6">
-                    Contact Me
+                    {t('contact.title')}
                 </h2>
                  <div className="border-b border-[#C6A664] my-3 lg:my-6 mx-auto w-1/2"></div>
-                <p className="text-sm sm:text-base lg:text-lg text-[#f5f2e7] font-sans px-10">Interested in commissioning a piece, collaborating, or just want to say hello? I’d love to hear from you.</p>
+                <p className="text-sm sm:text-base lg:text-lg text-[#f5f2e7] font-sans px-10">{t('contact.subtitle')}</p>
             </div>
 
             {/* Contact Form and Info Grid */}
             <div className=" max-w-7xl mx-auto px-4 sm:px-8
-                             grid md:grid-cols-[2fr_1fr] gap-10 items-stretch relative pb-12 md:pb-16 xl:pb-24">
+                             grid md:grid-cols-[2fr_1fr] gap-10 items-stretch relative pb-16 xl:pb-24">
 
                 {/* Left Contact Form*/}
                 <Card className="border-1 border-[#C6A664] bg-[#0F0C08] 
@@ -119,13 +121,13 @@ export default function Contact() {
                             {/* Name */}
                             <div>
                                 <label htmlFor="name" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
-                                    Name*
+                                    {t('contact.form.nameLabel')}
                                 </label>
                                 <input
                                     type="text"
                                     id="name"
                                     name="name"
-                                    placeholder="Your full name"
+                                    placeholder={t('contact.form.namePlaceholder')}
                                     required
                                     className="w-full px-3 py-2 bg-[#1f1a12]
                                         text-[12px] xl:text-base 2xl:text-base 
@@ -137,13 +139,13 @@ export default function Contact() {
                             {/* Phone */}
                             <div>
                                 <label htmlFor="phone" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
-                                    Phone
+                                    {t('contact.form.phoneLabel')}
                                 </label>
                                 <input
                                     type="tel"
                                     id="phone"
                                     name="phone"
-                                    placeholder="Your phone number"
+                                    placeholder={t('contact.form.phonePlaceholder')}
                                     className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12]
                                         text-[12px] xl:text-base
                                         text-white placeholder-[#d8c6a0]
@@ -154,13 +156,13 @@ export default function Contact() {
                             {/* Email */}
                             <div>
                                 <label htmlFor="email" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
-                                    Email*
+                                    {t('contact.form.emailLabel')}
                                 </label>
                                 <input
                                     type="email"
                                     id="email"
                                     name="email"
-                                    placeholder="Your email address"
+                                    placeholder={t('contact.form.emailPlaceholder')}
                                     required
                                     className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12] 
                                         text-[12px] xl:text-base
@@ -172,13 +174,13 @@ export default function Contact() {
                             {/* Message */}
                             <div>
                                 <label htmlFor="message" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
-                                    Message*
+                                    {t('contact.form.messageLabel')}
                                 </label>
                                 <textarea
                                     id="message"
                                     name="message"
                                     rows={6}
-                                    placeholder="Tell me what you think..."
+                                    placeholder={t('contact.form.messagePlaceholder')}
                                     required
                                     className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl 
                                         text-[12px] xl:text-base
@@ -197,7 +199,7 @@ export default function Contact() {
                                     transition-all duration-300 
                                     rounded-full px-4 sm:px-8 w-full lg:mt-4"
                             >
-                                Send Your Message
+                                {t('contact.form.submit')}
                             </Button>
                         </form>
                     </CardContent>
@@ -212,7 +214,7 @@ export default function Contact() {
                         {/* Section heading */}
                         <div className="mb-6">
                             <h3 className="text-base xl:text-xl font-serif font-medium text-[#C6A664] tracking-wide">
-                                Let’s Connect
+                               {t('contact.info.title')}
                             </h3>
                             <div className="h-[1px] bg-[#C6A664]/40 mt-4" />
                         </div>
@@ -224,7 +226,7 @@ export default function Contact() {
                             <div className="flex items-start gap-3">
                                 <Mail className="w-5 h-5 text-[#C6A664]/80 mt-1" />
                                 <div>
-                                    <p className="text-sm font-medium text-[#C6A664] font-serif">Email</p>
+                                    <p className="text-sm font-medium text-[#C6A664] font-serif">{t('contact.info.emailLabel')}</p>
                                     <div className="flex items-center gap-2">
                                         <a
                                             href="mailto:abc@gmail.com"
@@ -240,7 +242,7 @@ export default function Contact() {
                                             className="flex items-center gap-1 xl:px-2 xl:py-1 ml-2  text-[#C6A664] bg-[#C6A664]/10 border border-[#C6A664]/30 rounded-md hover:bg-[#C6A664]/20 hover:scale-105 transition"
                                         >
                                             <Copy size={12} />
-                                            <span className="text-[#C6A664] px-1 text-[12px] xl:text-sm font-serif">Copy</span>
+                                            <span className="text-[#C6A664] px-1 text-[12px] xl:text-sm font-serif">{t('contact.info.copy')}</span>
                                         </button>
                                     </div>
                                 </div>
@@ -250,8 +252,8 @@ export default function Contact() {
                             <div className="flex items-start gap-3">
                                 <MapPin className="w-5 h-5 text-[#C6A664]/80 mt-1" />
                                 <div>
-                                    <p className="text-sm font-medium text-[#C6A664] font-serif">City</p>
-                                    <p className="text-white/80 text-[12px] xl:text-sm font-serif mt-2">Oslo, Norway</p>
+                                    <p className="text-sm font-medium text-[#C6A664] font-serif">{t('contact.info.cityLabel')}</p>
+                                    <p className="text-white/80 text-[12px] xl:text-sm font-serif mt-2">{t('contact.info.cityValue')}</p>
                                 </div>
                             </div>
 
@@ -259,15 +261,15 @@ export default function Contact() {
                             <div className="flex items-start gap-3">
                                 <Phone className="w-5 h-5 text-[#C6A664]/80 mt-1" />
                                 <div>
-                                    <p className="text-sm font-medium text-[#C6A664] font-serif">Phone</p>
-                                    <p className="text-white/80 text-[12px] xl:text-sm font-serif">+47 123 45 678</p>
+                                    <p className="text-sm font-medium text-[#C6A664] font-serif">{t('contact.info.phoneLabel')}</p>
+                                    <p className="text-white/80 text-[12px] xl:text-sm font-serif">{t('contact.info.phoneValue')}</p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Socials */}
                         <div className="mt-10">
-                            <p className="text-sm xl:text-lg font-serif font-medium mb-3 underline decoration-[#C6A664]/60 underline-offset-4">Follow me</p>
+                            <p className="text-sm xl:text-lg font-serif font-medium mb-3 underline decoration-[#C6A664]/60 underline-offset-4">{t('contact.social.follow')}</p>
                             <div className="flex gap-5">
                                 <a href="https://www.instagram.com/"><Instagram className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
                                 <a href="https://www.facebook.com/"><Facebook className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
