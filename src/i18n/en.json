@@ -42,7 +42,9 @@
         "featureLabel": "#Feature Work",
         "featureTitle": "The Hobbit Painting",
         "imageAlt": "Portrait Painting Artwork",
-        "featureDefault": "The Hobbit Painting"
+        "featureDefault": "The Hobbit Painting",
+        "wipTitle": "Work in Progress",
+        "wipCurrent": "Under the Chandelier - Oil Painting"
     },
     "contact": {
         "title": "Contact Me",
@@ -94,9 +96,9 @@
         "year": "Year"
     },
     "footer": {
-        "madeWith": "Made with",
-        "heart": "♥️",
+        "madeWith": "Designed, coded, and illustrated with",
+        "heart": "💛",
         "by": "by",
-        "artist": "artist"
+        "artist": "the artist"
     }
 }

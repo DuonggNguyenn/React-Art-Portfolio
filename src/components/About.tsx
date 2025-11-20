@@ -52,17 +52,17 @@ export default function About() {
             {t('about.title')}
           </h2>
 
-          <div className="h-[1px] bg-[#C6A664] mb-6"></div>
+          <div className="h-[1px] bg-[#C6A664] mt-5 mb-6"></div>
 
-          <p className="text-[#f5f2e7] text-base lg:text-lg leading-loose mb-4">
+          <p className="text-[#f5f2e7] text-sm lg:text-base tracking-[0.02em] leading-loose mb-4">
             {t('about.paragraph1')}
           </p>
 
-          <p className="text-[#f5f2e7] text-base lg:text-lg leading-loose">
+          <p className="text-[#f5f2e7] text-sm lg:text-base tracking-[0.02em] leading-loose">
             {t('about.paragraph2')}
           </p>
 
-          <h3 className="text-lg lg:text-xl xl:text-2xl font-serif font-semibold mt-12 mb-4">
+          <h3 className="text-lg lg:text-xl xl:text-2xl font-serif font-semibold mt-8 mb-4">
             {t('about.artisticFocusTitle')}
           </h3>
 
@@ -77,6 +77,16 @@ export default function About() {
                 {focus}
               </span>
             ))}
+          </div>
+
+          {/* WIP section – light & small so it doesn’t feel heavy */}
+          <div className="mt-8">
+            <h3 className="text-lg lg:text-xl xl:text-2xl font-serif font-semibold text-[#C6A664]">
+              {t("about.wipTitle")}
+            </h3>
+            <p className="text-sm md:text-base text-[#C6A664]/80 mt-4 mb-4">
+              {t("about.wipCurrent")}
+            </p>
           </div>
         </div>
 

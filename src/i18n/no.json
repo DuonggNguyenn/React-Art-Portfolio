@@ -42,7 +42,9 @@
     "featureLabel": "#Utvalgt verk",
     "featureTitle": "Hobbiten-maleriet",
     "imageAlt": "Portrettmaleri",
-    "featureDefault": "Hobbiten-maleriet"
+    "featureDefault": "Hobbiten-maleriet",
+    "wipTitle": "Pågående arbeid",
+    "wipCurrent": "Under lysekronen - Oljiemaleri"
   },
   "contact": {
     "title": "Kontakt meg",
@@ -94,8 +96,8 @@
     "year": "År"
   },
   "footer": {
-    "madeWith": "Laget med",
-    "heart": "♥️",
+    "madeWith": "Designet, kodet og illustrert med",
+    "heart": "💛",
     "by": "av",
     "artist": "kunstneren"
   }

@@ -52,17 +52,14 @@ export default function Hero() {
     return (
         <section
             id="hero"
-            className="min-h-screen items-center px-4 flex
-                    bg-[#1b1206]
-                     text-[#C6A664]  
-                     bg-[radial-gradient(circle_at_center,rgba(198,166,100,0.25)_0%,transparent_70%)]
-                     bg-[url('/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay"
+            className="min-h-screen flex items-center
+             bg-[#1b1206] text-[#C6A664]
+             bg-[radial-gradient(circle_at_center,rgba(198,166,100,0.25)_0%,transparent_70%)]
+             bg-[url('/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay"
         >
-            <div className="max-w-6xl mx-auto
-                            flex flex-col md:flex-row items-center justify-center 
-                            pb-10
-                            xl:gap-15
-                            w-full">
+            <div className="max-w-6xl mx-auto w-full px-4 sm:px-6
+                  flex flex-col md:flex-row items-center justify-center 
+                  pb-10 xl:gap-15">
 
                 {/* Left column: Image + Button */}
                 <div className="flex flex-col items-center">
@@ -90,7 +87,7 @@ export default function Hero() {
                 {/* Right column: Title + Text + Button */}
                 <div className="max-w-md text-center md:mx-8 md:text-left">
                     <h2 className="
-                    text-2xl md:text-4xl font-serif mb-4 mt-8 lg:mt-0 tracking-wide">{t('hero.titleLine1')}<br/>{t('hero.titleLine2')}</h2>
+                    text-2xl md:text-4xl font-serif mb-4 mt-8 lg:mt-0 tracking-wide">{t('hero.titleLine1')}<br />{t('hero.titleLine2')}</h2>
                     <div className="border-b border-[#C6A664] mb-6"></div>
                     <p className="
                     text-[#f5f2e7]

@@ -23,7 +23,7 @@ export default function Header() {
                          bg-[#15110B] bg-gradient-to-b from-[#15110B] to-[#302617]
                           text-[#C6A664] 
                           border-b border-[#C6A664]">
-            <div className="max-w-7xl mx-auto w-full px-6 xl:px-4">
+            <div className="max-w-7xl mx-auto w-full px-4 sm:px-6">
                 <nav className="flex items-center h-8 xl:h-12">
                     {/* Logo */}
                     <button
