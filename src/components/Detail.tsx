@@ -16,7 +16,7 @@ export default function Detail({
     onPrev: () => void;
     onNext: () => void;
 }) {
-    const artwork = artworks.find((a) => a.id === artworkId);
+    const artwork = artworks.filter(artwork => artwork.status !== 'work in progress').find((a) => a.id === artworkId);
     const { t, i18n } = useTranslation();
 
     if (!artwork) {

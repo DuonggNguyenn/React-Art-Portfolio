@@ -8,9 +8,9 @@
     "closeMenu": "Lukk meny"
   },
   "hero": {
-    "titleLine1": "Kunstens",
-    "titleLine2": "Reise",
-    "description": "Verden min beveger seg mellom kode og lerret. Om dagen programmerer jeg, men i hjertet skaper jeg. Kunst er stedet hvor jeg legger logikken til side og lar farger, teksturer og følelser lede meg. Denne samlingen er møtestedet mellom de to sidene — hvert verk en stille balanse mellom orden og fantasi.",
+    "titleLine1": "Min reise",
+    "titleLine2": "i maling",
+    "description": "Verden min finnes et sted mellom kode og lerret. På dagen jobber jeg med logikk, men i hjertet skaper jeg. Når jeg maler, slipper jeg strukturen og lar farger og følelser ta over. Denne samlingen er møtet mellom de to delene av meg — en rolig balanse mellom orden og fantasi.",
     "contactPrefix": "Ta gjerne",
     "contactLink": "kontakt med meg",
     "contactSuffix": "når som helst!",
@@ -18,7 +18,7 @@
   },
   "portfolio": {
     "title": "Portefølje",
-    "description": "En samling øyeblikk, skisser og visjoner fra min kunstneriske reise.",
+    "description": "En samling øyeblikk, skisser og visjoner fra min maleriske reise.",
     "all": "Alle",
     "portrait": "Portrett",
     "oilpainting": "Oljemaleri",
@@ -28,27 +28,27 @@
     "noArtworksFound": "Ingen kunstverk funnet."
   },
   "about": {
-    "title": "Om kunstneren",
-    "paragraph1": "Jeg har bachelorgrader i dataingeniørfag og matematikk og jobber fulltid som utvikler. Livet mitt har alltid vært preget av logikk og struktur, så det å tre inn i kunstens verden var noe jeg aldri hadde forventet. Jeg begynte å male og tegne for omtrent to og et halvt år siden, og det føles fortsatt som en fantastisk overraskelse i livet mitt.",
-    "paragraph2": "Utenfor tech-karrieren er kunst stedet hvor jeg legger koden til side og utforsker kreativitet på en mer personlig måte. Jeg er helt selvlært og elsker å skape oljemalerier, portretter, landskap og fantasifulle motiver inspirert av nysgjerrighet og følelser. Maling har blitt min måte å finne balanse på og uttrykke det som ord eller tall aldri helt får fram.",
+    "title": "Om maleren",
+    "paragraph1": "Jeg har bachelorgrader i Data Engineering og Matematikk, og jobber heltid som utvikler. Livet mitt har alltid vært preget av logikk og struktur, så det å tre inn i kunstens verden var noe jeg aldri hadde forventet. Jeg begynte å male og tegne for omtrent to og et halvt år siden, og det føles fortsatt som en fantastisk overraskelse i livet mitt.",
+    "paragraph2": "Utenfor min tekniske karriere er kunst stedet hvor jeg legger koden til side og utforsker kreativitet på en mer personlig måte. Jeg er helt selvlært og elsker å lage oljemalerier, portretter, landskap og fantasifulle verk inspirert av nysgjerrighet og følelser. Maling har blitt min måte å finne balanse på og uttrykke ting som verken ord eller tall klarer å fange.",
     "artisticFocusTitle": "Kunstnerisk fokus",
     "focus": {
-      "portrait": "Portrett",
       "oilPainting": "Oljemaleri",
-      "landscape": "Landskap",
       "gouache": "Gouache",
-      "anime": "Anime"
+      "watercolour": "Akvarell",
+      "graphite": "Grafitt",
+      "charcoal": "Kull"
     },
     "featureLabel": "#Utvalgt verk",
     "featureTitle": "Hobbiten-maleriet",
     "imageAlt": "Portrettmaleri",
     "featureDefault": "Hobbiten-maleriet",
     "wipTitle": "Pågående arbeid",
-    "wipCurrent": "Under lysekronen - Oljiemaleri"
+    "noWip": "Ingen pågående arbeider for øyeblikket."
   },
   "contact": {
     "title": "Kontakt meg",
-    "subtitle": "Interessert i å bestille et verk, samarbeide eller bare si hei? Jeg vil gjerne høre fra deg.",
+    "subtitle": "Har du spørsmål, ønsker å gi tilbakemelding eller bare si hei? Jeg hører gjerne fra deg.",
     "form": {
       "nameLabel": "Navn*",
       "namePlaceholder": "Ditt fulle navn",
@@ -99,6 +99,6 @@
     "madeWith": "Designet, kodet og illustrert med",
     "heart": "💛",
     "by": "av",
-    "artist": "kunstneren"
+    "artist": "maleren"
   }
 }

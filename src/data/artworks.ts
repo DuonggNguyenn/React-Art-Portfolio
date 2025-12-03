@@ -3,6 +3,8 @@ export type TranslationText = {
     no: string;
 };
 
+export type ArtworkStatus = 'finished' | 'sold' | 'work in progress';
+
 export type Artwork = {
     id: number;
     title: TranslationText;
@@ -12,6 +14,7 @@ export type Artwork = {
     category: string;
     src: string;
     views?: number; // Optional field for tracking views
+    status?: ArtworkStatus; // Optional field for artwork status
 };
 
 export const artworks: Artwork[] = [
@@ -34,7 +37,7 @@ export const artworks: Artwork[] = [
             "no": "Olje på lerret"
         },
         category: "Oil Painting",
-        src: "artworks/oilpainting/thehobbit-oilpainting.jpeg",
+        src: "artworks/oilpainting/thehobbit-oilpainting.jpg",
         views: 0
     },
     {
@@ -44,7 +47,7 @@ export const artworks: Artwork[] = [
             "no": "Svanesjøen"
         },
         description: {
-            "en": "A peaceful oil painting of a swan family swimming together across a lily-covered lake, shaded by the soft branches of a willow tree.",
+            "en": "A peaceful oil painting of a swan    swimming together across a lily-covered lake, shaded by the soft branches of a willow tree.",
             "no": "Et fredelig oljemaleri av en svanefamilie som svømmer sammen over en liljedekket innsjø, skygget av de myke grenene til et piletre."
         },
         year: 2025,
@@ -78,26 +81,46 @@ export const artworks: Artwork[] = [
     {
         id: 4,
         title: { 
-            "en": "Artist Portrait",
-            "no": "Kunstnerportrett"
+            "en": "Under the chandelier",
+            "no": "Under lysekronen"
             },
         description: {
-            "en": "A detailed portrait of a person, showcasing their unique features and expressions with a blend of realism and artistic flair.",
-            "no": "Et detaljert portrett av en person, som viser deres unike trekk og uttrykk med en blanding av realisme og kunstnerisk stil."
+            "en": "An oil painting of a moonlit ballroom, where the heroine moves slowly toward her lover beneath glowing chandeliers, surrounded by softly watching guests.",
+            "no": "Et oljemaleri av en måneskinnsball, hvor helten beveger seg sakte mot sin elskede under glødende lysekroner, omgitt av mykt observerende gjester."
         },
         year: 2025,
         medium: {
             "en": "Oil on Canvas",
             "no": "Olje på lerret"
         },
-        category: "Portrait",
-        src: "artworks/artist-portrait.jpg",
-        views: 0
+        category: "Oil Painting",
+        src: "artworks/oilpainting/theballroom-oilpainting.jpeg",
+        views: 0,
+        status: 'work in progress'
     },
 
     /* Portraits */
     {
         id: 5,
+        title: {
+            "en": "The Dreammakers",
+            "no": "Drømmemakerne"
+        },
+        description: {
+            "en": "A gouache painting created as a tribute to Hayao Miyazaki and Joe Hisaishi — the two artists whose work shaped my sense of wonder since childhood, surrounded by my favorite Ghibli characters.",
+            "no": "Et gouache-maleri laget som en hyllest til Hayao Miyazaki og Joe Hisaishi — de to kunstnerne hvis arbeid har formet min følelse av undring siden barndommen, omgitt av mine favoritt Ghibli-figurer."
+        },
+        year: 2025,
+        medium: {
+            "en": "Gouache on Paper",
+            "no": "Gouache på papir"
+        },
+        category: "Portrait",
+        src: "artworks/portrait/ghibli-portrait.jpeg",
+        views: 0
+    },
+    {
+        id: 6,
         title: {
             "en": "Squid Game",
             "no": "Squid Game"
@@ -116,7 +139,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 6,
+        id: 7,
         title: {
             "en": "The Beatles in Starry Night",
             "no": "The Beatles i Stjernenatt"
@@ -135,7 +158,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 7,
+        id: 8,
         title: {
             "en": "Jack Sparrow",
             "no": "Jack Sparrow"
@@ -154,7 +177,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 8,
+        id: 9,
         title: {
             "en": "Professor McGonagall",
             "no": "Professor McGonagall"
@@ -173,7 +196,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 9,
+        id: 10,
         title: {
             "en": "Oppenheimer",
             "no": "Oppenheimer"
@@ -192,7 +215,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 10,
+        id: 11,
         title: {
             "en": "Audrey Hepburn",
             "no": "Audrey Hepburn"
@@ -211,7 +234,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 11,
+        id: 12,
         title: {
             "en": "Davy Jones",
             "no": "Davy Jones"
@@ -230,7 +253,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 12,
+        id: 13,
         title: {
             "en": "Freddie Mercury",
             "no": "Freddie Mercury"
@@ -249,7 +272,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 13,
+        id: 14,
         title: {
             "en": "A Girlfriend Portrait",
             "no": "Et portrett av en kjæreste"
@@ -268,7 +291,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 14,
+        id: 15,
         title: {
             "en": "Mother of Dragons",
             "no": "Dragenes mor"
@@ -287,7 +310,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 15,
+        id: 16,
         title: {
             "en": "Cole Sprouse",
             "no": "Cole Sprouse"
@@ -306,7 +329,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 16,
+        id: 17,
         title: {
             "en": "Daenerys Targaryen I",
             "no": "Daenerys Targaryen I"
@@ -325,7 +348,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 17,
+        id: 18,
         title: {
             "en": "Tom Hiddleston",
             "no": "Tom Hiddleston"
@@ -346,7 +369,7 @@ export const artworks: Artwork[] = [
 
     /* Landscapes */
     {
-        id: 18,
+        id: 19,
         title: {
             "en": "Den Røde Broen, Trondheim",
             "no": "Den Røde Broen, Trondheim"
@@ -365,7 +388,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 19,
+        id: 20,
         title: {
             "en": "Arendal Landscape",
             "no": "Arendal Landskap"
@@ -384,7 +407,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 20,
+        id: 21,
         title: {
             "en": "Nidarosdommen Landscape",
             "no": "Nidarosdommen Landskap"
@@ -403,7 +426,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 21,
+        id: 22,
         title: {
             "en": "Hogwarts Express Landscape",
             "no": "Hogwarts-ekspressen Landskap"
@@ -424,7 +447,7 @@ export const artworks: Artwork[] = [
 
     /* Anime */
     {
-        id: 22,
+        id: 23,
         title: {
             "en": "Titans and Their Hosts",
             "no": "Titanene og deres verter"
@@ -443,7 +466,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 23,
+        id: 24,
         title: {
             "en": "Howl's Moving Castle",
             "no": "Howl's Moving Castle"
@@ -462,7 +485,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 24,
+        id: 25,
         title: {
             "en": "Totoro in a forest (My Neighbor Totoro)",
             "no": "Totoro i en skog (Min nabo Totoro)"
@@ -481,7 +504,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 25,
+        id: 26,
         title: {
             "en": "Howl and Sophie (Howl's Moving Castle)",
             "no": "Howl og Sophie (Howl's Moving Castle)"
@@ -500,7 +523,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 26,
+        id: 27,
         title: {
             "en": "Kiki in the Bakery (Kiki's Delivery Service)",
             "no": "Kiki i bakeriet (Kikis budservice)"
@@ -519,7 +542,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 27,
+        id: 28,
         title: {
             "en": "Power and Vy (Arcane)",
             "no": "Power og Vy (Arcane)"
@@ -538,7 +561,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 28,
+        id: 29,
         title: {
             "en": "Chihiro and Haku (Spirited Away)",
             "no": "Chihiro og Haku (Chihiro og heksa)"
@@ -557,7 +580,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 29,
+        id: 30,
         title: {
             "en": "Ducks in a Bath (Spirited Away)",
             "no": "Ender i et bad (Chihiro og heksa)"
@@ -576,7 +599,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 30,
+        id: 31,
         title: {
             "en": "Sheeta (Castle in the Sky)",
             "no": "Sheeta (Himmelens slott)"
@@ -595,7 +618,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 31,
+        id: 32,
         title: {
             "en": "Chihiro's flowers (Spirited Away)",
             "no": "Chihiros blomster (Chihiro og heksa)"
@@ -611,6 +634,82 @@ export const artworks: Artwork[] = [
         },
         category: "Anime",
         src: "artworks/anime/chihiros-flowers-ghibli.jpeg",
+        views: 0
+    },
+     {
+        id: 33,
+        title: {
+            "en": "The Boy and The Heron (Ghibli)",
+            "no": "Gutten og hegren (Ghibli)"
+        },
+        description: {
+            "en": "A gouache painting tribute to The Boy and the Heron — capturing the quiet bond between the boy and his strange, magical guide",
+            "no": "Et gouache-maleri til ære for Gutten og hegren — som fanger det stille båndet mellom gutten og hans merkelige, magiske veileder"
+        },
+        year: 2023,
+        medium: {
+            "en": "Gouache on Paper",
+            "no": "Gouache på papir"
+        },
+        category: "Anime",
+        src: "artworks/anime/the-boy-and-heron-ghibli.jpeg",
+        views: 0
+    },
+    {
+        id: 34,
+        title: {
+            "en": "Nahoko - The Wind Rises (Ghibli)",
+            "no": "Nahoko - Vinden stiger (Ghibli)"
+        },
+        description: {
+            "en": "A gouache painting painting of Nahoko from The Wind Rises, a gentle soul and one of the strongest girls I’ve ever known.",
+            "no": "Et gouache-maleri av Nahoko fra Vinden stiger, en mild sjel og en av de sterkeste jentene jeg noen gang har kjent."
+        },
+        year: 2023,
+        medium: {
+            "en": "Gouache on Paper",
+            "no": "Gouache på papir"
+        },
+        category: "Anime",
+        src: "artworks/anime/the-wind-rises-ghibli.jpeg",
+        views: 0
+    },
+    {
+        id: 35,
+        title: {
+            "en": "Arrietty (Ghibli)",
+            "no": "Arrietty (Ghibli)"
+        },
+        description: {
+            "en": "Arrietty in gouache — a reminder that even the smallest hearts can carry the greatest courage.",
+            "no": "Et gouache-maleri av Arrietty, en påminnelse om at selv de minste hjerter kan bære det største motet."
+        },
+        year: 2023,
+        medium: {
+            "en": "Gouache on Paper",
+            "no": "Gouache på papir"
+        },
+        category: "Anime",
+        src: "artworks/anime/arrietty-ghibli.jpeg",
+        views: 0
+    },
+    {
+        id: 36,
+        title: {
+            "en": "Thomas Shelby",
+            "no": "Thomas Shelby"
+        },
+        description: {
+            "en": "Graphite sketches of Thomas Shelby, the cunning and ambitious leader from Peaky Blinders.",
+            "no": "Grafittskisser av Thomas Shelby, den listige og ambisiøse lederen fra Peaky Blinders."
+        },
+        year: 2024,
+        medium: {
+            "en": "Graphite on Paper",
+            "no": "Grafitt på papir"
+        },
+        category: "Portrait",
+        src: "artworks/portrait/thomasshelby-portrait.jpeg",
         views: 0
     }
 ]

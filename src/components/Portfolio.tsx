@@ -10,7 +10,8 @@ export default function Portfolio() {
     const [filter, setFilter] = useState("All");
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const [artworks, setArtworks] = useState<Artwork[]>(initialArtworks);
+    const finishedArtworks = initialArtworks.filter(artwork => artwork.status !== 'work in progress');
+    const [artworks, setArtworks] = useState<Artwork[]>(finishedArtworks);
     const itemsPerPage = 6;
     const { t, i18n } = useTranslation();
     const ARTWORK_IDS = ["All", "Portrait", "Oil Painting", "Landscape", "Anime"];
@@ -68,16 +69,16 @@ export default function Portfolio() {
             <div className="flex-grow max-w-xl xl:max-w-5xl 2xl:max-w-6xl mb-6 mx-auto">
                 {/* Heading */}
                 <div className="w-full text-center">
-                    <h2 className="text-xl sm:text-2xl xl:text-4xl pt-20 lg:pt-20 font-semibold  font-serif">
+                    <h2 className="text-xl sm:text-2xl xl:text-4xl pt-20 lg:pt-25 font-light font-serif">
                         {t('portfolio.title')}
                         <div className="border-b border-[#C6A664] my-4 lg:my-6 mx-auto w-90 sm:w-120 lg:w-140"></div>
                     </h2>
 
-                    <p className="text-sm mx-6 xl:text-base 2xl:text-base text-[#f5f5f5] font-sans tracking-wide">{t('portfolio.description')}</p>
+                    <p className="text-sm mx-12 xl:text-base 2xl:text-base text-[#f5f5f5] font-sans tracking-wide">{t('portfolio.description')}</p>
                 </div>
 
                 {/* Filters */}
-                <div className="flex flex-wrap justify-center gap-3 lg:gap-6 my-4 lg:my-6 font-serif text-sm md:text-base">
+                <div className="flex flex-wrap justify-center gap-1 lg:gap-6 my-4 lg:my-6 font-serif text-sm xl:text-base 2xl:text-base">
                     {ARTWORK_IDS.map((category) => (
                         <button
                             key={category}
@@ -100,28 +101,32 @@ export default function Portfolio() {
                 </div>
 
                 {/* Search Bar */}
-                <div className="flex justify-center xl:justify-end mb-10 px-6 sm:px-4 lg:px-8">
-                    <div className="relative w-full max-w-xs xl:max-w-sm">
-                        <Input
-                            type="text"
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                            aria-label={t('portfolio.searchPlaceholder')}
-                            placeholder={t('portfolio.searchPlaceholder')}
-                            className="w-full text-sm xl:text-base 2xl:text-base border border-[#C6A664] rounded-2xl px-4 py-2 text-[#C6A664] font-serif placeholder:text-[#C6A664] focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
-                        ></Input>
-                        {/* ✕ button */}
-                        <button
-                            type="button"
-                            onClick={() => {
-                                setSearchTerm("");
-                            }}
-                            className="absolute inset-y-[-0.5rem] right-0 text-[#C6A664] bg-transparent hover:text-white"
-                        >
-                            ✕
-                        </button>
+                <div className="w-full flex justify-center mb-10 px-6 sm:px-4 lg:px-8">
+                    <div className="w-full max-w-6xl">
+                        <div className={`flex ${filteredArtworks.length === 0 ? 'justify-center' : 'justify-end'}`}>
+                            <div className="relative w-full max-w-xs xl:max-w-sm">
+                                <Input
+                                    type="text"
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    aria-label={t('portfolio.searchPlaceholder')}
+                                    placeholder={t('portfolio.searchPlaceholder')}
+                                    className="w-full text-sm xl:text-base 2xl:text-base border border-[#C6A664] rounded-2xl px-4 py-2 text-[#C6A664] font-serif placeholder:text-[#C6A664] focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
+                                />
+
+                                {/* ✕ button */}
+                                <button
+                                    type="button"
+                                    onClick={() => setSearchTerm("")}
+                                    className="absolute inset-y-[-0.5rem] right-0 text-[#C6A664] bg-transparent hover:text-white"
+                                >
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
 
                 {filteredArtworks.length === 0 ?
                     (<p className="text-center text-sm lg:text-base xl:text-lg 2xl:text-lg text-[#C6A664] mt-10 font-serif">
@@ -136,7 +141,7 @@ export default function Portfolio() {
                                     className="group relative overflow-hidden rounded-2xl border border-[#C6A664]/40 bg-[#1b140c] transition-transform duration-200 hover:scale-[1.01] hover:shadow-[0_0_20px_rgba(198,166,100,0.4)]"
                                 >
                                     <CardContent className="p-0">
-                                            <div
+                                        <div
                                             className=" w-full relative cursor-pointer"
                                             onClick={() => {
                                                 //Get stored artwork views if it exists, or create new object in local storage

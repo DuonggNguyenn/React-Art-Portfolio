@@ -1,6 +1,6 @@
 {
     "header": {
-        "title": "Artist Portfolio",
+        "title": "Gallery",
         "portfolio": "Portfolio",
         "about": "About",
         "contact": "Contact",
@@ -8,9 +8,9 @@
         "closeMenu": "Close menu"
     },
     "hero": {
-        "titleLine1": "Art",
+        "titleLine1": "My Painting",
         "titleLine2": "Journey",
-        "description": "My world moves between code and canvas. By day, I code; by heart, I create. Art is where I step away from logic and let color, texture, and emotion guide me. This collection is where those two sides meet — each piece a quiet balance of order and imagination.",
+        "description": "My world lives somewhere between code and canvas. By day, I work with logic, but at heart, I create. When I paint, I let go of structure and allow colors and emotions to take over. This collection is the meeting point of the two sides of me — a serene balance between order and imagination.",
         "contactPrefix": "Feel free to",
         "contactLink": "connect with me",
         "contactSuffix": "anytime!",
@@ -18,7 +18,7 @@
     },
     "portfolio": {
         "title": "Portfolio",
-        "description": "A collection of moments, sketches, and visions from my artistic journey.",
+        "description": "A collection of moments, sketches, and visions from my painting journey.",
         "all": "All",
         "portrait": "Portrait",
         "oilpainting": "Oil Painting",
@@ -28,27 +28,27 @@
         "noArtworksFound": "No artworks found."
     },
     "about": {
-        "title": "About the Artist",
-        "paragraph1": "I hold bachelor’s degrees in Data Engineering and Mathematics and work full-time as a developer. My life has always revolved around logic and structure, so stepping into the world of art was something I never expected. I started painting and drawing about two and a half years ago, and it still feels like a wonderful surprise in my life.",
-        "paragraph2": "Outside my tech career, art is where I step away from code and explore creativity in a more personal way. I’m entirely self-taught and love creating oil paintings, portraits, landscapes, and imaginative pieces inspired by curiosity and emotion. Painting has become my way of finding balance and expressing what words or numbers never could.",
+        "title": "About the Painter",
+        "paragraph1": "I hold bachelor’s degrees in Data Engineering and Mathematics and work full-time as a developer. My life has always been shaped by logic and structure, so stepping into the world of art was something I never expected. I started painting and drawing about two and a half years ago, and it still feels like a wonderful surprise in my life.",
+        "paragraph2": "Outside my tech career, art is where I put the code aside and explore creativity in a more personal way. I’m completely self-taught and love creating oil paintings, portraits, landscapes, and imaginative pieces inspired by curiosity and emotion. Painting has become my way of finding balance and expressing things that words or numbers never quite manage to capture.",
         "artisticFocusTitle": "Artistic Focus",
         "focus": {
-            "portrait": "Portrait",
             "oilPainting": "Oil Painting",
-            "landscape": "Landscape",
-            "gouache": "Gouache",
-            "anime": "Anime"
+             "gouache": "Gouache",
+            "watercolour": "Watercolour",
+            "graphite": "Graphite",
+            "charcoal": "Charcoal"
         },
         "featureLabel": "#Feature Work",
         "featureTitle": "The Hobbit Painting",
         "imageAlt": "Portrait Painting Artwork",
         "featureDefault": "The Hobbit Painting",
         "wipTitle": "Work in Progress",
-        "wipCurrent": "Under the Chandelier - Oil Painting"
+        "noWip": "No current works in progress."
     },
     "contact": {
         "title": "Contact Me",
-        "subtitle": "Interested in commissioning a piece, collaborating, or just want to say hello? I’d love to hear from you.",
+        "subtitle": "Have questions, want to give feedback, or just say hi? I’d love to hear from you.",
         "form": {
             "nameLabel": "Name*",
             "namePlaceholder": "Your full name",
@@ -99,6 +99,6 @@
         "madeWith": "Designed, coded, and illustrated with",
         "heart": "💛",
         "by": "by",
-        "artist": "the artist"
+        "artist": "the painter"
     }
 }

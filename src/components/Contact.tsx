@@ -94,12 +94,12 @@ export default function Contact() {
             bg-[url('/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay"
         >
             {/* Heading */}
-            <div className="text-center max-w-2xl mx-auto my-6 lg:my-10">
-                <h2 className="font-serif font-semibold tracking-wide text-2xl sm:text-3xl xl:text-4xl my-4 lg:my-6">
+            <div className="text-center max-w-2xl mx-auto mt-15 mb-10 lg:my-20">
+                <h2 className="font-serif font-light tracking-wide text-2xl sm:text-3xl xl:text-4xl my-4 lg:my-6">
                     {t('contact.title')}
                 </h2>
                  <div className="border-b border-[#C6A664] my-3 lg:my-6 mx-auto w-1/2"></div>
-                <p className="text-sm sm:text-base lg:text-lg text-[#f5f2e7] font-sans px-10">{t('contact.subtitle')}</p>
+                <p className="text-sm xl:text-base 2xl:text-base text-[#f5f2e7] font-sans px-10">{t('contact.subtitle')}</p>
             </div>
 
             {/* Contact Form and Info Grid */}
@@ -224,22 +224,22 @@ export default function Contact() {
 
                             {/* Email */}
                             <div className="flex items-start gap-3">
-                                <Mail className="w-5 h-5 text-[#C6A664]/80 mt-1" />
+                                <Mail className="w-5 h-5 text-[#C6A664]/80" />
                                 <div>
                                     <p className="text-sm font-medium text-[#C6A664] font-serif">{t('contact.info.emailLabel')}</p>
                                     <div className="flex items-center gap-2">
                                         <a
-                                            href="mailto:abc@gmail.com"
-                                            className="text-white hover:underline font-serif text-[12px] xl:text-base"
+                                            href="mailto:duongnart034@gmail.com"
+                                            className="text-white hover:underline font-serif text-[12px] xl:text-sm"
                                         >
-                                            abc@gmail.com
+                                            duongnart034@gmail.com
                                         </a>
                                         <button
                                             onClick={() => {
-                                                navigator.clipboard.writeText("abc@gmail.com");
+                                                navigator.clipboard.writeText("duongnart034@gmail.com");
                                                 toast.success("Email copied to clipboard!");
                                             }}
-                                            className="flex items-center gap-1 xl:px-2 xl:py-1 ml-2  text-[#C6A664] bg-[#C6A664]/10 border border-[#C6A664]/30 rounded-md hover:bg-[#C6A664]/20 hover:scale-105 transition"
+                                            className="flex items-center gap-1 xl:px-2 xl:py-1 ml-2 text-[#C6A664] bg-[#C6A664]/10 border border-[#C6A664]/30 rounded-md hover:bg-[#C6A664]/20 hover:scale-105 transition"
                                         >
                                             <Copy size={12} />
                                             <span className="text-[#C6A664] px-1 text-[12px] xl:text-sm font-serif">{t('contact.info.copy')}</span>
@@ -250,7 +250,7 @@ export default function Contact() {
 
                             {/* City */}
                             <div className="flex items-start gap-3">
-                                <MapPin className="w-5 h-5 text-[#C6A664]/80 mt-1" />
+                                <MapPin className="w-5 h-5 text-[#C6A664]/80" />
                                 <div>
                                     <p className="text-sm font-medium text-[#C6A664] font-serif">{t('contact.info.cityLabel')}</p>
                                     <p className="text-white/80 text-[12px] xl:text-sm font-serif mt-2">{t('contact.info.cityValue')}</p>
@@ -259,24 +259,23 @@ export default function Contact() {
 
                             {/* Phone */}
                             <div className="flex items-start gap-3">
-                                <Phone className="w-5 h-5 text-[#C6A664]/80 mt-1" />
+                                <Phone className="w-5 h-5 text-[#C6A664]/80" />
                                 <div>
                                     <p className="text-sm font-medium text-[#C6A664] font-serif">{t('contact.info.phoneLabel')}</p>
-                                    <p className="text-white/80 text-[12px] xl:text-sm font-serif">{t('contact.info.phoneValue')}</p>
+                                    <p className="text-white/80 text-[12px] mt-2 xl:text-sm font-serif">{t('contact.info.phoneValue')}</p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Socials */}
-                        <div className="mt-10">
+                        <div className="mt-8">
                             <p className="text-sm xl:text-lg font-serif font-medium mb-3 underline decoration-[#C6A664]/60 underline-offset-4">{t('contact.social.follow')}</p>
                             <div className="flex gap-5">
-                                <a href="https://www.instagram.com/"><Instagram className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
-                                <a href="https://www.facebook.com/"><Facebook className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
-                                <a href="https://www.linkedin.com/"><Linkedin className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
+                                <a href="https://www.instagram.com/duongnguyen.1610/?igsh=MXVnYjhxNjBsa3I3bA%3D%3D&utm_source=qr"><Instagram className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
+                                {/* <a href="https://www.facebook.com/"><Facebook className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a> */}
+                                <a href="https://www.linkedin.com/in/duong-nguyen-11383a19a/"><Linkedin className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
                             </div>
                         </div>
-
                     </CardContent>
                 </Card>
 

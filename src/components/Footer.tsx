@@ -9,7 +9,7 @@ export default function Footer() {
          bg-[#15110B] bg-gradient-to-b from-[#302617] to-[#0a0805]
         text-[#C6A664] text-center font-serif tracking-wide
         border-t border-[#C6A664]/40 
-        text-[10px] sm:text-sm
+        text-[9px] sm:text-sm
         ">
             <p>&copy; {new Date().getFullYear()} | {t('footer.madeWith')}
                 <span className="text-pink-300"> {t('footer.heart')}</span> {t('footer.by')} {t('footer.artist')}</p>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import logo from '/artworks/artist-portrait/logo.png';
 
 export default function Header() {
     const NAV_IDS = ['portfolio', 'about', 'contact'];
@@ -19,30 +20,39 @@ export default function Header() {
     }
 
     return (
-        <header className="w-full fixed top-0 left-0 z-60
-                         bg-[#15110B] bg-gradient-to-b from-[#15110B] to-[#302617]
-                          text-[#C6A664] 
-                          border-b border-[#C6A664]">
-            <div className="max-w-7xl mx-auto w-full px-4 sm:px-6">
-                <nav className="flex items-center h-8 xl:h-12">
+        <header
+            className="w-full fixed top-0 left-0 z-60
+             bg-[#15110B] bg-gradient-to-b from-[#15110B] to-[#302617]
+             text-[#C6A664]
+             border-b border-[#C6A664]"
+        >
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
+                <nav className="flex items-center justify-between h-10 lg:h-14">
                     {/* Logo */}
                     <button
+                        type="button"
                         onClick={() => scrollToSection('hero')}
-                        className="text-[#C6A664] font-serif font-semibold 
-                        !text-sm xl:!text-xl 
-                        tracking-wide hover:text-[#E3C97B] hover:scale-105 hover:drop-shadow-[0_0_6px_rgba(227,201,123,0.8)] transition outline-none focus:outline-none"
+                        className="group flex items-center cursor-pointer outline-none focus:outline-none !p-0 !m-0"
                     >
-                        {t('header.title')}
+                        <img
+                            src={logo}
+                            alt="Gallery logo"
+                            className="
+                                h-25 lg:h-35
+                                mt-2 xl:mt-3
+                                w-auto
+                                object-contain
+                                drop-shadow-[0_0_4px_rgba(0,0,0,0.6)]
+                                group-hover:drop-shadow-[0_0_8px_rgba(227,201,123,0.85)] duration-200 group-hover:scale-[1.03]"
+                        />
                     </button>
-
                     {/* Spacer to match hero layout proportions */}
                     <div className="flex-1"></div>
 
                     {/* Nav links */}
-                    <ul className="hidden md:flex items-center 
+                    <ul className="hidden md:flex items-center font-serif
                                    space-x-4 xl:space-x-5
-                                   text-sm xl:text-medium
-                                   font-light tracking-wide
+                                   text-sm xl:text-medium tracking-wide
                                   ">
                         {NAV_IDS.map((id) => (
                             <li key={id}>
@@ -77,7 +87,7 @@ export default function Header() {
                     {/* Mobile menu hamburger */}
                     <div className="md:hidden">
                         <button onClick={() => setMenuOpen(!menuOpen)}
-                            className="!p-0 !m-0 flex items-center justify-center rounded-md text-[#C6A664] hover:text-[#E3C97B] transition-colors duration-200 focus:outline-none"
+                            className="!p-0 !m-5 flex items-center justify-center rounded-md text-[#C6A664] hover:text-[#E3C97B] transition-colors duration-200 focus:outline-none"
                             aria-label="Toggle menu"
                         >
                             {menuOpen ? (
