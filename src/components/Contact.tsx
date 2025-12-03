@@ -94,7 +94,7 @@ export default function Contact() {
             bg-[url('/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay"
         >
             {/* Heading */}
-            <div className="text-center max-w-2xl mx-auto mt-15 mb-10 lg:my-20">
+            <div className="text-center max-w-2xl mx-auto mt-15 mb-10 lg:mt-20">
                 <h2 className="font-serif font-light tracking-wide text-2xl sm:text-3xl xl:text-4xl my-4 lg:my-6">
                     {t('contact.title')}
                 </h2>
