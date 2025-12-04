@@ -93,195 +93,196 @@ export default function Contact() {
             bg-[rgb(20,14,2)] text-[#C6A664]
             bg-[url('/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay"
         >
-            {/* Heading */}
-            <div className="text-center max-w-2xl mx-auto mt-15 mb-10 lg:mt-20">
-                <h2 className="font-serif font-light tracking-wide text-2xl sm:text-3xl xl:text-4xl my-4 lg:my-6">
-                    {t('contact.title')}
-                </h2>
-                 <div className="border-b border-[#C6A664] my-3 lg:my-6 mx-auto w-1/2"></div>
-                <p className="text-sm xl:text-base 2xl:text-base text-[#f5f2e7] font-sans px-10">{t('contact.subtitle')}</p>
-            </div>
+            <div className="max-w-6xl mx-auto px-10 pt-12">
+                {/* Heading */}
+                <div className="text-center max-w-2xl mx-auto">
+                    <h2 className="font-serif font-light tracking-wide text-2xl sm:text-3xl xl:text-4xl my-4 lg:my-6">
+                        {t('contact.title')}
+                    </h2>
+                    <div className="h-[1px] bg-[#C6A664] mt-5 mb-6"></div>
+                    <p className="text-sm xl:text-base 2xl:text-base text-[#f5f2e7] font-sans px-2 lg:px-0 mb-8">{t('contact.subtitle')}</p>
+                </div>
 
-            {/* Contact Form and Info Grid */}
-            <div className=" max-w-7xl mx-auto px-4 sm:px-8
+                {/* Contact Form and Info Grid */}
+                <div className=" max-w-7xl mx-auto px-4 sm:px-8
                              grid md:grid-cols-[2fr_1fr] gap-10 items-stretch relative pb-16 xl:pb-24">
 
-                {/* Left Contact Form*/}
-                <Card className="border-1 border-[#C6A664] bg-[#0F0C08] 
+                    {/* Left Contact Form*/}
+                    <Card className="border-1 border-[#C6A664] bg-[#0F0C08] 
                         shadow-[0_8px_20px_rgba(0,0,0,0.6)] 
                         rounded-xl px-4 xl:p-6
                         relative overflow-hidden
                         w-full max-w-full mx-auto">
 
-                    <div className="absolute inset-0 pointer-events-none border border-[#C6A664]/40 rounded-xl"></div>
+                        <div className="absolute inset-0 pointer-events-none border border-[#C6A664]/40 rounded-xl"></div>
 
-                    <CardContent className="flex-1 flex flex-col mt-4">
-                        <form ref={form} onSubmit={sendEmail} className="space-y-5 flex-1">
+                        <CardContent className="flex-1 flex flex-col mt-4">
+                            <form ref={form} onSubmit={sendEmail} className="space-y-5 flex-1">
 
-                            {/* Name */}
-                            <div>
-                                <label htmlFor="name" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
-                                    {t('contact.form.nameLabel')}
-                                </label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    placeholder={t('contact.form.namePlaceholder')}
-                                    required
-                                    className="w-full px-3 py-2 bg-[#1f1a12]
-                                        text-[12px] xl:text-base 2xl:text-base 
+                                {/* Name */}
+                                <div>
+                                    <label htmlFor="name" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
+                                        {t('contact.form.nameLabel')}
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        placeholder={t('contact.form.namePlaceholder')}
+                                        required
+                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12]
+                                        text-[12px] xl:text-sm font-serif
                                         text-white placeholder-[#d8c6a0] 
                                         focus:ring-0.5 focus:ring-[#C6A664] focus:border-[#C6A664]"
-                                />
-                            </div>
+                                    />
+                                </div>
 
-                            {/* Phone */}
-                            <div>
-                                <label htmlFor="phone" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
-                                    {t('contact.form.phoneLabel')}
-                                </label>
-                                <input
-                                    type="tel"
-                                    id="phone"
-                                    name="phone"
-                                    placeholder={t('contact.form.phonePlaceholder')}
-                                    className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12]
-                                        text-[12px] xl:text-base
+                                {/* Phone */}
+                                <div>
+                                    <label htmlFor="phone" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
+                                        {t('contact.form.phoneLabel')}
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        placeholder={t('contact.form.phonePlaceholder')}
+                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12]
+                                        text-[12px] xl:text-sm font-serif
                                         text-white placeholder-[#d8c6a0]
                                         focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
-                                />
-                            </div>
+                                    />
+                                </div>
 
-                            {/* Email */}
-                            <div>
-                                <label htmlFor="email" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
-                                    {t('contact.form.emailLabel')}
-                                </label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder={t('contact.form.emailPlaceholder')}
-                                    required
-                                    className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12] 
-                                        text-[12px] xl:text-base
+                                {/* Email */}
+                                <div>
+                                    <label htmlFor="email" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
+                                        {t('contact.form.emailLabel')}
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        placeholder={t('contact.form.emailPlaceholder')}
+                                        required
+                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl bg-[#1f1a12] 
+                                        text-[12px] xl:text-sm font-serif
                                         text-white placeholder-[#d8c6a0] 
                                         focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664]"
-                                />
-                            </div>
+                                    />
+                                </div>
 
-                            {/* Message */}
-                            <div>
-                                <label htmlFor="message" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
-                                    {t('contact.form.messageLabel')}
-                                </label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    rows={6}
-                                    placeholder={t('contact.form.messagePlaceholder')}
-                                    required
-                                    className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl 
-                                        text-[12px] xl:text-base
+                                {/* Message */}
+                                <div>
+                                    <label htmlFor="message" className="block text-[12px] xl:text-sm font-serif font-medium mb-2">
+                                        {t('contact.form.messageLabel')}
+                                    </label>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        rows={6}
+                                        placeholder={t('contact.form.messagePlaceholder')}
+                                        required
+                                        className="w-full px-3 py-2 border border-[#C6A664]/40 rounded-xl 
+                                        text-[12px] xl:text-sm font-serif
                                         focus:ring-1 focus:ring-[#C6A664] focus:border-[#C6A664] 
                                         bg-[#1f1a12] text-white placeholder-[#d8c6a0]"
-                                />
-                            </div>
+                                    />
+                                </div>
 
-                            {/* Submit Button */}
-                            <Button
-                                type="submit"
-                                className="bg-transparent text-[#C6A664] font-serif 
-                                    !text-sm xl:!text-base
+                                {/* Submit Button */}
+                                <Button
+                                    type="submit"
+                                    className="bg-transparent text-[#C6A664] font-serif 
+                                    !text-[12px] xl:!text-sm
                                     border border-[#C6A664] tracking-wide 
                                     hover:bg-[#C6A664] hover:text-[#221B10] 
                                     transition-all duration-300 
                                     rounded-full px-4 sm:px-8 w-full lg:mt-4"
-                            >
-                                {t('contact.form.submit')}
-                            </Button>
-                        </form>
-                    </CardContent>
-                </Card>
+                                >
+                                    {t('contact.form.submit')}
+                                </Button>
+                            </form>
+                        </CardContent>
+                    </Card>
 
-                {/* Right Contact Info */}
-                <Card className="bg-[rgb(34,27,16)] shadow-[0_8px_20px_rgba(0,0,0,0.6)] w-full max-w-full sm:max-w-full mx-auto relative overflow-hidden">
-                    <div className="absolute inset-0 pointer-events-none mb-10"></div>
+                    {/* Right Contact Info */}
+                    <Card className="bg-[rgb(34,27,16)] shadow-[0_8px_20px_rgba(0,0,0,0.6)] w-full max-w-full sm:max-w-full mx-auto relative overflow-hidden">
+                        <div className="absolute inset-0 pointer-events-none"></div>
 
-                    <CardContent className="flex flex-col p-6">
+                        <CardContent className="flex flex-col pt-5 px-8 xl:pt-8 xl:px-10">
 
-                        {/* Section heading */}
-                        <div className="mb-6">
-                            <h3 className="text-base xl:text-xl font-serif font-medium text-[#C6A664] tracking-wide">
-                               {t('contact.info.title')}
-                            </h3>
-                            <div className="h-[1px] bg-[#C6A664]/40 mt-4" />
-                        </div>
+                            {/* Section heading */}
+                            <div className="mb-6">
+                                <h3 className="text-base xl:text-xl font-serif font-medium text-[#C6A664] tracking-wide">
+                                    {t('contact.info.title')}
+                                </h3>
+                                <div className="h-[1px] bg-[#C6A664]/40 mt-4" />
+                            </div>
 
-                        {/* Contact items */}
-                        <div className="flex flex-col gap-4">
+                            {/* Contact items */}
+                            <div className="flex flex-col gap-4">
 
-                            {/* Email */}
-                            <div className="flex items-start gap-3">
-                                <Mail className="w-5 h-5 text-[#C6A664]/80" />
-                                <div>
-                                    <p className="text-sm font-medium text-[#C6A664] font-serif">{t('contact.info.emailLabel')}</p>
-                                    <div className="flex items-center gap-2">
-                                        <a
-                                            href="mailto:duongnart034@gmail.com"
-                                            className="text-white hover:underline font-serif text-[12px] xl:text-sm"
-                                        >
-                                            duongnart034@gmail.com
-                                        </a>
-                                        <button
-                                            onClick={() => {
-                                                navigator.clipboard.writeText("duongnart034@gmail.com");
-                                                toast.success("Email copied to clipboard!");
-                                            }}
-                                            className="flex items-center gap-1 xl:px-2 xl:py-1 ml-2 text-[#C6A664] bg-[#C6A664]/10 border border-[#C6A664]/30 rounded-md hover:bg-[#C6A664]/20 hover:scale-105 transition"
-                                        >
-                                            <Copy size={12} />
-                                            <span className="text-[#C6A664] px-1 text-[12px] xl:text-sm font-serif">{t('contact.info.copy')}</span>
-                                        </button>
+                                {/* Email */}
+                                <div className="flex flex-col gap-2">
+                                {/* Label + icon row */}
+                                <div className="flex items-center gap-2">
+                                    <Mail className="w-5 h-5 text-[#C6A664]/80" />
+                                    <p className="text-sm font-medium text-[#C6A664] font-serif">
+                                    {t('contact.info.emailLabel')}
+                                    </p>
+                                </div>
+
+                                {/* Email link */}
+                                <div className="mt-1 ml-8">
+                                    <a
+                                    href="mailto:duongnart034@gmail.com"
+                                    className="flex-1 min-w-0 hover:underline hover:text-[#F1D88C] transition-colors
+                                            text-white font-serif text-[12px] xl:text-sm
+                                            break-words
+                                            md:whitespace-normal
+                                            lg:whitespace-nowrap"
+                                                                        >
+                                    duongnart034@gmail.com
+                                    </a>
+                                </div>
+                                </div>
+
+                                {/* City */}
+                                <div className="flex items-start gap-3">
+                                    <MapPin className="w-5 h-5 text-[#C6A664]/80" />
+                                    <div>
+                                        <p className="text-sm font-medium text-[#C6A664] font-serif">{t('contact.info.cityLabel')}</p>
+                                        <p className="text-white/80 text-[12px] xl:text-sm font-serif mt-2">{t('contact.info.cityValue')}</p>
+                                    </div>
+                                </div>
+
+                                {/* Phone */}
+                                <div className="flex items-start gap-3">
+                                    <Phone className="w-5 h-5 text-[#C6A664]/80" />
+                                    <div>
+                                        <p className="text-sm font-medium text-[#C6A664] font-serif">{t('contact.info.phoneLabel')}</p>
+                                        <p className="text-white/80 text-[12px] mt-2 xl:text-sm font-serif">{t('contact.info.phoneValue')}</p>
                                     </div>
                                 </div>
                             </div>
 
-                            {/* City */}
-                            <div className="flex items-start gap-3">
-                                <MapPin className="w-5 h-5 text-[#C6A664]/80" />
-                                <div>
-                                    <p className="text-sm font-medium text-[#C6A664] font-serif">{t('contact.info.cityLabel')}</p>
-                                    <p className="text-white/80 text-[12px] xl:text-sm font-serif mt-2">{t('contact.info.cityValue')}</p>
+                            {/* Socials */}
+                            <div className="mt-8">
+                                <p className="text-sm xl:text-lg font-serif font-medium mb-3 underline decoration-[#C6A664]/60 underline-offset-4">{t('contact.social.follow')}</p>
+                                <div className="flex gap-5">
+                                    <a href="https://www.instagram.com/duongnguyen.1610/?igsh=MXVnYjhxNjBsa3I3bA%3D%3D&utm_source=qr"><Instagram className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
+                                    {/* <a href="https://www.facebook.com/"><Facebook className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a> */}
+                                    <a href="https://www.linkedin.com/in/duong-nguyen-11383a19a/"><Linkedin className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
                                 </div>
                             </div>
+                        </CardContent>
+                    </Card>
 
-                            {/* Phone */}
-                            <div className="flex items-start gap-3">
-                                <Phone className="w-5 h-5 text-[#C6A664]/80" />
-                                <div>
-                                    <p className="text-sm font-medium text-[#C6A664] font-serif">{t('contact.info.phoneLabel')}</p>
-                                    <p className="text-white/80 text-[12px] mt-2 xl:text-sm font-serif">{t('contact.info.phoneValue')}</p>
-                                </div>
-                            </div>
-                        </div>
+                </div>
 
-                        {/* Socials */}
-                        <div className="mt-8">
-                            <p className="text-sm xl:text-lg font-serif font-medium mb-3 underline decoration-[#C6A664]/60 underline-offset-4">{t('contact.social.follow')}</p>
-                            <div className="flex gap-5">
-                                <a href="https://www.instagram.com/duongnguyen.1610/?igsh=MXVnYjhxNjBsa3I3bA%3D%3D&utm_source=qr"><Instagram className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
-                                {/* <a href="https://www.facebook.com/"><Facebook className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a> */}
-                                <a href="https://www.linkedin.com/in/duong-nguyen-11383a19a/"><Linkedin className="w-5 h-5 opacity-80 hover:opacity-100 hover:scale-125 hover:text-[#C6A664] transition-transform" /></a>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
-
+                <Toaster richColors position="bottom-right" />
             </div>
-
-            <Toaster richColors position="bottom-right" />
         </section>
     );
 }

@@ -68,17 +68,17 @@ export default function Portfolio() {
             ">
             <div className="flex-grow max-w-xl xl:max-w-5xl 2xl:max-w-6xl mb-6 mx-auto">
                 {/* Heading */}
-                <div className="w-full text-center">
+                <div className="w-full text-center px-8">
                     <h2 className="text-xl sm:text-2xl xl:text-4xl pt-20 lg:pt-25 font-light font-serif">
                         {t('portfolio.title')}
-                        <div className="border-b border-[#C6A664] my-4 lg:my-6 mx-auto w-90 sm:w-120 lg:w-140"></div>
+                        <div className="h-[1px] bg-[#C6A664] mt-5 mb-6 xl:mx-70"></div>
                     </h2>
 
-                    <p className="text-sm mx-12 xl:text-base 2xl:text-base text-[#f5f5f5] font-sans tracking-wide">{t('portfolio.description')}</p>
+                    <p className="text-sm xl:text-base text-[#f5f5f5] font-sans tracking-wide">{t('portfolio.description')}</p>
                 </div>
 
                 {/* Filters */}
-                <div className="flex flex-wrap justify-center gap-1 lg:gap-6 my-4 lg:my-6 font-serif text-sm xl:text-base 2xl:text-base">
+                <div className="flex flex-wrap justify-center gap-1 lg:gap-6 my-4 mx-3 lg:my-6 font-serif text-sm xl:text-base">
                     {ARTWORK_IDS.map((category) => (
                         <button
                             key={category}

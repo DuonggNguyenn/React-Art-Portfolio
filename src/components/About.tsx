@@ -45,7 +45,7 @@ export default function About() {
              bg-[#1b1206] text-[#C6A664]
              bg-[url('/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay"
     >
-      <div className="max-w-6xl mx-auto px-12 pt-20 pb-12 
+      <div className="max-w-6xl mx-auto px-10 pt-20 pb-12 
                   grid lg:grid-cols-2 gap-8 lg:gap-12 w-full items-center">
 
         {/* Left column */}
@@ -56,15 +56,15 @@ export default function About() {
 
           <div className="h-[1px] bg-[#C6A664] mt-5 mb-6"></div>
 
-          <p className="text-[#f5f2e7] text-sm xl:text-base 2xl:text-base tracking-[0.02em] leading-loose mb-4">
+          <p className="text-[#f5f2e7] text-sm xl:text-base tracking-[0.02em] leading-loose mb-4">
             {t('about.paragraph1')}
           </p>
 
-          <p className="text-[#f5f2e7] text-sm xl:text-base 2xl:text-base tracking-[0.02em] leading-loose">
+          <p className="text-[#f5f2e7] text-sm xl:text-base tracking-[0.02em] leading-loose">
             {t('about.paragraph2')}
           </p>
 
-          <h3 className="text-lg xl:text-xl 2xl:text-2xl font-serif font-light mt-8 mb-4">
+          <h3 className="text-lg xl:text-xl font-serif font-light mt-8 mb-4">
             {t('about.artisticFocusTitle')}
           </h3>
 

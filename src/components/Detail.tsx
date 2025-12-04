@@ -26,7 +26,7 @@ export default function Detail({
             </div>
         );
     }
-    
+
     const currentLang = i18n.language;
     const lang = currentLang.startsWith("no") ? "no" : "en";
 
@@ -48,9 +48,14 @@ export default function Detail({
                         <button
                             type="button"
                             onClick={onPrev}
-                            className="absolute top-1/2 left-0 -translate-y-1/2 w-10 h-10 border border-[#C6A664] rounded-full
-                                       flex items-center justify-center text-[#C6A664] text-lg
-                                     bg-black/60 hover:bg-[#C6A664] hover:text-[#221B10] transition"
+                            className="absolute top-1/2 left-0 -translate-y-1/2
+                                        w-8 h-8 sm:w-10 sm:h-10
+                                        flex items-center justify-center
+                                        rounded-full
+                                        text-[#C6A664] text-base sm:text-lg
+                                        border border-[#C6A664]/60
+                                        bg-black/50 hover:bg-[#C6A664] hover:text-[#221B10]
+                                        transition"
                         >
                             ◀
                         </button>
@@ -61,9 +66,14 @@ export default function Detail({
                         <button
                             type="button"
                             onClick={onNext}
-                            className="absolute top-1/2 right-0 -translate-y-1/2 w-10 h-10 border border-[#C6A664] rounded-full
-                                       flex items-center justify-center text-[#C6A664] text-lg
-                                     bg-black/60 hover:bg-[#C6A664] hover:text-[#221B10] transition"
+                            className=" absolute top-1/2 right-0 -translate-y-1/2
+                                        w-8 h-8 sm:w-10 sm:h-10
+                                        flex items-center justify-center
+                                        rounded-full
+                                        text-[#C6A664] text-base sm:text-lg
+                                        border border-[#C6A664]/60
+                                        bg-black/50 hover:bg-[#C6A664] hover:text-[#221B10]
+                                        transition"
                         >
                             ▶
                         </button>
@@ -91,11 +101,20 @@ export default function Detail({
                 <button
                     type="button"
                     onClick={onClose}
-                    className="absolute top-0 right-0 w-10 h-10 border border-[#C6A664] rounded-full
-                               flex items-center justify-center text-[#C6A664] text-lg
-                             hover:bg-[#C6A664] hover:text-[#221B10] transition"
+                    className="
+                            absolute
+                            top-0 right-0
+                            w-8 h-8 sm:w-10 sm:h-10
+                            flex items-center justify-center
+                            text-[#C6A664]
+                            text-lg sm:text-xl font-bold
+                            rounded-full
+                            transition transform hover:scale-110
+                        "
                 >
-                    ✕
+                    <span className="drop-shadow-[0_0_4px_rgba(0,0,0,1.6)]">
+                        ✕
+                    </span>
                 </button>
 
             </div>
