@@ -1,6 +1,6 @@
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card.tsx";
-import { Mail, MapPin, Phone, Instagram, Linkedin, Copy } from "lucide-react";
+import { Mail, MapPin, Phone, Instagram, Linkedin } from "lucide-react";
 import emailjs from 'emailjs-com';
 import React, { useRef } from "react";
 import { Toaster } from "./ui/sonner.tsx";
