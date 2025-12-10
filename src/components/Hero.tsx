@@ -52,10 +52,10 @@ export default function Hero() {
     return (
         <section
             id="hero"
-            className="min-h-screen flex items-center w-full
-             bg-[#1b1206] text-[#C6A664]
-             bg-[radial-gradient(circle_at_center,rgba(198,166,100,0.25)_0%,transparent_70%)]
-             bg-[url('/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay"
+            className="relative min-h-screen flex items-center w-full
+                        bg-[#1b1206] text-[#C6A664]
+                        bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.55)_0%,transparent_65%),url('/textures/canvas-pattern.jpg')]
+                        bg-cover bg-blend-overlay"
         >
             <div className="max-w-6xl mx-auto w-full
                             flex flex-col md:flex-row items-center justify-center

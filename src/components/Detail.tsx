@@ -83,7 +83,7 @@ export default function Detail({
 
                 {/* Info Box */}
                 <div className="xl:w-[40%] p-6 text-[#C6A664] flex flex-col justify-center ">
-                    <h2 className="xl:text-xl 2xl:text-2xl font-serif font-semibold mb-3 tracking-wide">
+                    <h2 className="xl:text-xl 2xl:text-2xl font-serif mb-3 tracking-wide">
                         {artwork.title[lang]}
                     </h2>
                     <p className="mb-4 text-[#f5f2e7] text-[15px] md:text-sm xl:text-sm 2xl:text-base leading-relaxed">
