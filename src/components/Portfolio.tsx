@@ -57,8 +57,8 @@ export default function Portfolio({ onOpenDetail }: { onOpenDetail?: (artworkId:
         <section
             id="portfolio"
             className="flex flex-col min-h-screen w-full 
-            bg-[rgb(20,14,2)] text-[#C6A664]
-            bg-[url('textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay 
+             bg-[rgb(20,14,2)] text-[#C6A664]
+            bg-[url('/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay
             ">
             <div className="flex-grow max-w-xl xl:max-w-5xl 2xl:max-w-6xl mb-6 mx-auto">
                 {/* Heading */}
