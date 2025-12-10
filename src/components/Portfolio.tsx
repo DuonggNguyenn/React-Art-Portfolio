@@ -1,12 +1,11 @@
 import { Card, CardContent } from "./ui/card";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, PaginationEllipsis } from "./ui/pagination";
 import { Input } from "./ui/input";
-import Detail from "./Detail";
 import { artworks as initialArtworks, type Artwork } from "@/data/artworks";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-export default function Portfolio() {
+export default function Portfolio({ onOpenDetail }: { onOpenDetail?: (artworkId: number) => void }) {
     const [filter, setFilter] = useState("All");
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
@@ -53,11 +52,6 @@ export default function Portfolio() {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const paginatedArtworks = filteredArtworks.slice(startIndex, endIndex);
-
-    //Selected Artwork
-    const [selectedArtworkId, setSelectedArtworkId] = useState<number | null>(null);
-
-    const currentImageId = filteredArtworks.findIndex(a => a.id === selectedArtworkId);
 
     return (
         <section
@@ -165,7 +159,7 @@ export default function Portfolio() {
                                                 console.log(`Artwork title ${artwork.title} has been viewed ${views[artwork.id]} times.`);
 
                                                 // Open detail modal
-                                                setSelectedArtworkId(artwork.id)
+                                                onOpenDetail && onOpenDetail(artwork.id)
                                             }}
                                         >
                                             {/* Artwork Image */}
@@ -271,27 +265,6 @@ export default function Portfolio() {
                             </PaginationContent>
                         </Pagination>
                     </div>
-                )}
-
-                {/* Detail Modal */}
-                {selectedArtworkId && (
-                    <Detail
-                        artworkId={selectedArtworkId}
-                        currentImageId={currentImageId}
-                        totalArtworks={filteredArtworks.length}
-                        onClose={() => setSelectedArtworkId(null)}
-
-                        onPrev={() => {
-                            if (currentImageId > 0) {
-                                setSelectedArtworkId(filteredArtworks[currentImageId - 1].id)
-                            }
-                        }}
-                        onNext={() => {
-                            if (currentImageId < filteredArtworks.length - 1) {
-                                setSelectedArtworkId(filteredArtworks[currentImageId + 1].id)
-                            }
-                        }}
-                    />
                 )}
             </div>
         </section >

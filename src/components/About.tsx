@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { artworks, type Artwork } from "@/data/artworks"
 import { useEffect, useState } from 'react';
 
-export default function About() {
+export default function About({onOpenFeaturedDetail}: {onOpenFeaturedDetail?: (artworkId: number) => void}) {
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
   const lang = currentLanguage.startsWith("no") ? "no" : "en";
@@ -83,7 +83,7 @@ export default function About() {
 
           {/* WIP section */}
           <div className="mt-8">
-            <h3 className="text-lg xl:text-xl 2xl:text-2xl font-serif font-light text-[#C6A664]">
+            <h3 className="text-lg xl:text-xl font-serif font-light text-[#C6A664]">
               {t("about.wipTitle")}
             </h3>
             <p className="text-sm xl:text-base 2xl:text-base text-[#C6A664]/80 mt-4 mb-4">
@@ -112,7 +112,12 @@ export default function About() {
 
             <Button
               asChild={true}
-              onClick={() => scrollToSection('portfolio')}
+              onClick={() => {
+                if(featuredArtwork && onOpenFeaturedDetail) {
+                  onOpenFeaturedDetail(featuredArtwork.id);
+                }
+                scrollToSection('portfolio');
+              }}
               className="absolute bottom-0 right-0 translate-y-1/2
                      bg-[#221B10] text-[#C6A664] border border-[#C6A664] rounded-md shadow-md
                      px-8 py-8 sm:px-10 sm:py-9 hover:bg-[#C6A664] hover:text-[#221B10] hover:scale-105

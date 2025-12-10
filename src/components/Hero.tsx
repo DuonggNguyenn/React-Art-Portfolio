@@ -57,15 +57,21 @@ export default function Hero() {
              bg-[radial-gradient(circle_at_center,rgba(198,166,100,0.25)_0%,transparent_70%)]
              bg-[url('/textures/canvas-pattern.jpg')] bg-cover bg-blend-overlay"
         >
-            <div className="max-w-3xl lg:max-w-7xl mx-auto w-full
-                  flex flex-col md:flex-row items-center justify-center
-                  pb-10 md:gap-10 lg:gap-15 xl:gap-20">
+            <div className="max-w-6xl mx-auto w-full
+                            flex flex-col md:flex-row items-center justify-center
+                            pt-12 pb-16
+                            px-6 sm:px-8 md:px-12 lg:px-16
+                            gap-10 lg:gap-20">
 
                 {/* Left column: Image + Button */}
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center
+                                w-4/5 sm:w-3/4
+                                md:w-1/2 lg:w-[45%] xl:w-[48%]
+                                sm:py-5">
                     <ArtworkFrame
                         src={currentArtwork.src}
                         title={currentArtwork.title[lang]}
+                        index={currentImageIndex}
                     />
                     <Button
                         onClick={
@@ -85,12 +91,16 @@ export default function Hero() {
                 </div>
 
                 {/* Right column: Title + Text + Button */}
-                <div className="max-w-sm text-center md:text-left mx-8 sm:mx-0">
-                    <h2 className="text-xl md:text-2xl font-serif font-light mb-4 mt-8 lg:mt-0 tracking-wide">
+                <div className="w-full
+                                max-w-xl                
+                                md:max-w-none md:flex-1 
+                                text-center md:text-left
+                                px-6 sm:px-8 md:px-0 ">
+                    <h2 className="text-xl sm:text-2xl xl:text-3xl font-serif font-light tracking-wide">
                         <span>{t('hero.titleLine1')}</span>
                         <span className="block lg:mt-2 xl:mt-3">{t('hero.titleLine2')}</span>
                     </h2>
-                    <div className="border-b border-[#C6A664] mb-4"></div>
+                    <div className="border-b border-[#C6A664] my-4"></div>
                     <p className="
                     text-[#f5f2e7]
                      text-sm xl:text-base tracking-wide
