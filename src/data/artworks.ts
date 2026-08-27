@@ -20,8 +20,108 @@ export type Artwork = {
 export const artworks: Artwork[] = [
 
     /* Oil Paintings */
-    {
+        {
         id: 1,
+        title:
+        {
+            "en": "The Ballerina",
+            "no": "Ballerinaen"
+        },
+        description: {
+            "en": "A quiet moment away from the stage. The ballerina is lost in thought, surrounded by soft light and stillness — a glimpse of the person behind the performance.",
+            "no": "Et stille øyeblikk borte fra scenen. Ballerinaen er tapt i tanker, omgitt av mykt lys og stillhet — et glimt av personen bak forestillingen."
+        },
+        year: 2026,
+        medium: {
+            "en": "Oil on Canvas",
+            "no": "Olje på lerret"
+        },
+        category: "Oil Painting",
+        src: "artworks/oilpainting/theballerina_oilpainting.jpeg",
+        views: 0
+    },
+    {
+        id: 2,
+        title:
+        {
+            "en": "The Cellist",
+            "no": "Cellospilleren"
+        },
+        description: {
+            "en": "Lost in the music, the cellist seems removed from everything around her. The painting captures a quiet moment of focus, stillness and connection between the musician and her instrument.",
+            "no": "Tapt i musikken, ser cellospilleren fjern ut fra alt rundt henne. Maleriet fanger et stille øyeblikk av fokus, stillhet og forbindelse mellom musikeren og instrumentet hennes."
+        },
+        year: 2026,
+        medium: {
+            "en": "Oil on Canvas",
+            "no": "Olje på lerret"
+        },
+        category: "Oil Painting",
+        src: "artworks/oilpainting/thecellist-oilpainting.jpeg",
+        views: 0
+    },
+    {
+        id: 3,
+        title:
+        {
+            "en": "The Reader",
+            "no": "Leseren"
+        },
+        description: {
+            "en": "A quiet moment alone with a book. Surrounded by soft light and stillness, the reader seems completely absorbed in her own little world.",
+            "no": "Et stille øyeblikk alene med en bok. Omgitt av mykt lys og stillhet, ser leseren helt oppslukt ut i sin egen lille verden."
+        },
+        year: 2026,
+        medium: {
+            "en": "Oil on Canvas",
+            "no": "Olje på lerret"
+        },
+        category: "Oil Painting",
+        src: "artworks/oilpainting/thereader-oilpainting.jpeg",
+        views: 0
+    },
+    {
+        id: 4,
+        title:
+        {
+            "en": "The Bread Maker",
+            "no": "Brødbrøderen"
+        },
+        description: {
+            "en": "The bread maker is caught in a quiet moment of concentration, absorbed in the simple act of making bread. The painting finds warmth and stillness in an ordinary part of everyday life.",
+            "no": "Brødbrøderen er fangst i et stille øyeblikk av kon sentrasjon, opptatt av det enkle handlet med å bake brød. Maleriet finner varme og stillhet i en ordinær del av hverdagen."
+        },
+        year: 2026,
+        medium: {
+            "en": "Oil on Canvas",
+            "no": "Olje på lerret"
+        },
+        category: "Oil Painting",
+        src: "artworks/oilpainting/thebreadmaker-oilpainting.jpeg",
+        views: 0
+    },
+        {
+        id: 5,
+        title:
+        {
+            "en": "Still Life with White Jug and Peaches",
+            "no": "Stilleben med hvit krus og pærer"
+        },
+        description: {
+            "en": "A quiet still life oil painting, where everyday objects rest in soft shadows and gentle light.",
+            "no": "Et stille oljemaleri, hvor hverdagsobjekter hviler i myke skygger og mildt lys."
+        },
+        year: 2026,
+        medium: {
+            "en": "Oil on Canvas",
+            "no": "Olje på lerret"
+        },
+        category: "Oil Painting",
+        src: "artworks/oilpainting/stilllife2-oilpainting.jpg",
+        views: 0
+    },
+    {
+        id: 6,
         title:
         {
             "en": "The Shire",
@@ -41,7 +141,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 2,
+        id: 7,
         title: {
             "en": "The Swan Lake",
             "no": "Svanesjøen"
@@ -60,7 +160,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 3,
+        id: 8,
         title: {
             "en": "Still Life with Everyday Objects",
             "no": "Stilleben med hverdagsobjekter"
@@ -79,16 +179,16 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 4,
+        id: 9,
         title: { 
-            "en": "Under the chandelier",
-            "no": "Under lysekronen"
+            "en": "The Wanderer",
+            "no": "Vandreren"
             },
         description: {
-            "en": "An oil painting of a moonlit ballroom, where the heroine moves slowly toward her lover beneath glowing chandeliers, surrounded by softly watching guests.",
-            "no": "Et oljemaleri av en måneskinnsball, hvor helten beveger seg sakte mot sin elskede under glødende lysekroner, omgitt av mykt observerende gjester."
+            "en": "A woman wanders quietly through a garden, surrounded by nature and lost in her own thoughts.",
+            "no": "En kvinne vandrer stille gjennom en hage, omgitt av natur og mistet i sine egne tanker."
         },
-        year: 2025,
+        year: 2026,
         medium: {
             "en": "Oil on Canvas",
             "no": "Olje på lerret"
@@ -101,7 +201,7 @@ export const artworks: Artwork[] = [
 
     /* Portraits */
     {
-        id: 5,
+        id: 10,
         title: {
             "en": "The Dreammakers",
             "no": "Drømmemakerne"
@@ -120,7 +220,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 6,
+        id: 11,
         title: {
             "en": "Squid Game",
             "no": "Squid Game"
@@ -139,7 +239,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 7,
+        id: 12,
         title: {
             "en": "The Beatles in Starry Night",
             "no": "The Beatles i Stjernenatt"
@@ -158,7 +258,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 8,
+        id: 13,
         title: {
             "en": "Jack Sparrow",
             "no": "Jack Sparrow"
@@ -177,7 +277,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 9,
+        id: 14,
         title: {
             "en": "Professor McGonagall",
             "no": "Professor McGonagall"
@@ -196,7 +296,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 10,
+        id: 15,
         title: {
             "en": "Oppenheimer",
             "no": "Oppenheimer"
@@ -215,7 +315,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 11,
+        id: 16,
         title: {
             "en": "Audrey Hepburn",
             "no": "Audrey Hepburn"
@@ -234,7 +334,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 12,
+        id: 17,
         title: {
             "en": "Davy Jones",
             "no": "Davy Jones"
@@ -253,7 +353,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 13,
+        id: 18,
         title: {
             "en": "Freddie Mercury",
             "no": "Freddie Mercury"
@@ -272,7 +372,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 14,
+        id: 19,
         title: {
             "en": "A Girlfriend Portrait",
             "no": "Et portrett av en kjæreste"
@@ -291,7 +391,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 15,
+        id: 20,
         title: {
             "en": "Mother of Dragons",
             "no": "Dragenes mor"
@@ -310,7 +410,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 16,
+        id: 21,
         title: {
             "en": "Cole Sprouse",
             "no": "Cole Sprouse"
@@ -329,7 +429,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 17,
+        id: 22,
         title: {
             "en": "Daenerys Targaryen I",
             "no": "Daenerys Targaryen I"
@@ -348,7 +448,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 18,
+        id: 23,
         title: {
             "en": "Tom Hiddleston",
             "no": "Tom Hiddleston"
@@ -369,7 +469,7 @@ export const artworks: Artwork[] = [
 
     /* Landscapes */
     {
-        id: 19,
+        id: 24,
         title: {
             "en": "Den Røde Broen, Trondheim",
             "no": "Den Røde Broen, Trondheim"
@@ -388,7 +488,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 20,
+        id: 25,
         title: {
             "en": "Arendal Landscape",
             "no": "Arendal Landskap"
@@ -407,7 +507,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 21,
+        id: 26,
         title: {
             "en": "Nidarosdommen Landscape",
             "no": "Nidarosdommen Landskap"
@@ -426,7 +526,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 22,
+        id: 27,
         title: {
             "en": "Hogwarts Express Landscape",
             "no": "Hogwarts-ekspressen Landskap"
@@ -447,7 +547,7 @@ export const artworks: Artwork[] = [
 
     /* Anime */
     {
-        id: 23,
+        id: 28,
         title: {
             "en": "Titans and Their Hosts",
             "no": "Titanene og deres verter"
@@ -466,7 +566,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 24,
+        id: 29,
         title: {
             "en": "Howl's Moving Castle",
             "no": "Howl's Moving Castle"
@@ -485,7 +585,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 25,
+        id: 30,
         title: {
             "en": "Totoro in a forest (My Neighbor Totoro)",
             "no": "Totoro i en skog (Min nabo Totoro)"
@@ -504,7 +604,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 26,
+        id: 31,
         title: {
             "en": "Howl and Sophie (Howl's Moving Castle)",
             "no": "Howl og Sophie (Howl's Moving Castle)"
@@ -523,7 +623,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 27,
+        id: 32,
         title: {
             "en": "Kiki in the Bakery (Kiki's Delivery Service)",
             "no": "Kiki i bakeriet (Kikis budservice)"
@@ -542,7 +642,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 28,
+        id: 33,
         title: {
             "en": "Power and Vy (Arcane)",
             "no": "Power og Vy (Arcane)"
@@ -561,7 +661,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 29,
+        id: 34,
         title: {
             "en": "Chihiro and Haku (Spirited Away)",
             "no": "Chihiro og Haku (Chihiro og heksa)"
@@ -580,7 +680,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 30,
+        id: 35,
         title: {
             "en": "Ducks in a Bath (Spirited Away)",
             "no": "Ender i et bad (Chihiro og heksa)"
@@ -599,7 +699,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 31,
+        id: 36,
         title: {
             "en": "Sheeta (Castle in the Sky)",
             "no": "Sheeta (Himmelens slott)"
@@ -618,7 +718,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 32,
+        id: 37,
         title: {
             "en": "Chihiro's flowers (Spirited Away)",
             "no": "Chihiros blomster (Chihiro og heksa)"
@@ -637,7 +737,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
      {
-        id: 33,
+        id: 38,
         title: {
             "en": "The Boy and The Heron (Ghibli)",
             "no": "Gutten og hegren (Ghibli)"
@@ -656,7 +756,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 34,
+        id: 39,
         title: {
             "en": "Nahoko - The Wind Rises (Ghibli)",
             "no": "Nahoko - Vinden stiger (Ghibli)"
@@ -675,7 +775,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 35,
+        id: 40,
         title: {
             "en": "Arrietty (Ghibli)",
             "no": "Arrietty (Ghibli)"
@@ -694,7 +794,7 @@ export const artworks: Artwork[] = [
         views: 0
     },
     {
-        id: 36,
+        id: 41,
         title: {
             "en": "Thomas Shelby",
             "no": "Thomas Shelby"

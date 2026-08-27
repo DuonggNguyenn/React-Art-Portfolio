@@ -200,18 +200,22 @@ export default function Portfolio({ onOpenDetail }: { onOpenDetail?: (artworkId:
                                 <PaginationItem>
                                     {/* Previous Page Button */}
                                     <PaginationPrevious
-
+                                        aria-disabled={currentPage === 1}
+                                        tabIndex={currentPage === 1 ? -1 : undefined}
                                         onClick={
                                             (e) => {
+                                                e.preventDefault();
                                                 if (currentPage > 1) {
                                                     setCurrentPage(page => page - 1)
                                                 }
-                                                e.preventDefault();
                                             }
                                         }
                                         size="default"
-                                        className="
-                                        !bg-transparent !border-none !shadow-none text-[#C6A664] hover:text-[#e2c98f] hover:underline hover:underline-offset-5 transition-colors cursor-pointer" />
+                                        className={`
+                                        !bg-transparent !border-none !shadow-none transition-colors
+                                        ${currentPage === 1
+                                            ? "cursor-not-allowed text-[#C6A664]/30"
+                                            : "cursor-pointer text-[#C6A664] hover:text-[#e2c98f] hover:underline hover:underline-offset-5"}`} />
                                 </PaginationItem>
 
 
@@ -252,6 +256,8 @@ export default function Portfolio({ onOpenDetail }: { onOpenDetail?: (artworkId:
                                 <PaginationItem>
                                     {/* Next Page Button */}
                                     <PaginationNext
+                                        aria-disabled={currentPage === totalPages}
+                                        tabIndex={currentPage === totalPages ? -1 : undefined}
                                         onClick={(e) => {
                                             e.preventDefault();
                                             if (currentPage < totalPages) {
@@ -259,8 +265,11 @@ export default function Portfolio({ onOpenDetail }: { onOpenDetail?: (artworkId:
                                             }
                                         }}
                                         size="default"
-                                        className="
-                                        !bg-transparent !border-none !shadow-none text-[#C6A664] hover:text-[#e2c98f] hover:underline hover:underline-offset-5 transition-colors cursor-pointer" />
+                                        className={`
+                                        !bg-transparent !border-none !shadow-none transition-colors
+                                        ${currentPage === totalPages
+                                            ? "cursor-not-allowed text-[#C6A664]/30"
+                                            : "cursor-pointer text-[#C6A664] hover:text-[#e2c98f] hover:underline hover:underline-offset-5"}`} />
                                 </PaginationItem>
                             </PaginationContent>
                         </Pagination>
